@@ -1,7 +1,7 @@
 
 ### 1st of June 2024
 
-We are happy to host a hackathon with Deutsche Bank on the first of June! Save the [date]([(https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=MWF1NnJvczZyanVrdGliYWtmOHRzZGNrZGwgaXZhbkB5YW1zaGNoaWtvdi5pbmZv&tmsrc=ivan%40yamshchikov.info)]) and do not forget to [register]([()])!
+We are happy to host a hackathon with Deutsche Bank on the first of June! Save the date and do not forget to [register]([()])!
 
 ## Timing  
 
