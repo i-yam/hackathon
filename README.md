@@ -13,7 +13,7 @@ We are happy to host a hackathon with Deutsche Bank on the first of June! Save t
 
 ## Location
 
-[Center for Artificial Intelligence, CAIRO]([(https://maps.app.goo.gl/R6jWrfCHYtWgTZyQ8)])
+[Center for Artificial Intelligence, CAIRO](https://maps.app.goo.gl/R6jWrfCHYtWgTZyQ8)
 
 Franz-Horn-Str. 2, Würzburg
 
