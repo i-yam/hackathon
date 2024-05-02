@@ -21,3 +21,7 @@ Franz-Horn-Str. 2, Würzburg
 
 ## Registration
 
+
+## Future Hackathons
+
+We are constantly looking for new industrial partners. If you think you have a problem that could be solved with artificial intelligence and might be available for rapid prototyping, fill this [form](https://forms.gle/WNRBabQK7rs5JiDp9} we will reach out to you.
