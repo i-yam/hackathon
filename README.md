@@ -21,6 +21,16 @@ Franz-Horn-Str. 2, Würzburg
 
 ## Registration
 
+## FAQ
+
+* What is a hackathon?
+It's a one day event where you can team up with several friends and try to build a prototype for an actual hands-on problem provided by industrial partners. Learn new people and new frameworks!
+* Do I need to form a team beforehand?
+No. You can come as a team of join fellow builders at the start of the event.
+* What's in it for me?
+Fun, experience, possbilityn to extend your professional network, meet people from the industry and learn what they are working on. Also, there are prizes for the best solutions.
+* What should I bring?
+We provide food and drinks, but you need to have your own computer with you to work on the problems. We also offer some GPU compute on CAIRO THWS server but you need to have at least one [MAI](https://mai.thws.de/en/) student on your team to access it.
 
 ## Future Hackathons
 
