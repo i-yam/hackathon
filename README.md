@@ -1,6 +1,6 @@
 This is a regular meetup organized by the [Center for Artificial Intelligence](https://www.thws.de/forschung/institute/cairo/) and [Würzburg Deep Learning Meetup](https://www.meetup.com/de-DE/wurzburg-deep-learning-meetup/).
 
-# 1st of June 2024
+# 14th of June 2024
 
 We are happy to host a hackathon on the first of June! Save the [date](https://calendar.app.google/RTdBqsqTJR4fgC8w6) and do not forget to [register]([()])!
 
