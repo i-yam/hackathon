@@ -2,7 +2,7 @@ This is a regular meetup organized by the [Center for Artificial Intelligence](h
 
 # 14th of June 2024
 
-We are happy to host a hackathon on the first of June! Save the [date](https://calendar.app.google/RTdBqsqTJR4fgC8w6) and do not forget to [register]([()])!
+We are happy to host a hackathon on the fourteenth of June together with Deutsche Bank! Save the [date](https://calendar.app.google/RTdBqsqTJR4fgC8w6) and do not forget to [register]([()])!
 
 ## Timing  
 
