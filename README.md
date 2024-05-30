@@ -2,7 +2,13 @@ This is a regular meetup organized by the [Center for Artificial Intelligence](h
 
 # 14th of June 2024
 
-We are happy to host a hackathon on the fourteenth of June together with Deutsche Bank! Save the [date](https://calendar.app.google/RTdBqsqTJR4fgC8w6) and do not forget to [register]([()])!
+Deutsche Bank is coming to Würzburg and we want CAIRO’s brightest minds to join us for a hackathon! Our Technology, Data, and Innovation (TDI) teams are traveling from Frankfurt and Berlin’s Technology Centre to collaborate with you on projects that will shape the future of banking.
+
+This event offers an exclusive chance to engage directly with experts from Technology, Data, and Innovation division of Deutsche Bank that is dedicated to driving technological excellence and innovation. You'll work on real-world challenges designed to enhance our engineering capabilities, streamline processes, and modernize our IT infrastructure. This is a rare opportunity to showcase your skills, gain invaluable insights, and contribute to transformative solutions in the financial industry.
+
+Participants will have the chance to network with professionals from Deutsche Bank and peers from CAIRO, fostering connections that could influence your future career. Outstanding contributions will be recognized with exciting prizes.
+
+Do not forget to [register]([(https://meetu.ps/e/Nb42V/M9SL0/i)])!
 
 ## Timing  
 
