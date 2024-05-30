@@ -8,7 +8,7 @@ This event offers an exclusive chance to engage directly with experts from Techn
 
 Participants will have the chance to network with professionals from Deutsche Bank and peers from CAIRO, fostering connections that could influence your future career. Outstanding contributions will be recognized with exciting prizes.
 
-Do not forget to [register]([(https://meetu.ps/e/Nb42V/M9SL0/i)])!
+Do not forget to [register](https://meetu.ps/e/Nb42V/M9SL0/i)!
 
 ## Timing  
 
