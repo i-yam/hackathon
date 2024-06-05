@@ -2,7 +2,7 @@ This is a regular meetup organized by the [Center for Artificial Intelligence](h
 
 # 14th of June 2024
 
-Deutsche Bank is coming to Würzburg and we want cities’s brightest minds to join us for a hackathon! Our Technology, Data, and Innovation (TDI) teams are traveling from Frankfurt and Berlin’s Technology Centre to collaborate with you on projects that will shape the future of banking.
+Deutsche Bank is coming to Würzburg and we want cities’s brightest minds to join us for a hackathon! Our [Technology, Data, and Innovation](https://www.linkedin.com/showcase/deutsche-bank-technology/) (TDI) teams are traveling from Frankfurt and Berlin’s Technology Centre to collaborate with you on projects that will shape the future of banking.
 
 This event offers an exclusive chance to engage directly with experts from Technology, Data, and Innovation division of Deutsche Bank that is dedicated to driving technological excellence and innovation. You'll work on real-world challenges designed to enhance our engineering capabilities, streamline processes, and modernize our IT infrastructure. This is a rare opportunity to showcase your skills, gain invaluable insights, and contribute to transformative solutions in the financial industry.
 
@@ -13,7 +13,7 @@ Do not forget to [register](https://meetu.ps/e/Nb42V/M9SL0/i)!
 ## Timing  
 
 * 9:00 - Doors open
-* 9:30 - Opening Talk by Maxim Romanovsky from Deutsche Bank
+* 9:30 - Opening Talk by Maxim Romanovsky from [Deutsche Bank](https://www.deutsche-bank.de/)
 * 10:00 - Introduction of the problems
 * 10:30 - Introduction of the cloud infrastructure by [Nebius AI](https://nebius.ai)
 * 14:00 - Lunch
