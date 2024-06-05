@@ -12,11 +12,12 @@ Do not forget to [register](https://meetu.ps/e/Nb42V/M9SL0/i)!
 
 ## Timing  
 
-* 10:00 - Doors open
-* 10:30 - Opening Talk
-* 11:00 - Time to build
-* 13:00 - Lunch
-* 17:00 - Presentations start
+* 9:00 - Doors open
+* 9:30 - Opening Talk by Maxim Romanovsky from Deutsche Bank
+* 10:00 - Introduction of the problems
+* 10:30 - Introduction of the cloud infrastructure by [Nebius AI](https://nebius.ai)
+* 14:00 - Lunch
+* 17:15 - Pitch sessions
 
 ## Location
 
