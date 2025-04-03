@@ -1,23 +1,18 @@
-This is a regular meetup organized by the [Center for Artificial Intelligence](https://www.thws.de/forschung/institute/cairo/) and [Würzburg Deep Learning Meetup](https://www.meetup.com/de-DE/wurzburg-deep-learning-meetup/).
+This is a regular meetup organized by the [Center for Artificial Intelligence](https://www.thws.de/forschung/institute/cairo/). This year we have four parnters [Regierung Unterfranken](https://www.regierung.unterfranken.bayern.de/), [Stadt Würzburg](https://www.wuerzburg.de/), [ÜZ Mainfranken](https://www.uez.de/) and [Stadt Sommerhausen](https://www.sommerhausen.de/en/)
 
-# 14th of June 2024
+# 4th of April 2025
 
-Deutsche Bank is coming to Würzburg and we want cities’s brightest minds to join us for a hackathon! Our [Technology, Data, and Innovation](https://www.linkedin.com/showcase/deutsche-bank-technology/) (TDI) teams are traveling from Frankfurt and Berlin’s Technology Centre to collaborate with you on projects that will shape the future of banking.
+We want Würzburg’s brightest minds to join us for a hackathon! Our regional officials will collaborate with you on projects that will shape the future of civil service.
 
-This event offers an exclusive chance to engage directly with experts from Technology, Data, and Innovation division of Deutsche Bank that is dedicated to driving technological excellence and innovation. You'll work on real-world challenges designed to enhance our engineering capabilities, streamline processes, and modernize our IT infrastructure. This is a rare opportunity to showcase your skills, gain invaluable insights, and contribute to transformative solutions in the financial industry.
-
-Participants will have the chance to network with professionals from Deutsche Bank and peers from CAIRO, fostering connections that could influence your future career. Outstanding contributions will be recognized with exciting prizes.
-
-Do not forget to [register](https://meetu.ps/e/Nb42V/M9SL0/i)!
+This event offers an exclusive chance to engage directly with experts from various governmental and communal organizations dedicated to driving technological excellence and innovation in civil service. You'll work on real-world challenges designed to streamline processes, and modernize our Verwaltung's infrastructure. This is a rare opportunity to showcase your skills, gain invaluable insights, and contribute to transformative solutions in the financial industry.
 
 ## Timing  
 
 * 9:00 - Doors open
-* 9:30 - Opening Talk by Maxim Romanovsky from [Deutsche Bank](https://www.deutsche-bank.de/)
-* 10:00 - Introduction of the problems
-* 10:30 - Introduction of the cloud infrastructure by [Nebius AI](https://nebius.ai)
-* 14:00 - Lunch
-* 17:15 - Pitch sessions
+* 9:30 - Presentation of the problems by Prof. Dr. Yamshchikov, Head of CAIRO
+* 10:00 - Start of the hacking
+* 12:30 - Lunch
+* 16:00 - Pitch sessions
 
 ## Location
 
@@ -25,19 +20,23 @@ Do not forget to [register](https://meetu.ps/e/Nb42V/M9SL0/i)!
 
 Franz-Horn-Str. 2, Würzburg
 
+## Problems
 
-## Registration
+* AI mediator for public discussion (Regierung Unterfranken)
 
-## FAQ
+The core idea of the problem is to create an instrument to summarize, assess and simplify various discussions and statemnts provided to the government by the general public. Please, read the description of the task [here](https://github.com/i-yam/hackathon/blob/main/challenge1/KURVE.md)
 
-* What is a hackathon?
-It's a one day event where you can team up with several friends and try to build a prototype for an actual hands-on problem provided by industrial partners. Meet new people and use new frameworks!
-* Do I need to form a team beforehand?
-No. You can organize in advance and come as a team or find a team at the start of the event.
-* What's in it for me?
-Fun, experience, possbility to extend your professional network, meet people from the industry and learn what they are working on. Also, there are prizes for the best solutions.
-* What should I bring?
-We provide food and drinks, but you need to have your own computer with you to work on the problems. We also offer some GPU compute on CAIRO THWS server but you need to have at least one [MAI](https://mai.thws.de/en/) student on your team to access it.
+* Anti-corruption AI  (Regierung Unterfranken)
+
+The core idea of the problem is to create a program to streamline work of anti-corruption lawyer helping to monitor corruption risks. Please, read the description of the task [here](https://github.com/i-yam/hackathon/blob/main/challenge2/anti-corruption.md))
+  
+* AI logistic for Würzburg (Stadt Würzburg)
+
+This challenge suggest you can optimise the garbage collection in the city. Please, find task [here](https://github.com/i-yam/hackathon/blob/main/challenge3/logistics.md)
+ 
+* AI energy expert (ÜZ Mainfranken)
+
+This challenge to build an ai-assistant that could help local energy company employees to be aware of energy-related topics and be on top of the regional context in this field. Please, find task [here]https://github.com/i-yam/hackathon/tree/main/challenge4
 
 ## Future Hackathons
 
