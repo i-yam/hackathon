@@ -2,7 +2,7 @@ This task is dedicated to the Anti-Corruption Directive within the government of
 
 This includes, among other things, conducting a risk analysis for all areas of a given department. This risk analysis is updated every four years and proceeds as follows:
 
-1.) Sending Questionnaire No. 1 to the department heads (by email).
+1.) Sending [Questionnaire No. 1](https://github.com/i-yam/hackathon/blob/main/challenge2/Fragebogen1.pdf) to the department heads (by email).
 2.) The department heads complete Questionnaire No. 1 and return it (by email).
 3.) A dedicated lawers files the completed Questionnaire No. 1 in the electronic file -> currently manually; successively as they are received.
 4.) Checking whether all department heads have returned the questionnaires within the specified deadline. If not: Reminder and new deadline... -> then repeat No. 3 (possibly multiple loops)
@@ -12,11 +12,11 @@ This includes, among other things, conducting a risk analysis for all areas of a
 a.) Work areas not at risk of corruption and work areas at risk of corruption -> A dedicated emplyee sends the department heads an information letter (via email); Risk analysis thus completed
 b.) Work areas particularly vulnerable to corruption -> see further points
 
-8.) Send questionnaire no. 2 to the employees (by email)
+8.) Send [questionnaire no. 2](https://github.com/i-yam/hackathon/blob/main/challenge2/Fragebogen%20II%2C%20Blanco.pdf) to the employees (by email)
 9.) Complete questionnaire no. 2 by the employees and return it (by email)
 10.) File the completed questionnaire no. 2 in the electronic file ->  manually as they are received
 11.) Check whether all employees have returned the questionnaires within the specified deadline; If not: Reminder and new deadline... -> then repeat No. 10 (possibly multiple loops)
-12.) Evaluation of questionnaire No. 2 by a dedicated lawyer -> previously entered manually in Excel
+12.) Evaluation of questionnaire No. 2 by a dedicated lawyer -> previously entered manually in [Excel](https://github.com/i-yam/hackathon/blob/main/challenge2/Auswertung%20Fragebogen%20II%3B%20fingiertes%20Ausfu%CC%88llbeispiel.xlsx)
 13.) Sending a comprehensive letter to the department heads by email, explaining which Corruption Management requirements are not met according to the information provided (by the employees) in the questionnaires. The letter then outlines organizational and personnel improvement measures. -> Manual preparation of the individualized letters; the sample letter serves as a template (for each deficit addressed in the questionnaire, there is a sample note in this repository, which one has to manually copy from the sample letter into the individualized letter).
 14.) Differentiation:
 a.) Work areas particularly vulnerable to corruption -> risk analysis thus completed.
