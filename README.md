@@ -36,7 +36,7 @@ This challenge suggest you can optimise the garbage collection in the city. Plea
  
 * AI energy expert (ÜZ Mainfranken)
 
-This challenge to build an ai-assistant that could help local energy company employees to be aware of energy-related topics and be on top of the regional context in this field. Please, find task [here](https://github.com/i-yam/hackathon/tree/main/challenge4)
+This challenge to build an ai-assistant that could help local energy company employees to be aware of energy-related topics and be on top of the regional context in this field. Please, find task [here](https://github.com/i-yam/hackathon/blob/main/challenge4/infohub.md)
 
 ## Future Hackathons
 
