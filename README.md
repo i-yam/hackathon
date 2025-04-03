@@ -22,19 +22,19 @@ Franz-Horn-Str. 2, Würzburg
 
 ## Problems
 
-* AI mediator for public discussion (Regierung Unterfranken)
+* AI mediator for public discussion ([Regierung Unterfranken](https://www.regierung.unterfranken.bayern.de/))
 
 The core idea of the problem is to create an instrument to summarize, assess and simplify various discussions and statemnts provided to the government by the general public. Please, read the description of the task [here](https://github.com/i-yam/hackathon/blob/main/challenge1/KURVE.md).
 
-* Anti-corruption AI  (Regierung Unterfranken)
+* Anti-corruption AI  ([Regierung Unterfranken](https://www.regierung.unterfranken.bayern.de/))
 
 The core idea of the problem is to create a program to streamline work of anti-corruption lawyer helping to monitor corruption risks. Please, read the description of the task [here](https://github.com/i-yam/hackathon/blob/main/challenge2/anti-corruption.md).
   
-* AI logistic for Würzburg (Stadt Würzburg)
+* AI logistic for Würzburg ([Stadt Würzburg](https://www.wuerzburg.de/))
 
 This challenge suggest you can optimise the garbage collection in the city. Please, find task [here](https://github.com/i-yam/hackathon/blob/main/challenge3/logistics.md).
  
-* AI energy expert (ÜZ Mainfranken)
+* AI energy expert ([ÜZ Mainfranken](https://www.uez.de/))
 
 This challenge to build an ai-assistant that could help local energy company employees to be aware of energy-related topics and be on top of the regional context in this field. Please, find task [here](https://github.com/i-yam/hackathon/blob/main/challenge4/infohub.md).
 
