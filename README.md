@@ -28,7 +28,7 @@ The core idea of the problem is to create an instrument to summarize, assess and
 
 * Anti-corruption AI  (Regierung Unterfranken)
 
-The core idea of the problem is to create a program to streamline work of anti-corruption lawyer helping to monitor corruption risks. Please, read the description of the task [here](https://github.com/i-yam/hackathon/blob/main/challenge2/anti-corruption.md))
+The core idea of the problem is to create a program to streamline work of anti-corruption lawyer helping to monitor corruption risks. Please, read the description of the task [here](https://github.com/i-yam/hackathon/blob/main/challenge2/anti-corruption.md)
   
 * AI logistic for Würzburg (Stadt Würzburg)
 
