@@ -1,4 +1,4 @@
-This is a regular meetup organized by the [Center for Artificial Intelligence](https://www.thws.de/forschung/institute/cairo/). This year we have four parnters: [BMW](https://www.bmwgroup.jobs/de/de/arbeitsbereiche/qualitaetsmanagement.html), [Stadt Würzburg](https://www.wuerzburg.de/)
+This is a regular meetup organized by the [Center for Artificial Intelligence](https://www.thws.de/forschung/institute/cairo/). This year we have several awesome parnters: [BMW](https://www.bmwgroup.jobs/de/de/arbeitsbereiche/qualitaetsmanagement.html).
 
 # 17th of October 2025
 
