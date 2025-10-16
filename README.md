@@ -1,4 +1,4 @@
-This is a regular meetup organized by the [Center for Artificial Intelligence](https://www.thws.de/forschung/institute/cairo/). This year we have several awesome parnters: [BMW](https://www.bmwgroup.jobs/de/de/arbeitsbereiche/qualitaetsmanagement.html).
+This is a regular meetup organized by the [Center for Artificial Intelligence](https://www.thws.de/forschung/institute/cairo/). This year we have several awesome parnters: [BMW](https://www.bmwgroup.jobs/de/de/arbeitsbereiche/qualitaetsmanagement.html), JOPP group, Uniklinikum Würzburg, THWS.
 
 # 17th of October 2025
 
@@ -24,9 +24,12 @@ This event offers an exclusive chance to engage directly with experts from compa
 
 Franz-Horn-Str. 2, Würzburg
 
-## Problems
+## Challenges
 
-TBA
+1. Lessons Learned from failed car manifacturers
+2. Conflict mitigation tool
+3. Predicting long-term abscences
+4. Dialog assistant to fill the docs
 
 ## Future Hackathons
 
