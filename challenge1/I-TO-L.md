@@ -8,3 +8,4 @@ Additionally to the current LL process use AI to
 • generate LL in Form of Best-Practice Documents, Learning Videos etc.
 • and distribute the LL to the relevant recipients like development, quality or supplier
 
+Challege1.pdf has presentation of the problem and Challenge1.xlsx has some synthetic data for refenece.
