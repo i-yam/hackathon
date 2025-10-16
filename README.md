@@ -24,12 +24,12 @@ This event offers an exclusive chance to engage directly with experts from compa
 
 Franz-Horn-Str. 2, Würzburg
 
-## Challenges
+## [Challenges](https://www.thws.de/forschung/institute/cairothws/hackathon/challenges/)
 
-1. Lessons Learned from failed car manifacturers
-2. Conflict mitigation tool
-3. Predicting long-term abscences
-4. Dialog assistant to fill the docs
+1. [Lessons Learned](https://github.com/i-yam/hackathon/blob/main/challenge1/I-TO-L.md) from problematic car parts
+2. [Conflict mitigation tool](https://github.com/i-yam/hackathon/blob/main/challenge2/conflict-mitigation.md)
+3. [Predicting long-term abscences](https://github.com/i-yam/hackathon/blob/main/challenge3/absences.md)
+4. Dialog [assistant](https://github.com/i-yam/hackathon/blob/main/challenge4/hspe.md) to fill the docs
 
 ## Future Hackathons
 
