@@ -1,7 +1,7 @@
 Questions
 
 - whats the definition of long term absence
-  - 6 weeks
+  - 6 weeks, but can be throughout the whole year
 - are the absence only for workdays or weekend includes?
   - only workdays for AU (arbeits)
 - how do they work? Can we categorize people with more physical work
