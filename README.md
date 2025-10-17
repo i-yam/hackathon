@@ -1,6 +1,6 @@
 This is a regular meetup organized by the [Center for Artificial Intelligence](https://www.thws.de/forschung/institute/cairo/). This year we have several awesome parnters: [BMW](https://www.bmwgroup.jobs/de/de/arbeitsbereiche/qualitaetsmanagement.html), JOPP group, Uniklinikum Würzburg, THWS.
 
-# 17th of October 2025!
+# 17th of October 2025
 
 We want Würzburg’s brightest minds to join us for an HR hackathon! Bavarian industry champions will collaborate with you on projects that will shape the future of the human resources.
 
