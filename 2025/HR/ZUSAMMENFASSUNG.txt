@@ -1,0 +1,133 @@
+┌─────────────────────────────────────────────────────────────┐
+│  🔍 FEHLERSUCHE: Neueinstellungs-Felder werden nicht       │
+│     angezeigt                                               │
+└─────────────────────────────────────────────────────────────┘
+
+📋 PROBLEMSTELLUNG:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Die folgenden Felder werden in der UI nicht angezeigt:
+
+1. "Bei Neueinstellung: Bestanden bereits Beschäftigungs-
+    verhältnisse zur THWS/zum Freistaat Bayern?"
+   
+   showIf: { field: "antrag.typ", op: "=", value: "einstellung" }
+
+2. "Angaben zu früheren Beschäftigungen" (Group)
+   
+   showIf: {
+     allOf: [
+       { field: "antrag.typ", op: "=", value: "einstellung" },
+       { field: "person.neueinstellung...vorhanden", op: "=", 
+         value: "ja" }
+     ]
+   }
+
+
+🔧 LÖSUNG: DEBUG-MODUS HINZUGEFÜGT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ 1. Code wurde erweitert mit:
+   - Debug-Modus Toggle in Sidebar
+   - Detailliertes Logging der Bedingungen
+   - Anzeige aller Form-Daten
+   - Schritt-für-Schritt Bedingungsprüfung
+
+✅ 2. Redundante Group-Prüfung entfernt
+   - Vorher: showIf wurde 2x geprüft
+   - Nachher: showIf wird 1x geprüft (effizienter)
+
+✅ 3. Test-Skript erstellt
+   - test_conditions.py testet die Logik offline
+
+
+📝 SO NUTZEN SIE DEN DEBUG-MODUS:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Schritt 1: App starten
+   > streamlit run app.py
+
+Schritt 2: In Sidebar → "🐛 Debug Modus" aktivieren
+
+Schritt 3: Formular ausfüllen
+   - Section "Antrag auf" → "Einstellung" wählen
+   - Section "Person" → nach unten scrollen
+
+Schritt 4: Debug-Info lesen
+   ┌─────────────────────────────────────────┐
+   │ 🐛 Debug Info                           │
+   ├─────────────────────────────────────────┤
+   │ Aktuelle Form-Daten:                    │
+   │ {                                       │
+   │   "antrag.typ": "einstellung",  ← CHECK!│
+   │   ...                                   │
+   │ }                                       │
+   └─────────────────────────────────────────┘
+
+Schritt 5: Bedingte Felder prüfen
+   ┌─────────────────────────────────────────┐
+   │ 🔍 Debug: person.neueinstellung...      │
+   ├─────────────────────────────────────────┤
+   │ 🔍 Prüfe: antrag.typ                    │
+   │    (Wert: einstellung) = einstellung    │
+   │    ➡️ Ergebnis: True ✅                 │
+   │                                         │
+   │ [Feld wird angezeigt]                   │
+   └─────────────────────────────────────────┘
+
+
+🎯 HÄUFIGSTE FEHLERURSACHEN:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+❌ Problem 1: antrag.typ ist None/leer
+   Lösung: Dropdown in Section "Antrag auf" auswählen
+   
+❌ Problem 2: Wert-Mismatch ("Einstellung" vs "einstellung")
+   Lösung: Prüfen Sie den 'value' in den options
+   
+❌ Problem 3: Streamlit rendert nicht neu
+   Lösung: Klick auf "Weiter" oder Sidebar-Navigation
+   
+❌ Problem 4: Zweites Feld wird nicht ausgefüllt
+   Lösung: Beide Bedingungen müssen erfüllt sein (allOf)
+
+
+📊 WAS SIE IM DEBUG SEHEN WERDEN:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Wenn es FUNKTIONIERT:
+✅ antrag.typ (Wert: "einstellung") = "einstellung"
+   ➡️ Ergebnis: True
+   ➡️ Feld wird ANGEZEIGT
+
+Wenn es NICHT funktioniert:
+❌ antrag.typ (Wert: None) = "einstellung"
+   ➡️ Ergebnis: False
+   ➡️ Feld wird VERSTECKT
+
+
+📚 WEITERE RESSOURCEN:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📄 DEBUG_GUIDE.md    - Detaillierte Debug-Anleitung
+📄 FEHLERSUCHE.md    - Schritt-für-Schritt Fehlersuche
+📄 test_conditions.py - Offline-Test der Bedingungslogik
+
+
+🚀 NÄCHSTE SCHRITTE:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. App neu starten: streamlit run app.py
+2. Debug-Modus aktivieren (Sidebar)
+3. "Einstellung" auswählen
+4. Debug-Ausgabe analysieren
+5. Problem identifizieren
+6. Fix anwenden
+
+Die Debug-Tools zeigen Ihnen EXAKT, was falsch läuft! 🎯
+
+
+┌─────────────────────────────────────────────────────────────┐
+│  💡 TIPP: Der Debug-Modus bleibt im Session State aktiv.   │
+│     Sie können zwischen Sections navigieren und die         │
+│     Bedingungen live beobachten!                            │
+└─────────────────────────────────────────────────────────────┘

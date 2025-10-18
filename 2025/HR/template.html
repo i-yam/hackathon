@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <title>Einstellung/Weiterbeschäftigung/Arbeitszeitänderung – wissenschaftlicher Bereich</title>
+  <style>
+    @page { size: A4; margin: 18mm 16mm 20mm 16mm; }
+    body { font-family: "DejaVu Sans", Arial, sans-serif; font-size: 11pt; color: #111; }
+    h1, h2, h3 { margin: 0 0 6px 0; }
+    h1 { font-size: 15pt; }
+    h2 { font-size: 13pt; margin-top: 14px; border-bottom: 1px solid #999; padding-bottom: 2px; }
+    h3 { font-size: 12pt; margin-top: 10px; }
+    .small { font-size: 9pt; color: #333; }
+    .meta { font-size: 9pt; float: right; text-align: right; }
+    .table { width: 100%; border-collapse: collapse; margin: 6px 0 10px; }
+    .table th, .table td { border: 1px solid #bbb; padding: 6px 8px; vertical-align: top; }
+    .noborder th, .noborder td { border: none; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 14px; }
+    .grid-3 { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 8px 14px; }
+    .label { font-weight: 600; }
+    .val { border-bottom: 1px solid #666; min-height: 16px; }
+    .check { display: inline-block; width: 14px; height: 14px; border: 1px solid #333; text-align: center; line-height: 12px; font-size: 10pt; margin-right: 6px; }
+    .checked { background: #111; color: #fff; }
+    .muted { color: #666; }
+    .hint { font-size: 9pt; color: #444; }
+    .page-break { page-break-before: always; }
+    .footer { position: fixed; bottom: 8mm; left: 0; right: 0; text-align: right; font-size: 9pt; color: #666; }
+    .u { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  {% macro cb(cond) -%}
+    <span class="check {{ 'checked' if cond else '' }}">{{ '■' if cond else ' ' }}</span>
+  {%- endmacro %}
+
+  {% macro opt(val, expected, label) -%}
+    {{ cb(val == expected) }} {{ label }}
+  {%- endmacro %}
+
+  {% macro list_join(arr, sep=', ') -%}
+    {%- if arr and arr|length > 0 -%}
+      {{ arr | join(sep) }}
+    {%- endif -%}
+  {%- endmacro %}
+
+  <div class="meta">
+    HSPE 09/2024<br>
+    Technische Hochschule Würzburg–Schweinfurt – Hochschulservice Personal, Team HAL (Standort Würzburg)
+  </div>
+
+  <h1><strong>Einstellung/Weiterbeschäftigung/Arbeitszeitänderung</strong> – hauptberuflich Beschäftigte im wissenschaftlichen Bereich</h1>
+  <div class="small muted">Bzgl. des zeitlichen Verlaufs der Maßnahme beachten Sie bitte die Prozessbeschreibung (Intranet).</div>
+
+  <!-- ABSENDER -->
+  <h2>Absender</h2>
+  <table class="table">
+    <tr>
+      <td style="width:50%">
+        <div class="label">Name, Vorname, Funktion</div>
+        <div class="val">{{ absender.name }}</div>
+      </td>
+      <td>
+        <div class="label">Organisationseinheit (budgetverantwortlich)</div>
+        <div class="val">{{ absender.orgeinheit }}</div>
+      </td>
+    </tr>
+  </table>
+
+  <!-- ANTRAG AUF -->
+  <h2>Antrag auf</h2>
+  <table class="table noborder">
+    <tr>
+      <td>
+        {{ opt(antrag.typ, 'einstellung', 'Einstellung') }}
+        {{ opt(antrag.typ, 'weiterbeschaeftigung', 'Weiterbeschäftigung') }}
+        {{ opt(antrag.typ, 'arbeitszeitaenderung', 'Arbeitszeitänderung') }}
+      </td>
+    </tr>
+  </table>
+
+  <!-- ANGABEN ZUR PERSON -->
+  <h2>Angaben zur einzustellenden/betreffenden Person</h2>
+  <table class="table">
+    <tr>
+      <td><span class="label">Interne Zuordnung (Org.-Einheit)</span><div class="val">{{ person.orgzuordnung }}</div></td>
+    </tr>
+    <tr>
+      <td>
+        <div class="grid-3">
+          <div><span class="label">Nachname</span><div class="val">{{ person.nachname }}</div></div>
+          <div><span class="label">Vorname</span><div class="val">{{ person.vorname }}</div></div>
+          <div><span class="label">Geburtsdatum</span><div class="val">{{ person.geburtsdatum }}</div></div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="grid-3">
+          <div>
+            <span class="label">Geschlecht</span><br>
+            {{ opt(person.geschlecht, 'weiblich', 'weiblich') }}
+            {{ opt(person.geschlecht, 'maennlich', 'männlich') }}
+            {{ opt(person.geschlecht, 'divers', 'divers') }}
+            {{ opt(person.geschlecht, 'keine_angabe', 'keine Angabe') }}
+          </div>
+          <div>
+            <span class="label">Nationalität</span>
+            <div class="val">{{ person.nationalitaet }}</div>
+          </div>
+          <div>
+            <span class="label">Aufenthalts- & Arbeitserlaubnis gültig bis</span>
+            <div class="val">
+              {% if person.aufenthalt is defined %}{{ person.aufenthalt.gueltig_bis }}{% endif %}
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="grid-3">
+          <div><span class="label">Anschrift</span><div class="val">{{ person.anschrift }}</div></div>
+          <div><span class="label">E‑Mail</span><div class="val">{{ person.email }}</div></div>
+          <div>
+            <span class="label">Parallele Beschäftigungen/Studium</span><br>
+            {{ opt(person.parallelbeschaeftigung.vorhanden, 'ja', 'ja') }}
+            {{ opt(person.parallelbeschaeftigung.vorhanden, 'nein', 'nein') }}
+            <div class="hint">inkl. Lehraufträge, Hilfskraft-, selbstständige Tätigkeiten etc.</div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    {% if person.parallelbeschaeftigung and person.parallelbeschaeftigung.vorhanden == 'ja' %}
+    <tr>
+      <td>
+        <div class="label">Angaben zu parallelen Beschäftigungen/Studium</div>
+        <div class="grid-3">
+          <div><span class="label">Zeitraum</span><div class="val">{{ person.parallelbeschaeftigung.zeitraum }}</div></div>
+          <div><span class="label">Art</span><div class="val">{{ person.parallelbeschaeftigung.art }}</div></div>
+          <div><span class="label">Arbeitgeber/Hochschule</span><div class="val">{{ person.parallelbeschaeftigung.ag_hs }}</div></div>
+        </div>
+      </td>
+    </tr>
+    {% endif %}
+
+    {% if antrag.typ == 'einstellung' %}
+    <tr>
+      <td>
+        <div class="label">Bei Neueinstellung: Frühere Beschäftigung THWS/Freistaat Bayern?</div>
+        {{ opt(person.neueinstellung.fruehereBeschaeftigung.vorhanden, 'ja', 'ja') }}
+        {{ opt(person.neueinstellung.fruehereBeschaeftigung.vorhanden, 'nein', 'nein') }}
+      </td>
+    </tr>
+    {% if person.neueinstellung.fruehereBeschaeftigung and person.neueinstellung.fruehereBeschaeftigung.vorhanden == 'ja' %}
+    <tr>
+      <td>
+        <div class="grid-3">
+          <div><span class="label">Zeitraum</span><div class="val">{{ person.neueinstellung.fruehereBeschaeftigung.zeitraum }}</div></div>
+          <div><span class="label">Art der Tätigkeit</span><div class="val">{{ person.neueinstellung.fruehereBeschaeftigung.art }}</div></div>
+          <div><span class="label">Arbeitgeber</span><div class="val">{{ person.neueinstellung.fruehereBeschaeftigung.arbeitgeber }}</div></div>
+        </div>
+      </td>
+    </tr>
+    {% endif %}
+    {% endif %}
+  </table>
+
+  <!-- VERTRAG -->
+  <h2>Angaben zur Ausgestaltung des Vertrages</h2>
+  <table class="table">
+    <tr>
+      <td>
+        <div class="grid-3">
+          <div>
+            <span class="label">Ausschreibungskennziffer</span>
+            <div class="val">{{ vertrag.ausschreibungskennziffer }}</div>
+          </div>
+          <div class="hint">Kennziffer eintragen oder Begründung des Ausschreibungsverzichts ausfüllen</div>
+          <div>
+            {% if not vertrag.ausschreibungskennziffer %}
+              <span class="label">Begründung Ausschreibungsverzicht</span>
+              <div class="val">{{ vertrag.ausschreibungsverzicht.begruendung }}</div>
+            {% endif %}
+          </div>
+        </div>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <div class="grid-3">
+          <div>
+            <span class="label">Beginn</span><br>
+            {{ opt(vertrag.beginn, 'datum', 'ab Datum') }}
+            {{ opt(vertrag.beginn, 'naechstmoeglich', 'nächstmöglicher Zeitpunkt') }}
+          </div>
+          <div>
+            {% if vertrag.beginn == 'datum' %}
+              <span class="label">Startdatum</span>
+              <div class="val">{{ vertrag.beginn.datum }}</div>
+            {% endif %}
+          </div>
+          <div>
+            <span class="label">Ende</span><br>
+            {{ opt(vertrag.ende.art, 'unbefristet', 'unbefristet') }}
+            {{ opt(vertrag.ende.art, 'befristet', 'befristet') }}
+          </div>
+        </div>
+      </td>
+    </tr>
+
+    {% if vertrag.ende.art == 'befristet' %}
+    <tr>
+      <td>
+        <div class="grid-3">
+          <div>
+            <span class="label">Befristet bis</span><br>
+            {{ opt(vertrag.ende.option, 'datum', 'bis Enddatum') }}
+            {{ opt(vertrag.ende.option, 'dauer', 'für insgesamt (Dauer)') }}
+          </div>
+          <div>
+            {% if vertrag.ende.option == 'datum' %}
+              <span class="label">Enddatum</span><div class="val">{{ vertrag.ende.enddatum }}</div>
+            {% elif vertrag.ende.option == 'dauer' %}
+              <span class="label">Gesamtdauer</span><div class="val">{{ vertrag.ende.dauer }}</div>
+            {% endif %}
+          </div>
+          <div>
+            <span class="label">Befristungsgrundlage</span><br>
+            {{ opt(vertrag.befristungsgrundlage, 'ohne_sachgrund_tzbfg_14_2', 'ohne Sachgrund (§ 14 Abs. 2 TzBfG)') }}<br>
+            {{ opt(vertrag.befristungsgrundlage, 'mit_sachgrund_tzbfg_14_1', 'mit Sachgrund (§ 14 Abs. 1 TzBfG)') }}<br>
+            {{ opt(vertrag.befristungsgrundlage, 'wisszeitvg_2_2', 'Drittmittelprojekt (§ 2 Abs. 2 WissZeitVG)') }}<br>
+            {{ opt(vertrag.befristungsgrundlage, 'wisszeitvg_2_1', 'eigene Qualifizierung (§ 2 Abs. 1 WissZeitVG)') }}
+          </div>
+        </div>
+      </td>
+    </tr>
+
+    {% if vertrag.befristungsgrundlage == 'mit_sachgrund_tzbfg_14_1' %}
+    <tr>
+      <td>
+        <div class="grid-3">
+          <div>
+            <span class="label">Sachgrund (Unterfall)</span><br>
+            {{ opt(vertrag.sachgrund.unterfall, 'voruebergehender_bedarf', 'vorübergehender Bedarf') }}<br>
+            {{ opt(vertrag.sachgrund.unterfall, 'vertretung', 'Vertretung') }}<br>
+            {{ opt(vertrag.sachgrund.unterfall, 'sonstiger_sachgrund', 'sonstiger Sachgrund') }}
+          </div>
+          <div>
+            {% if vertrag.sachgrund.unterfall == 'vertretung' %}
+              <span class="label">Vertretung – Name / Vorname</span>
+              <div class="val">{{ vertrag.vertretung.name }} {{ vertrag.vertretung.vorname }}</div>
+              <span class="label">Vertretungsgrund</span>
+              <div class="val">{{ vertrag.vertretung.grund }}</div>
+            {% endif %}
+          </div>
+          <div>
+            {% if vertrag.sachgrund.unterfall == 'vertretung' %}
+              <span class="label">Zeitraum (von–bis)</span>
+              <div class="val">{{ vertrag.vertretung.zeitraum }}</div>
+            {% endif %}
+          </div>
+        </div>
+      </td>
+    </tr>
+    {% endif %}
+    {% endif %}
+
+    <tr>
+      <td>
+        <div class="grid-3">
+          <div>
+            <span class="label">Arbeitszeit</span><br>
+            {{ opt(arbeit.zeittyp, 'vollzeit', 'Vollzeit') }}<br>
+            {{ opt(arbeit.zeittyp, 'teilzeit', 'Teilzeit (in %)') }}<br>
+            {{ opt(arbeit.zeittyp, 'minijob', 'geringfügige Beschäftigung (Stunden/Monat)') }}
+          </div>
+          <div>
+            {% if arbeit.zeittyp == 'teilzeit' %}
+              <span class="label">Teilzeit‑Prozentsatz</span><div class="val">{{ arbeit.teilzeit.prozent }} %</div>
+            {% elif arbeit.zeittyp == 'minijob' %}
+              <span class="label">Stunden/Monat</span><div class="val">{{ arbeit.minijob.stunden_pro_monat }}</div>
+            {% endif %}
+          </div>
+          <div>
+            {% if arbeit.zeittyp in ['teilzeit', 'vollzeit'] %}
+              <span class="label">Verteilung der Arbeitszeit</span><br>
+              {{ opt(arbeit.wochenverteilung, '5_tage_woche', '5‑Tage‑Woche') }}<br>
+              {{ opt(arbeit.wochenverteilung, 'andere', 'andere Aufteilung') }}
+              {% if arbeit.wochenverteilung == 'andere' %}
+                <div class="label" style="margin-top:4px;">Einzeltage (Mo–Fr)</div>
+                <div class="val">{{ list_join(arbeit.wochentage, ', ') }}</div>
+              {% endif %}
+            {% endif %}
+          </div>
+        </div>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <div class="grid-3">
+          <div><span class="label">Angestrebte Eingruppierung (E‑Gruppe)</span><div class="val">{{ entgelt.eingruppierung.angestrebt }}</div></div>
+          <div><span class="label">Verbeamtung angestrebt</span><br>{{ cb(entgelt.verbeamtung.angestrebt) }} ja</div>
+          <div>
+            <span class="label">Vorgesetzte/r abweichend</span><br>{{ cb(vorgesetzte.abweichend) }} ja
+            {% if vorgesetzte.abweichend %}
+              <div class="label" style="margin-top:4px;">Name</div>
+              <div class="val">{{ vorgesetzte.details.name }}</div>
+            {% endif %}
+          </div>
+        </div>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <div class="grid-3">
+          <div>
+            <span class="label">Dienstort</span><br>
+            {{ opt(dienstort, 'wuerzburg', 'Würzburg') }}<br>
+            {{ opt(dienstort, 'schweinfurt', 'Schweinfurt') }}<br>
+            {{ opt(dienstort, 'sonstiger', 'Sonstiger') }}
+          </div>
+          <div>
+            {% if dienstort == 'sonstiger' %}
+              <span class="label">Dienstort (Freitext)</span><div class="val">{{ dienstort_sonstiger }}</div>
+            {% endif %}
+          </div>
+          <div class="hint">Hinweis: falls noch kein Arbeitsplatz vorhanden: vor Beschäftigungsbeginn HSGM involvieren.</div>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <!-- FINANZIERUNG -->
+  <div class="page-break"></div>
+  <h2>Finanzierungsangaben</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th style="width:18%">Umfang in %</th>
+        <th>Kapitel</th>
+        <th>Titel (z. B. TG)</th>
+        <th>FB/Proj.</th>
+        <th>INS/A‑Art</th>
+        <th>Kostenstelle</th>
+        <th>Kostenträger</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for z in finanzierung.zeilen %}
+      <tr>
+        <td>{{ z.fin.anteil_prozent }}</td>
+        <td>{{ z.fin.kapitel }}</td>
+        <td>{{ z.fin.titel }}</td>
+        <td>{{ z.fin.mittelherkunft.fb_proj }}</td>
+        <td>{{ z.fin.mittelherkunft.ins_a_art }}</td>
+        <td>{{ z.fin.mittelverwendung.kostenstelle }}</td>
+        <td>{{ z.fin.mittelverwendung.kostentraeger }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <div class="small">
+    Summe: {{ finanzierung.zeilen | sum(attribute='fin.anteil_prozent') }} % (muss 100 % ergeben)
+  </div>
+
+  <!-- CHECKLISTE (abgeleitet) -->
+  <h2>Checkliste – beizufügende Unterlagen</h2>
+  <table class="table">
+    <tbody>
+      <tr>
+        <td>{{ cb(true) }} Formular „(Vereinfachte) Feststellung der Entgeltgruppe"</td>
+      </tr>
+      {% if finanzierung.bei_drittmitteln or vertrag.befristungsgrundlage == 'wisszeitvg_2_2' %}
+      <tr><td>{{ cb(true) }} Projektvertrag inkl. Kalkulation der Personalkosten (Drittmittel)</td></tr>
+      {% endif %}
+      {% if finanzierung.zeilen | selectattr('fin.titel', 'string') | list %}
+        {% for z in finanzierung.zeilen %}
+          {% if z.fin.titel and ('TG 51' in z.fin.titel) %}
+          <tr><td>{{ cb(true) }} HL‑Beschluss (TG 51)</td></tr>
+          {% endif %}
+          {% if z.fin.titel and ('TG 03' in z.fin.titel or 'TG 96' in z.fin.titel) %}
+          <tr><td>{{ cb(true) }} Beschluss 6er‑Gremium (TG 03/ehem. 96)</td></tr>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+      {% if vertrag.befristungsgrundlage == 'wisszeitvg_2_1' %}
+      <tr><td>{{ cb(true) }} Qualifizierungs‑ und Betreuungsvereinbarung (§ 2 Abs. 1 WissZeitVG)</td></tr>
+      {% endif %}
+      {% if vertrag.befristungsgrundlage == 'mit_sachgrund_tzbfg_14_1' and vertrag.sachgrund.unterfall == 'voruebergehender_bedarf' %}
+      <tr><td>{{ cb(true) }} Zusatzformular § 14 Abs. 1 TzBfG (vorübergehender Bedarf)</td></tr>
+      {% endif %}
+      {% if vertrag.ausschreibungskennziffer %}
+      <tr><td>{{ cb(true) }} Begründung der Auswahlentscheidung (bei erfolgter Ausschreibung)</td></tr>
+      {% endif %}
+      {% if person.sb and person.sb.nichtberuecksichtigung %}
+      <tr><td>{{ cb(true) }} Begründung zur Nichtberücksichtigung von Schwerbehinderten/Gleichgestellten inkl. Stellungnahme der SBV</td></tr>
+      {% endif %}
+    </tbody>
+  </table>
+
+  <!-- KENNTNISNAHME -->
+  <h2>Kenntnisnahme</h2>
+  <p class="small">
+    Ich habe davon Kenntnis genommen, dass eine Arbeitsaufnahme (auch bei Weiterbeschäftigung) erst nach Abschluss des Arbeitsvertrages erfolgen darf.
+  </p>
+  <table class="table">
+    <tr>
+      <td style="width:33%"><span class="label">Ort</span><div class="val">{{ kenntnisnahme.ort }}</div></td>
+      <td style="width:33%"><span class="label">Datum</span><div class="val">{{ kenntnisnahme.datum }}</div></td>
+      <td><span class="label">Name (budgetverantwortliche Person)</span><div class="val">{{ kenntnisnahme.name_unterschrift }}</div></td>
+    </tr>
+  </table>
+
+  <!-- HSPE INTERN (optional) -->
+  {% if hspe_intern_anzeigen %}
+  <div class="page-break"></div>
+  <h2>Stellungnahme HSPE (intern)</h2>
+  <table class="table">
+    <tr>
+      <td style="width:40%"><span class="label">Sachbearbeiter/in</span><div class="val">{{ hspe.sachbearbeiter }}</div></td>
+      <td style="width:30%">
+        <span class="label">Unterlagen vollständig?</span><br>
+        {{ opt(hspe.unterlagen.vollstaendig, 'ja', 'ja') }}
+        {{ opt(hspe.unterlagen.vollstaendig, 'nein', 'nein') }}
+      </td>
+      <td>
+        <span class="label">Fehlende Unterlagen/Angaben</span>
+        <div class="val">{{ hspe.unterlagen.fehlend }}</div>
+      </td>
+    </tr>
+    <tr>
+      <td><span class="label">Angefordert per E‑Mail vom</span><div class="val">{{ hspe.angefordert.am }}</div></td>
+      <td><span class="label">Vollständig erhalten am</span><div class="val">{{ hspe.vollstaendig.am }}</div></td>
+      <td>
+        <span class="label">Beschäftigung wie beantragt möglich</span><br>
+        {{ opt(hspe.pruefung.moeglich, 'ja', 'ja') }}
+        {{ opt(hspe.pruefung.moeglich, 'nein', 'nein') }}<br>
+        <span class="label">Gründe (falls nein)</span>
+        <div class="val">{{ hspe.pruefung.begruendung }}</div>
+      </td>
+    </tr>
+    <tr>
+      <td><span class="label">Ort</span><div class="val">{{ hspe.ort }}</div></td>
+      <td><span class="label">Datum</span><div class="val">{{ hspe.datum }}</div></td>
+      <td class="muted small">Unterschrift</td>
+    </tr>
+  </table>
+  {% endif %}
+
+  <div class="footer">
+    Formularstand: HSPE 09/2024 • Seite <span class="pageNumber"></span>
+  </div>
+
+  <script>
+    // Optional: Seitenzahl über Paged.js/WeasyPrint automatisch
+  </script>
+</body>
+</html>

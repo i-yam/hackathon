@@ -1,0 +1,439 @@
+{
+  "meta": {
+    "title": "Einstellung/Weiterbeschäftigung/Arbeitszeitänderung – wissenschaftlicher Bereich",
+    "version": "HSPE 09/2024",
+    "source": "Einstellungs.docx",
+    "locale": "de-DE"
+  },
+  "root": {
+    "id": "antrag",
+    "type": "form",
+    "sections": [
+      {
+        "id": "absender",
+        "title": "Absender",
+        "fields": [
+          { "id": "absender.name", "label": "Name, Vorname, Funktion", "type": "text", "required": true },
+          { "id": "absender.orgeinheit", "label": "Organisationseinheit (budgetverantwortlich)", "type": "text", "required": true }
+        ]
+      },
+      {
+        "id": "antragsart",
+        "title": "Antrag auf",
+        "fields": [
+          {
+            "id": "antrag.typ",
+            "label": "Bitte wählen",
+            "type": "single_select",
+            "required": true,
+            "options": [
+              { "value": "einstellung", "label": "Einstellung" },
+              { "value": "weiterbeschaeftigung", "label": "Weiterbeschäftigung" },
+              { "value": "arbeitszeiterhöhung", "label": "Arbeitszeiterhöhung" },
+              { "value": "arbeitszeitreduzierung", "label": "Arbeitszeitreduzierung" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "person",
+        "title": "Angaben zur einzustellenden/betreffenden Person",
+        "fields": [
+          { "id": "person.orgzuordnung", "label": "Interne Zuordnung zur Organisationseinheit", "type": "text", "required": true },
+          { "id": "person.nachname", "label": "Nachname", "type": "text", "required": true },
+          { "id": "person.vorname", "label": "Vorname", "type": "text", "required": true },
+          { "id": "person.geburtsdatum", "label": "Geburtsdatum", "type": "date", "required": true },
+          {
+            "id": "person.geschlecht",
+            "label": "Geschlecht",
+            "type": "single_select",
+            "required": true,
+            "options": [
+              { "value": "divers", "label": "divers" },
+              { "value": "weiblich", "label": "weiblich" },
+              { "value": "maennlich", "label": "männlich" },
+              { "value": "keine_angabe", "label": "keine Angabe" }
+            ]
+          },
+          { "id": "person.nationalitaet", "label": "Nationalität", "type": "text", "required": true },
+          {
+            "id": "person.aufenthalt.gueltig_bis",
+            "label": "Gültigkeit Aufenthalts- & Arbeitserlaubnis bis",
+            "type": "date",
+            "required": false,
+            "showIf": { "anyOf": [{ "field": "person.nationalitaet", "op": "!=", "value": "deutsch" }] }
+          },
+          { "id": "person.anschrift", "label": "Anschrift", "type": "textarea", "required": true },
+          { "id": "person.email", "label": "E-Mail", "type": "email", "required": true },
+          {
+            "id": "person.parallelbeschaeftigung.vorhanden",
+            "label": "Sind parallel weitere Beschäftigungen vorhanden bzw. ist ein Studium beabsichtigt?",
+            "type": "single_select",
+            "required": true,
+            "options": [
+              { "value": "ja", "label": "ja" },
+              { "value": "nein", "label": "nein" }
+            ],
+            "help": "Haupt- und nebenberufliche Beschäftigungen inkl. Lehraufträge, Hilfskraft-, selbstständige Tätigkeiten etc."
+          },
+          {
+            "id": "person.parallelbeschaeftigung.details",
+            "type": "group",
+            "label": "Angaben zu parallelen Beschäftigungen/Studium",
+            "showIf": { "field": "person.parallelbeschaeftigung.vorhanden", "op": "=", "value": "ja" },
+            "fields": [
+              { "id": "person.parallelbeschaeftigung.zeitraum", "label": "Zeitraum", "type": "date_range", "required": true },
+              { "id": "person.parallelbeschaeftigung.art", "label": "Art der Tätigkeit/des Studiums", "type": "text", "required": true },
+              { "id": "person.parallelbeschaeftigung.ag_hs", "label": "Arbeitgeber/Hochschule", "type": "text", "required": true }
+            ]
+          },
+          {
+            "id": "person.neueinstellung.fruehereBeschaeftigung.vorhanden",
+            "label": "Bei Neueinstellung: Bestanden bereits Beschäftigungsverhältnisse zur THWS/zum Freistaat Bayern?",
+            "type": "single_select",
+            "required": true,
+            "showIf": { "field": "antrag.typ", "op": "=", "value": "einstellung" },
+            "options": [
+              { "value": "ja", "label": "ja" },
+              { "value": "nein", "label": "nein" }
+            ]
+          },
+          {
+            "id": "person.neueinstellung.fruehereBeschaeftigung.details",
+            "type": "group",
+            "label": "Angaben zu früheren Beschäftigungen",
+            "showIf": {
+              "allOf": [
+                { "field": "antrag.typ", "op": "=", "value": "einstellung" },
+                { "field": "person.neueinstellung.fruehereBeschaeftigung.vorhanden", "op": "=", "value": "ja" }
+              ]
+            },
+            "fields": [
+              { "id": "person.neueinstellung.fruehereBeschaeftigung.zeitraum", "label": "Zeitraum", "type": "text", "required": true },
+              { "id": "person.neueinstellung.fruehereBeschaeftigung.art", "label": "Art der Tätigkeit", "type": "text", "required": true },
+              { "id": "person.neueinstellung.fruehereBeschaeftigung.arbeitgeber", "label": "Arbeitgeber", "type": "text", "required": true }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "vertrag",
+        "title": "Angaben zur Ausgestaltung des Vertrages",
+        "fields": [
+          {
+            "id": "vertrag.ausschreibungskennziffer",
+            "label": "Ausschreibungskennziffer",
+            "type": "text",
+            "required": false
+          },
+          {
+            "id": "vertrag.ausschreibungsverzicht.begruendung",
+            "label": "Begründung des Ausschreibungsverzichts",
+            "type": "textarea",
+            "required": true,
+            "showIf": { "field": "vertrag.ausschreibungskennziffer", "op": "blank" }
+          },
+          {
+            "id": "vertrag.beginn",
+            "label": "Beginn",
+            "type": "single_select",
+            "required": true,
+            "options": [
+              { "value": "datum", "label": "ab Datum" },
+              { "value": "naechstmoeglich", "label": "nächstmöglicher Zeitpunkt" }
+            ]
+          },
+          {
+            "id": "vertrag.beginn.datum",
+            "label": "Startdatum",
+            "type": "date",
+            "required": true,
+            "showIf": { "field": "vertrag.beginn", "op": "=", "value": "datum" }
+          },
+          {
+            "id": "vertrag.ende.art",
+            "label": "Ende",
+            "type": "single_select",
+            "required": true,
+            "options": [
+              { "value": "unbefristet", "label": "unbefristet" },
+              { "value": "befristet", "label": "befristet" }
+            ]
+          },
+          {
+            "id": "vertrag.ende.details",
+            "type": "group",
+            "label": "Befristungsdetails",
+            "showIf": { "field": "vertrag.ende.art", "op": "=", "value": "befristet" },
+            "fields": [
+              {
+                "id": "vertrag.ende.option",
+                "label": "Befristet bis",
+                "type": "single_select",
+                "required": true,
+                "options": [
+                  { "value": "datum", "label": "bis Enddatum" },
+                  { "value": "dauer", "label": "für insgesamt (Dauer)" }
+                ]
+              },
+              { "id": "vertrag.ende.enddatum", "label": "Enddatum", "type": "date", "required": true, "showIf": { "field": "vertrag.ende.option", "op": "=", "value": "datum" } },
+              { "id": "vertrag.ende.dauer", "label": "Gesamtdauer (z. B. Monate)", "type": "text", "required": true, "showIf": { "field": "vertrag.ende.option", "op": "=", "value": "dauer" } },
+              {
+                "id": "vertrag.befristungsgrundlage",
+                "label": "Befristungsgrundlage",
+                "type": "single_select",
+                "required": true,
+                "options": [
+                  { "value": "ohne_sachgrund_tzbfg_14_2", "label": "ohne Sachgrund (§ 14 Abs. 2 TzBfG)" },
+                  { "value": "mit_sachgrund_tzbfg_14_1", "label": "mit Sachgrund (§ 14 Abs. 1 TzBfG)" },
+                  { "value": "wisszeitvg_2_2", "label": "Drittmittelprojekt (§ 2 Abs. 2 WissZeitVG)" },
+                  { "value": "wisszeitvg_2_1", "label": "eigene Qualifizierung (§ 2 Abs. 1 WissZeitVG)" }
+                ],
+                "help": "Ohne Sachgrund: max. 2 Jahre. Mit Sachgrund: max. 5 Jahre (ggf. Verlängerungen möglich). WissZeitVG: max. 6 Jahre insgesamt."
+              },
+              {
+                "id": "vertrag.sachgrund.unterfall",
+                "label": "Sachgrund (Unterfall)",
+                "type": "single_select",
+                "required": true,
+                "showIf": { "field": "vertrag.befristungsgrundlage", "op": "=", "value": "mit_sachgrund_tzbfg_14_1" },
+                "options": [
+                  { "value": "voruebergehender_bedarf", "label": "vorübergehender Bedarf" },
+                  { "value": "vertretung", "label": "Vertretung" },
+                  { "value": "sonstiger_sachgrund", "label": "sonstiger Sachgrund" }
+                ]
+              },
+              {
+                "id": "vertrag.sachgrund.vertretung.details",
+                "type": "group",
+                "label": "Angaben zur Vertretung",
+                "showIf": {
+                  "allOf": [
+                    { "field": "vertrag.befristungsgrundlage", "op": "=", "value": "mit_sachgrund_tzbfg_14_1" },
+                    { "field": "vertrag.sachgrund.unterfall", "op": "=", "value": "vertretung" }
+                  ]
+                },
+                "fields": [
+                  { "id": "vertrag.vertretung.name", "label": "Name", "type": "text", "required": true },
+                  { "id": "vertrag.vertretung.vorname", "label": "Vorname", "type": "text", "required": true },
+                  { "id": "vertrag.vertretung.grund", "label": "Vertretungsgrund", "type": "text", "required": true },
+                  { "id": "vertrag.vertretung.zeitraum", "label": "Zeitraum (von–bis)", "type": "date_range", "required": true }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "arbeit.zeittyp",
+            "label": "Arbeitszeit",
+            "type": "single_select",
+            "required": true,
+            "options": [
+              { "value": "vollzeit", "label": "Vollzeit" },
+              { "value": "teilzeit", "label": "Teilzeit (in %)" },
+              { "value": "minijob", "label": "geringfügige Beschäftigung (Stunden/Monat)" }
+            ]
+          },
+          { "id": "arbeit.teilzeit.prozent", "label": "Teilzeit-Prozentsatz", "type": "number", "min": 1, "max": 100, "required": true, "showIf": { "field": "arbeit.zeittyp", "op": "=", "value": "teilzeit" } },
+          {
+            "id": "arbeit.wochenverteilung",
+            "label": "Verteilung der Arbeitszeit",
+            "type": "single_select",
+            "required": true,
+            "showIf": { "anyOf": [{ "field": "arbeit.zeittyp", "op": "=", "value": "teilzeit" }, { "field": "arbeit.zeittyp", "op": "=", "value": "vollzeit" }] },
+            "options": [
+              { "value": "5_tage_woche", "label": "5-Tage-Woche" },
+              { "value": "andere", "label": "andere Aufteilung" }
+            ]
+          },
+          {
+            "id": "arbeit.wochentage",
+            "label": "Einzeltage (Mo–Fr) angeben",
+            "type": "multi_select",
+            "required": true,
+            "showIf": {
+              "allOf": [
+                { "field": "arbeit.wochenverteilung", "op": "=", "value": "andere" },
+                { "anyOf": [{ "field": "arbeit.zeittyp", "op": "=", "value": "teilzeit" }, { "field": "arbeit.zeittyp", "op": "=", "value": "vollzeit" }] }
+              ]
+            },
+            "options": [
+              { "value": "mo", "label": "Mo" },
+              { "value": "di", "label": "Di" },
+              { "value": "mi", "label": "Mi" },
+              { "value": "do", "label": "Do" },
+              { "value": "fr", "label": "Fr" }
+            ]
+          },
+          { "id": "arbeit.minijob.stunden_pro_monat", "label": "Stunden/Monat", "type": "number", "min": 1, "required": true, "showIf": { "field": "arbeit.zeittyp", "op": "=", "value": "minijob" } },
+          { "id": "entgelt.eingruppierung.angestrebt", "label": "Angestrebte Eingruppierung (E‑Gruppe)", "type": "text", "required": true },
+          { "id": "entgelt.verbeamtung.angestrebt", "label": "Verbeamtung ist bei Vorliegen aller Voraussetzungen angestrebt", "type": "boolean", "required": false },
+          {
+            "id": "vorgesetzte.abweichend",
+            "label": "Vorgesetzte/r abweichend von Absender",
+            "type": "boolean",
+            "required": true
+          },
+          {
+            "id": "vorgesetzte.details",
+            "type": "group",
+            "label": "Abweichende/r Vorgesetzte/r",
+            "showIf": { "field": "vorgesetzte.abweichend", "op": "=", "value": true },
+            "fields": [
+              { "id": "vorgesetzte.name", "label": "Name", "type": "text", "required": true }
+            ]
+          },
+          {
+            "id": "dienstort",
+            "label": "Dienstort",
+            "type": "single_select",
+            "required": true,
+            "options": [
+              { "value": "wuerzburg", "label": "Würzburg" },
+              { "value": "schweinfurt", "label": "Schweinfurt" },
+              { "value": "sonstiger", "label": "Sonstiger (bitte angeben)" }
+            ]
+          },
+          { "id": "dienstort.sonstiger", "label": "Dienstort (Freitext)", "type": "text", "required": true, "showIf": { "field": "dienstort", "op": "=", "value": "sonstiger" } }
+        ]
+      },
+      {
+        "id": "finanzierung",
+        "title": "Finanzierungsangaben",
+        "fields": [
+          {
+            "id": "finanzierung.zeilen",
+            "type": "repeating_group",
+            "minItems": 1,
+            "itemLabel": "Finanzierungsanteil",
+            "fields": [
+              { "id": "fin.anteil_prozent", "label": "Umfang der Finanzierung in %", "type": "number", "min": 1, "max": 100, "required": true },
+              { "id": "fin.kapitel", "label": "Kapitel", "type": "text", "required": true },
+              { "id": "fin.titel", "label": "Titel (z. B. TG)", "type": "text", "required": true },
+              { "id": "fin.mittelherkunft.fb_proj", "label": "Mittelherkunft – FB/Proj.", "type": "text", "required": true },
+              { "id": "fin.mittelherkunft.ins_a_art", "label": "Mittelherkunft – INS/A-Art", "type": "text", "required": true },
+              { "id": "fin.mittelverwendung.kostenstelle", "label": "Mittelverwendung – Kostenstelle", "type": "text", "required": true },
+              { "id": "fin.mittelverwendung.kostentraeger", "label": "Mittelverwendung – Kostenträger", "type": "text", "required": true }
+            ]
+          },
+          {
+            "id": "finanzierung.bei_drittmitteln",
+            "label": "Finanzierung enthält Drittmittel (mind. eine Zeile mit Titel/TG als Drittmittel)",
+            "type": "boolean",
+            "required": true
+          }
+        ],
+        "validationRules": [
+          {
+            "rule": "sum(%finanzierung.zeilen[].fin.anteil_prozent%) == 100",
+            "message": "Die Summe der Finanzierungsanteile muss 100% ergeben."
+          }
+        ]
+      },
+      {
+        "id": "checkliste",
+        "title": "Checkliste – beizufügende Unterlagen",
+        "type": "derived",
+        "items": [
+          {
+            "id": "doc.eingruppierung",
+            "label": "Formular „(Vereinfachte) Feststellung der Entgeltgruppe“",
+            "requiredIf": { "always": true },
+            "source": "Hinweis im Formular"
+          },
+          {
+            "id": "doc.projektvertrag_kalkulation",
+            "label": "Bei Finanzierung aus Drittmitteln: Projektvertrag inkl. Kalkulation der Personalkosten",
+            "requiredIf": {
+              "anyOf": [
+          { "field": "finanzierung.bei_drittmitteln", "op": "=", "value": true },
+          { "field": "vertrag.befristungsgrundlage", "op": "=", "value": "wisszeitvg_2_2" }
+              ]
+            }
+          },
+          {
+            "id": "doc.hl_beschluss",
+            "label": "Bei Finanzierung aus TG 51: HL‑Beschluss",
+            "requiredIf": { "existsInAny": { "arrayField": "finanzierung.zeilen[].fin.titel", "pattern": ".*TG\\s*51.*" } }
+          },
+          {
+            "id": "doc.6er_gremium",
+            "label": "Bei Finanzierung aus TG 03, ehem. TG 96: Beschluss 6er‑Gremium",
+            "requiredIf": { "existsInAny": { "arrayField": "finanzierung.zeilen[].fin.titel", "pattern": ".*(TG\\s*03|TG\\s*96).*" } }
+          },
+          {
+            "id": "doc.qualifizierung",
+            "label": "Bei Befristung zur eigenen Qualifizierung: Qualifizierungs‑ und Betreuungsvereinbarung",
+            "requiredIf": { "field": "vertrag.befristungsgrundlage", "op": "=", "value": "wisszeitvg_2_1" }
+          },
+          {
+            "id": "doc.zusatzformular_tzbfg_14_1",
+            "label": "Bei Sachgrund „vorübergehender Bedarf“: Zusatzformular § 14 Abs. 1 TzBfG (vollständig ausgefüllt)",
+            "requiredIf": {
+              "allOf": [
+          { "field": "vertrag.befristungsgrundlage", "op": "=", "value": "mit_sachgrund_tzbfg_14_1" },
+          { "field": "vertrag.sachgrund.unterfall", "op": "=", "value": "voruebergehender_bedarf" }
+              ]
+            }
+          },
+          {
+            "id": "doc.begruendung_auswahl",
+            "label": "Bei erfolgter Ausschreibung: Begründung der Auswahlentscheidung (Formblatt)",
+            "requiredIf": { "field": "vertrag.ausschreibungskennziffer", "op": "!blank" }
+          },
+          {
+            "id": "doc.schwerbehinderten_begruendung",
+            "label": "Begründung zur Nichtberücksichtigung von Schwerbehinderten/Gleichgestellten inkl. Stellungnahme der SBV (falls zutreffend)",
+            "requiredIf": { "field": "person.sb.nichtberuecksichtigung", "op": "=", "value": true }
+          }
+        ]
+      },
+      {
+        "id": "kenntnisnahme",
+        "title": "Kenntnisnahme",
+        "fields": [
+          {
+            "id": "kenntnisnahme.bestaetigung",
+            "label": "Ich habe Kenntnis genommen, dass eine Arbeitsaufnahme (auch bei Weiterbeschäftigung) erst nach Abschluss des Arbeitsvertrages erfolgen darf.",
+            "type": "acknowledgement",
+            "required": true
+          },
+          { "id": "kenntnisnahme.ort", "label": "Ort", "type": "text", "required": true },
+          { "id": "kenntnisnahme.datum", "label": "Datum", "type": "date", "required": true },
+          { "id": "kenntnisnahme.name_unterschrift", "label": "Name (budgetverantwortliche Person)", "type": "text", "required": true }
+        ]
+      },
+      {
+        "id": "hspe_intern",
+        "title": "Stellungnahme HSPE (intern)",
+        "role": "HSPE_only",
+        "fields": [
+          { "id": "hspe.sachbearbeiter", "label": "Sachbearbeiter/in", "type": "text", "required": false },
+          {
+            "id": "hspe.unterlagen.vollstaendig",
+            "label": "Unterlagen vollständig?",
+            "type": "single_select",
+            "options": [
+              { "value": "ja", "label": "ja" },
+              { "value": "nein", "label": "nein" }
+            ]
+          },
+          { "id": "hspe.unterlagen.fehlend", "label": "Fehlende Unterlagen/Angaben", "type": "textarea", "required": false },
+          { "id": "hspe.angefordert.am", "label": "Angefordert per E‑Mail vom", "type": "date", "required": false },
+          { "id": "hspe.vollstaendig.am", "label": "Vollständig erhalten am", "type": "date", "required": false },
+          {
+            "id": "hspe.pruefung.moeglich",
+            "label": "Die Beschäftigung ist wie beantragt möglich",
+            "type": "single_select",
+            "options": [
+              { "value": "ja", "label": "ja" },
+              { "value": "nein", "label": "nein" }
+            ]
+          },
+          { "id": "hspe.pruefung.begruendung", "label": "Falls nein, Angabe von Gründen", "type": "textarea", "required": false },
+          { "id": "hspe.ort", "label": "Ort", "type": "text", "required": false },
+          { "id": "hspe.datum", "label": "Datum", "type": "date", "required": false }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <title>Einstellung/Weiterbeschäftigung/Arbeitszeitänderung</title>
+  <style>
+    @page { 
+      size: A4; 
+      margin: 2cm 1.6cm 2cm 1.6cm;
+    }
+    body { 
+      font-family: Arial, sans-serif; 
+      font-size: 11pt; 
+      color: #111; 
+      line-height: 1.3;
+    }
+    h1 { 
+      font-size: 15pt; 
+      margin: 10px 0;
+      border-bottom: 2px solid #0066cc;
+      padding-bottom: 5px;
+    }
+    h2 { 
+      font-size: 13pt; 
+      margin-top: 20px;
+      margin-bottom: 10px;
+      background-color: #f0f0f0;
+      padding: 5px 10px;
+      border-left: 4px solid #0066cc;
+    }
+    .meta { 
+      font-size: 9pt; 
+      text-align: right; 
+      color: #666;
+      margin-bottom: 10px;
+    }
+    table { 
+      width: 100%; 
+      border-collapse: collapse; 
+      margin: 10px 0;
+    }
+    th, td { 
+      border: 1px solid #bbb; 
+      padding: 8px; 
+      vertical-align: top;
+      text-align: left;
+    }
+    th {
+      background-color: #e8e8e8;
+      font-weight: bold;
+    }
+    .noborder td {
+      border: none;
+      padding: 5px 0;
+    }
+    .label { 
+      font-weight: bold;
+      display: block;
+      margin-bottom: 3px;
+    }
+    .value { 
+      border-bottom: 1px solid #666;
+      min-height: 20px;
+      padding: 2px 0;
+      display: block;
+    }
+    .checkbox {
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      border: 1px solid #333;
+      text-align: center;
+      margin-right: 5px;
+      vertical-align: middle;
+    }
+    .checked {
+      background-color: #333;
+      color: white;
+    }
+    .hint { 
+      font-size: 9pt; 
+      color: #666; 
+      font-style: italic;
+    }
+    .small {
+      font-size: 9pt;
+      color: #555;
+    }
+    .row {
+      margin: 10px 0;
+    }
+    .col-2 {
+      width: 48%;
+      display: inline-block;
+      vertical-align: top;
+      padding: 0 1%;
+    }
+    .col-3 {
+      width: 31%;
+      display: inline-block;
+      vertical-align: top;
+      padding: 0 1%;
+    }
+    .page-break {
+      page-break-before: always;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="meta">
+    HSPE 09/2024<br>
+    Technische Hochschule Würzburg–Schweinfurt<br>
+    Hochschulservice Personal, Team HAL
+  </div>
+
+  <h1>Einstellung/Weiterbeschäftigung/Arbeitszeitänderung<br>
+  <small>hauptberuflich Beschäftigte im wissenschaftlichen Bereich</small></h1>
+
+  <!-- ABSENDER -->
+  <h2>1. Absender</h2>
+  <table>
+    <tr>
+      <td style="width:50%">
+        <span class="label">Name, Vorname, Funktion</span>
+        <span class="value">{{ absender.name or '&nbsp;' }}</span>
+      </td>
+      <td>
+        <span class="label">Organisationseinheit (budgetverantwortlich)</span>
+        <span class="value">{{ absender.orgeinheit or '&nbsp;' }}</span>
+      </td>
+    </tr>
+  </table>
+
+  <!-- ANTRAG AUF -->
+  <h2>2. Antrag auf</h2>
+  <table class="noborder">
+    <tr>
+      <td>
+        <span class="checkbox {% if antrag.typ == 'einstellung' %}checked{% endif %}">{% if antrag.typ == 'einstellung' %}■{% endif %}</span> Einstellung
+        &nbsp;&nbsp;
+        <span class="checkbox {% if antrag.typ == 'weiterbeschaeftigung' %}checked{% endif %}">{% if antrag.typ == 'weiterbeschaeftigung' %}■{% endif %}</span> Weiterbeschäftigung
+        &nbsp;&nbsp;
+        <span class="checkbox {% if antrag.typ == 'arbeitszeiterhöhung' %}checked{% endif %}">{% if antrag.typ == 'arbeitszeiterhöhung' %}■{% endif %}</span> Arbeitszeiterhöhung
+        &nbsp;&nbsp;
+        <span class="checkbox {% if antrag.typ == 'arbeitszeitreduzierung' %}checked{% endif %}">{% if antrag.typ == 'arbeitszeitreduzierung' %}■{% endif %}</span> Arbeitszeitreduzierung
+      </td>
+    </tr>
+  </table>
+
+  <!-- PERSON -->
+  <h2>3. Angaben zur einzustellenden/betreffenden Person</h2>
+  <table>
+    <tr>
+      <td colspan="3">
+        <span class="label">Interne Zuordnung zur Organisationseinheit</span>
+        <span class="value">{{ person.orgzuordnung or '&nbsp;' }}</span>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="label">Nachname</span>
+        <span class="value">{{ person.nachname or '&nbsp;' }}</span>
+      </td>
+      <td>
+        <span class="label">Vorname</span>
+        <span class="value">{{ person.vorname or '&nbsp;' }}</span>
+      </td>
+      <td>
+        <span class="label">Geburtsdatum</span>
+        <span class="value">{{ person.geburtsdatum or '&nbsp;' }}</span>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="label">Geschlecht</span><br>
+        <span class="checkbox {% if person.geschlecht == 'weiblich' %}checked{% endif %}">{% if person.geschlecht == 'weiblich' %}■{% endif %}</span> weiblich
+        <span class="checkbox {% if person.geschlecht == 'maennlich' %}checked{% endif %}">{% if person.geschlecht == 'maennlich' %}■{% endif %}</span> männlich
+        <span class="checkbox {% if person.geschlecht == 'divers' %}checked{% endif %}">{% if person.geschlecht == 'divers' %}■{% endif %}</span> divers
+      </td>
+      <td>
+        <span class="label">Nationalität</span>
+        <span class="value">{{ person.nationalitaet or '&nbsp;' }}</span>
+      </td>
+      <td>
+        <span class="label">Aufenthalts-/Arbeitserlaubnis gültig bis</span>
+        <span class="value">{{ person.aufenthalt.gueltig_bis or '&nbsp;' }}</span>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="label">Anschrift</span>
+        <span class="value">{{ person.anschrift or '&nbsp;' }}</span>
+      </td>
+      <td>
+        <span class="label">E-Mail</span>
+        <span class="value">{{ person.email or '&nbsp;' }}</span>
+      </td>
+      <td>
+        <span class="label">Parallele Beschäftigungen/Studium vorhanden?</span><br>
+        <span class="checkbox {% if person.parallelbeschaeftigung.vorhanden == 'ja' %}checked{% endif %}">{% if person.parallelbeschaeftigung.vorhanden == 'ja' %}■{% endif %}</span> ja
+        <span class="checkbox {% if person.parallelbeschaeftigung.vorhanden == 'nein' %}checked{% endif %}">{% if person.parallelbeschaeftigung.vorhanden == 'nein' %}■{% endif %}</span> nein
+      </td>
+    </tr>
+    {% if person.parallelbeschaeftigung.vorhanden == 'ja' %}
+    <tr>
+      <td>
+        <span class="label">Zeitraum</span>
+        <span class="value">{{ person.parallelbeschaeftigung.zeitraum or '&nbsp;' }}</span>
+      </td>
+      <td>
+        <span class="label">Art der Tätigkeit/des Studiums</span>
+        <span class="value">{{ person.parallelbeschaeftigung.art or '&nbsp;' }}</span>
+      </td>
+      <td>
+        <span class="label">Arbeitgeber/Hochschule</span>
+        <span class="value">{{ person.parallelbeschaeftigung.ag_hs or '&nbsp;' }}</span>
+      </td>
+    </tr>
+    {% endif %}
+  </table>
+
+  <!-- VERTRAG -->
+  <h2>4. Angaben zur Ausgestaltung des Vertrages</h2>
+  <table>
+    <tr>
+      <td colspan="2">
+        <span class="label">Ausschreibungskennziffer</span>
+        <span class="value">{{ vertrag.ausschreibungskennziffer or '&nbsp;' }}</span>
+      </td>
+      <td>
+        {% if not vertrag.ausschreibungskennziffer %}
+        <span class="label">Begründung Ausschreibungsverzicht</span>
+        <span class="value">{{ vertrag.ausschreibungsverzicht.begruendung or '&nbsp;' }}</span>
+        {% endif %}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="label">Beginn</span><br>
+        <span class="checkbox {% if vertrag.beginn == 'datum' %}checked{% endif %}">{% if vertrag.beginn == 'datum' %}■{% endif %}</span> ab Datum
+        <span class="checkbox {% if vertrag.beginn == 'naechstmoeglich' %}checked{% endif %}">{% if vertrag.beginn == 'naechstmoeglich' %}■{% endif %}</span> nächstmöglich
+        {% if vertrag.beginn == 'datum' %}
+        <br><span class="value">{{ vertrag.beginn.datum or '&nbsp;' }}</span>
+        {% endif %}
+      </td>
+      <td>
+        <span class="label">Ende</span><br>
+        <span class="checkbox {% if vertrag.ende.art == 'unbefristet' %}checked{% endif %}">{% if vertrag.ende.art == 'unbefristet' %}■{% endif %}</span> unbefristet
+        <span class="checkbox {% if vertrag.ende.art == 'befristet' %}checked{% endif %}">{% if vertrag.ende.art == 'befristet' %}■{% endif %}</span> befristet
+      </td>
+      <td>
+        {% if vertrag.ende.art == 'befristet' %}
+        <span class="label">Befristet bis</span>
+        <span class="value">{{ vertrag.ende.enddatum or vertrag.ende.dauer or '&nbsp;' }}</span>
+        {% endif %}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="label">Arbeitszeit</span><br>
+        <span class="checkbox {% if arbeit.zeittyp == 'vollzeit' %}checked{% endif %}">{% if arbeit.zeittyp == 'vollzeit' %}■{% endif %}</span> Vollzeit<br>
+        <span class="checkbox {% if arbeit.zeittyp == 'teilzeit' %}checked{% endif %}">{% if arbeit.zeittyp == 'teilzeit' %}■{% endif %}</span> Teilzeit {% if arbeit.zeittyp == 'teilzeit' %}({{ arbeit.teilzeit.prozent }}%){% endif %}<br>
+        <span class="checkbox {% if arbeit.zeittyp == 'minijob' %}checked{% endif %}">{% if arbeit.zeittyp == 'minijob' %}■{% endif %}</span> Minijob
+      </td>
+      <td>
+        <span class="label">Angestrebte Eingruppierung (E-Gruppe)</span>
+        <span class="value">{{ entgelt.eingruppierung.angestrebt or '&nbsp;' }}</span>
+      </td>
+      <td>
+        <span class="label">Dienstort</span><br>
+        <span class="checkbox {% if dienstort == 'wuerzburg' %}checked{% endif %}">{% if dienstort == 'wuerzburg' %}■{% endif %}</span> Würzburg
+        <span class="checkbox {% if dienstort == 'schweinfurt' %}checked{% endif %}">{% if dienstort == 'schweinfurt' %}■{% endif %}</span> Schweinfurt
+        <span class="checkbox {% if dienstort == 'sonstiger' %}checked{% endif %}">{% if dienstort == 'sonstiger' %}■{% endif %}</span> Sonstiger
+        {% if dienstort == 'sonstiger' %}
+        <br><span class="value">{{ dienstort_sonstiger or '&nbsp;' }}</span>
+        {% endif %}
+      </td>
+    </tr>
+  </table>
+
+  <!-- FINANZIERUNG -->
+  <div class="page-break"></div>
+  <h2>5. Finanzierungsangaben</h2>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:12%">Umfang %</th>
+        <th>Kapitel</th>
+        <th>Titel</th>
+        <th>FB/Proj.</th>
+        <th>INS/A-Art</th>
+        <th>Kostenstelle</th>
+        <th>Kostenträger</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% if finanzierung.zeilen %}
+        {% for z in finanzierung.zeilen %}
+        <tr>
+          <td>{{ z.fin.anteil_prozent or '&nbsp;' }}</td>
+          <td>{{ z.fin.kapitel or '&nbsp;' }}</td>
+          <td>{{ z.fin.titel or '&nbsp;' }}</td>
+          <td>{{ z.fin.mittelherkunft.fb_proj or '&nbsp;' }}</td>
+          <td>{{ z.fin.mittelherkunft.ins_a_art or '&nbsp;' }}</td>
+          <td>{{ z.fin.mittelverwendung.kostenstelle or '&nbsp;' }}</td>
+          <td>{{ z.fin.mittelverwendung.kostentraeger or '&nbsp;' }}</td>
+        </tr>
+        {% endfor %}
+      {% else %}
+        <tr><td colspan="7"><em>Keine Finanzierungsangaben vorhanden</em></td></tr>
+      {% endif %}
+    </tbody>
+  </table>
+
+  <!-- CHECKLISTE -->
+  <h2>6. Checkliste – beizufügende Unterlagen</h2>
+  <table class="noborder">
+    <tr>
+      <td><span class="checkbox checked">■</span> Formular „(Vereinfachte) Feststellung der Entgeltgruppe"</td>
+    </tr>
+    {% if finanzierung.bei_drittmitteln or vertrag.befristungsgrundlage == 'wisszeitvg_2_2' %}
+    <tr>
+      <td><span class="checkbox checked">■</span> Projektvertrag inkl. Kalkulation der Personalkosten (Drittmittel)</td>
+    </tr>
+    {% endif %}
+    {% if vertrag.befristungsgrundlage == 'wisszeitvg_2_1' %}
+    <tr>
+      <td><span class="checkbox checked">■</span> Qualifizierungs- und Betreuungsvereinbarung (§ 2 Abs. 1 WissZeitVG)</td>
+    </tr>
+    {% endif %}
+    {% if vertrag.ausschreibungskennziffer %}
+    <tr>
+      <td><span class="checkbox checked">■</span> Begründung der Auswahlentscheidung (bei erfolgter Ausschreibung)</td>
+    </tr>
+    {% endif %}
+  </table>
+
+  <!-- KENNTNISNAHME -->
+  <h2>7. Kenntnisnahme</h2>
+  <p class="small">
+    Ich habe davon Kenntnis genommen, dass eine Arbeitsaufnahme (auch bei Weiterbeschäftigung) erst nach Abschluss des Arbeitsvertrages erfolgen darf.
+  </p>
+  <table>
+    <tr>
+      <td style="width:33%">
+        <span class="label">Ort</span>
+        <span class="value">{{ kenntnisnahme.ort or '&nbsp;' }}</span>
+      </td>
+      <td style="width:33%">
+        <span class="label">Datum</span>
+        <span class="value">{{ kenntnisnahme.datum or '&nbsp;' }}</span>
+      </td>
+      <td>
+        <span class="label">Name (budgetverantwortliche Person)</span>
+        <span class="value">{{ kenntnisnahme.name_unterschrift or '&nbsp;' }}</span>
+      </td>
+    </tr>
+  </table>
+
+  <div style="margin-top: 30px; text-align: right; font-size: 9pt; color: #666;">
+    Formularstand: HSPE 09/2024 • Generiert am {{ generierungsdatum }}
+  </div>
+
+</body>
+</html>

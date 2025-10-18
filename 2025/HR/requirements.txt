@@ -1,0 +1,8 @@
+streamlit
+streamlit-flow
+pandas
+python-dateutil
+requests
+jinja2
+xhtml2pdf
+reportlab
