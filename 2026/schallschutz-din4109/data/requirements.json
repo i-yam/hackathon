@@ -1,0 +1,109 @@
+{
+  "_meta": {
+    "quelle": "DIN 4109-1:2018-01, Abschnitt 5 (Tabelle 2 + Tabelle 3)",
+    "beschreibung": "Mindestanforderungen Luft- (erf_Rw) und Trittschall (zul_Lnw) je Trennbauteil. erf_Rw = Mindestwert R'w in dB; zul_Lnw = Maximalwert L'n,w in dB. null = keine Anforderung.",
+    "hinweis": "Tueren: Anforderung ist Rw (nur ueber Tuer), nicht R'w. Sicherheitsbeiwert 5 dB nach DIN 4109-2 (Tab.1 Fussnote c)."
+  },
+  "rollen": {
+    "wohnungstrenndecke": {
+      "tabelle": "2", "zeile": "2", "bauteil": "decke",
+      "bezeichnung": "Wohnungstrenndecke (trennt Wohnungen / fremde Arbeitsraeume)",
+      "erf_Rw": 54, "zul_Lnw": 50,
+      "gilt_fuer": ["mehrfamilienhaus", "gemischt"],
+      "anmerkung": "L'n,w <= 53 dB bei baulichen Aenderungen vor 1.7.2016 bzw. Holz-/Leicht-/Trockenbaudecken (Fussnote a/b)."
+    },
+    "trenndecke_arbeitsraeume": {
+      "tabelle": "2", "zeile": "3", "bauteil": "decke",
+      "bezeichnung": "Trenndecke zwischen fremden Arbeitsraeumen",
+      "erf_Rw": 54, "zul_Lnw": 53, "gilt_fuer": ["mehrfamilienhaus", "gemischt"]
+    },
+    "decke_dachraum": {
+      "tabelle": "2", "zeile": "1", "bauteil": "decke",
+      "bezeichnung": "Decke unter allgemein nutzbaren Dachraeumen (Trockenboden, Abstellraum)",
+      "erf_Rw": 53, "zul_Lnw": 52, "gilt_fuer": ["mehrfamilienhaus", "gemischt"]
+    },
+    "decke_keller_flur_treppenraum": {
+      "tabelle": "2", "zeile": "4", "bauteil": "decke",
+      "bezeichnung": "Decke ueber Keller / Hausflur / Treppenraum unter Aufenthaltsraum",
+      "erf_Rw": 52, "zul_Lnw": 50, "gilt_fuer": ["mehrfamilienhaus", "gemischt"]
+    },
+    "decke_durchfahrt_garage": {
+      "tabelle": "2", "zeile": "5", "bauteil": "decke",
+      "bezeichnung": "Decke ueber Durchfahrt / Sammelgarage unter Aufenthaltsraum",
+      "erf_Rw": 55, "zul_Lnw": 50, "gilt_fuer": ["mehrfamilienhaus", "gemischt"]
+    },
+    "decke_spielraum": {
+      "tabelle": "2", "zeile": "6", "bauteil": "decke",
+      "bezeichnung": "Decke unter/ueber Spiel- oder Gemeinschaftsraum",
+      "erf_Rw": 55, "zul_Lnw": 46, "gilt_fuer": ["mehrfamilienhaus", "gemischt"]
+    },
+    "decke_bad_wc": {
+      "tabelle": "2", "zeile": "10", "bauteil": "decke",
+      "bezeichnung": "Decke unter Bad/WC (ohne/mit Bodenentwaesserung)",
+      "erf_Rw": 54, "zul_Lnw": 53, "gilt_fuer": ["mehrfamilienhaus", "gemischt"]
+    },
+    "decke_hausflur": {
+      "tabelle": "2", "zeile": "11", "bauteil": "decke",
+      "bezeichnung": "Decke unter Hausflur",
+      "erf_Rw": null, "zul_Lnw": 50, "gilt_fuer": ["mehrfamilienhaus", "gemischt"]
+    },
+    "wohnungstrennwand": {
+      "tabelle": "2", "zeile": "13", "bauteil": "wand",
+      "bezeichnung": "Wohnungstrennwand / Wand zwischen fremden Arbeitsraeumen",
+      "erf_Rw": 53, "zul_Lnw": null, "gilt_fuer": ["mehrfamilienhaus", "gemischt"]
+    },
+    "treppenraumwand": {
+      "tabelle": "2", "zeile": "14", "bauteil": "wand",
+      "bezeichnung": "Treppenraumwand / Wand neben Hausflur",
+      "erf_Rw": 53, "zul_Lnw": null, "gilt_fuer": ["mehrfamilienhaus", "gemischt"],
+      "anmerkung": "Mit Tuer: erf. R'w(Wand) = Rw(Tuer) + 15 dB. Wandbreiten <= 30 cm unberuecksichtigt."
+    },
+    "wand_durchfahrt_garage": {
+      "tabelle": "2", "zeile": "15", "bauteil": "wand",
+      "bezeichnung": "Wand neben Durchfahrt / Sammelgarage / Einfahrt",
+      "erf_Rw": 55, "zul_Lnw": null, "gilt_fuer": ["mehrfamilienhaus", "gemischt"]
+    },
+    "wand_spielraum": {
+      "tabelle": "2", "zeile": "16", "bauteil": "wand",
+      "bezeichnung": "Wand von Spiel- oder Gemeinschaftsraum",
+      "erf_Rw": 55, "zul_Lnw": null, "gilt_fuer": ["mehrfamilienhaus", "gemischt"]
+    },
+    "schachtwand_aufzug": {
+      "tabelle": "2", "zeile": "17", "bauteil": "wand",
+      "bezeichnung": "Schachtwand von Aufzugsanlagen an Aufenthaltsraeumen",
+      "erf_Rw": 57, "zul_Lnw": null, "gilt_fuer": ["mehrfamilienhaus", "gemischt"]
+    },
+    "tuer_flur_diele": {
+      "tabelle": "2", "zeile": "18", "bauteil": "tuer",
+      "bezeichnung": "Tuer von Hausflur/Treppenraum in Flure/Dielen einer Wohnung",
+      "erf_Rw": 27, "zul_Lnw": null, "gilt_fuer": ["mehrfamilienhaus", "gemischt"],
+      "groesse": "Rw", "anmerkung": "Anforderung an Rw (nur ueber Tuer), Sicherheitsbeiwert 5 dB nach DIN 4109-2."
+    },
+    "tuer_aufenthaltsraum": {
+      "tabelle": "2", "zeile": "19", "bauteil": "tuer",
+      "bezeichnung": "Tuer von Hausflur/Treppenraum unmittelbar in Aufenthaltsraum",
+      "erf_Rw": 37, "zul_Lnw": null, "gilt_fuer": ["mehrfamilienhaus", "gemischt"],
+      "groesse": "Rw", "anmerkung": "Anforderung an Rw (nur ueber Tuer), Sicherheitsbeiwert 5 dB nach DIN 4109-2."
+    },
+    "haustrennwand_unterstes_geschoss": {
+      "tabelle": "3", "zeile": "4", "bauteil": "wand",
+      "bezeichnung": "Haustrennwand zu Aufenthaltsraum im untersten Geschoss",
+      "erf_Rw": 59, "zul_Lnw": null, "gilt_fuer": ["reihenhaus_doppelhaus"]
+    },
+    "haustrennwand_mit_geschoss_darunter": {
+      "tabelle": "3", "zeile": "5", "bauteil": "wand",
+      "bezeichnung": "Haustrennwand zu Aufenthaltsraum mit >= 1 Geschoss darunter",
+      "erf_Rw": 62, "zul_Lnw": null, "gilt_fuer": ["reihenhaus_doppelhaus"]
+    },
+    "decke_efh_reihenhaus": {
+      "tabelle": "3", "zeile": "1", "bauteil": "decke",
+      "bezeichnung": "Decke (EFH-Reihenhaus / Doppelhaus, Trittschall in fremde Aufenthaltsraeume)",
+      "erf_Rw": null, "zul_Lnw": 41, "gilt_fuer": ["reihenhaus_doppelhaus"]
+    },
+    "bodenplatte_keller_efh": {
+      "tabelle": "3", "zeile": "2", "bauteil": "decke",
+      "bezeichnung": "Bodenplatte auf Erdreich / Decke ueber Kellergeschoss (EFH-Reihenhaus)",
+      "erf_Rw": null, "zul_Lnw": 46, "gilt_fuer": ["reihenhaus_doppelhaus"]
+    }
+  }
+}

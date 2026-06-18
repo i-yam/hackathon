@@ -1,0 +1,9 @@
+# Schallschutznachweis DIN 4109 — Abhaengigkeiten
+# (im bestehenden venv unter agenticAi/.venv bereits installiert)
+streamlit>=1.57
+pandas>=2.0
+pydantic>=2.0
+openpyxl>=3.1
+pymupdf>=1.27          # PDF -> Bild (Plan-Rendering) + PDF-Textextraktion
+pillow>=10
+claude-agent-sdk>=0.1.74   # Claude Vision via Max-Abo (kein API-Key noetig)

@@ -1,0 +1,44 @@
+# ==========================================================================
+#  .gitignore — Schallschutznachweis DIN 4109
+#  Es kommt NUR der Quellcode + synthetische Demo-Daten ins Repo.
+# ==========================================================================
+
+# --- Python / Umgebung ---
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# --- Tooling / IDE (maschinenspezifisch) ---
+.claude/
+.idea/
+.vscode/
+
+# --- Generierte Artefakte (erzeugt das Programm selbst) ---
+outputs/
+
+# ==========================================================================
+#  URHEBERRECHTLICH GESCHÜTZT — NICHT veröffentlichen!
+# ==========================================================================
+# DIN-Normen (Beuth Verlag) — dürfen nicht weitergegeben werden
+*DIN 4109*.pdf
+*DIN EN ISO*.pdf
+
+# Reale Architekten-Ausführungspläne (Bauvorhaben 1308) + abgeleitete Bilder
+examples/real_plans/
+examples/beispiel_inputs/
+*AUSFÜHRUNGSPLANUNG*.pdf
+1308_*.pdf
+*.jpg
+*.jpeg
+
+# --- Arbeits-/Eingabe-Vorlagen (nicht Teil der Lösung) ---
+Vorlauge Dropdown.xlsx
+
+# --- Temp / Scratch ---
+_*.png
+_*.txt
+*~
+.DS_Store
+Thumbs.db

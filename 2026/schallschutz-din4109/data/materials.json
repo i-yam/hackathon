@@ -1,0 +1,31 @@
+{
+  "_meta": {
+    "quelle": "Rohdichte-Rechenwerte nach DIN 4109-32:2016-07 (4.8.4.2) und DIN EN ISO 10456:2010. Masseverhalten-Kategorie waehlt die R_w(m')-Formel nach DIN 4109-32, 4.1.4.2.",
+    "kategorien": {
+      "beton":       "Gl.(13)  R_w = 30,9*lg(m') - 22,2   gueltig 65..720 kg/m2",
+      "ks":          "Gl.(13)  R_w = 30,9*lg(m') - 22,2   (Kalksandstein)",
+      "ziegel":      "Gl.(13)  R_w = 30,9*lg(m') - 22,2   (Mauerziegel, RDK <= 2,0)",
+      "verfuellstein":"Gl.(13) R_w = 30,9*lg(m') - 22,2",
+      "leichtbeton": "Gl.(14)  R_w = 30,9*lg(m') - 20,2   gueltig 140..480 kg/m2",
+      "porenbeton":  "Gl.(15/16) 50..150: 32,6*lg(m')-22,5 ; 150..300: 26,1*lg(m')-8,4",
+      "schicht":     "traegt nur zur flaechenbez. Masse bei (Putz, Estrich), keine eigene Massekurve",
+      "daemmung":    "akustisch weich / Daemmstoff, Masse vernachlaessigbar fuer Massekurve"
+    }
+  },
+  "materialien": {
+    "stahlbeton":            {"aliases": ["beton", "normalbeton", "stb", "stahlbeton", "ortbeton"], "kategorie": "beton", "rohdichte": 2400, "quelle": "DIN 4109-32 4.8.4.2 (Normalbeton)"},
+    "leichtbeton_konstr":    {"aliases": ["leichtbeton", "lb"], "kategorie": "leichtbeton", "rohdichte": 1400, "quelle": "ISO 10456"},
+    "kalksandstein_1.8":     {"aliases": ["kalksandstein", "ks", "ks 1.8", "ks-rdk1.8"], "kategorie": "ks", "rohdichte": 1800, "quelle": "RDK 1,8 (ISO 10456 / DIN V 106)"},
+    "kalksandstein_2.0":     {"aliases": ["ks 2.0", "ks-rdk2.0", "kalksandstein 2.0"], "kategorie": "ks", "rohdichte": 2000, "quelle": "RDK 2,0"},
+    "mauerziegel_voll_1.8":  {"aliases": ["mauerziegel", "ziegel", "vollziegel", "vz"], "kategorie": "ziegel", "rohdichte": 1800, "quelle": "Vollziegel RDK 1,8"},
+    "hochlochziegel_0.9":    {"aliases": ["hochlochziegel", "hlz", "hlz 0.9"], "kategorie": "ziegel", "rohdichte": 900, "quelle": "HLz RDK 0,9 (Hinweis: Lochstein, ggf. Eignungspruefung 4.1.4.3)"},
+    "leichtbetonstein_1.0":  {"aliases": ["leichtbetonstein", "lbs", "leichthochlochstein"], "kategorie": "leichtbeton", "rohdichte": 1000, "quelle": "Leichtbeton-Mauerwerk RDK 1,0"},
+    "porenbeton_0.5":        {"aliases": ["porenbeton", "ytong", "pb 0.5", "porenbetonstein"], "kategorie": "porenbeton", "rohdichte": 500, "quelle": "Porenbeton RDK 0,5"},
+    "porenbeton_0.6":        {"aliases": ["porenbeton 0.6", "pb 0.6"], "kategorie": "porenbeton", "rohdichte": 600, "quelle": "Porenbeton RDK 0,6"},
+    "zementestrich":         {"aliases": ["estrich", "zementestrich", "ze"], "kategorie": "schicht", "rohdichte": 2000, "quelle": "DIN 4109-32 4.8.4.2 (Zementestrich)"},
+    "kalkzementputz":        {"aliases": ["putz", "kalkzementputz", "kzp", "aussenputz"], "kategorie": "schicht", "rohdichte": 1800, "quelle": "ISO 10456 (Kalkzementmoertel)"},
+    "gipsputz":              {"aliases": ["gipsputz", "innenputz"], "kategorie": "schicht", "rohdichte": 1400, "quelle": "ISO 10456 (Gipsputz)"},
+    "gipskartonplatte":      {"aliases": ["gipskarton", "gkb", "gk", "gipsplatte"], "kategorie": "schicht", "rohdichte": 900, "quelle": "ISO 10456"},
+    "mineralwolle":          {"aliases": ["mineralwolle", "daemmung", "mw", "steinwolle", "trittschalldaemmung"], "kategorie": "daemmung", "rohdichte": 50, "quelle": "ISO 10456 (Mineralwolle)"}
+  }
+}
