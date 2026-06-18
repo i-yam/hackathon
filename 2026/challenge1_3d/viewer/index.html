@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Slab-Opening Detection Viewer — Floor U1</title>
+<style>
+  :root{--red:#c81e1e;--ink:#1a1a1a;--bg:#0f0f10;--panel:#17181b;--line:#2a2c30;--muted:#9aa0a6;}
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:#eee;height:100vh;display:flex;flex-direction:column;overflow:hidden;}
+  header{background:#000;border-bottom:2px solid var(--red);padding:10px 16px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
+  header h1{font-size:16px;margin:0;color:#fff;}
+  header h1 b{color:var(--red);}
+  .stat{font-size:12px;color:var(--muted);}
+  .stat b{color:#fff;font-size:14px;}
+  main{flex:1;display:flex;min-height:0;}
+  #stage{flex:1;position:relative;overflow:hidden;background:#202225;cursor:grab;}
+  #stage.drag{cursor:grabbing;}
+  #canvas{position:absolute;transform-origin:0 0;left:0;top:0;}
+  #plan{display:block;}
+  .marker{position:absolute;transform:translate(-50%,-50%);border:2px solid var(--red);
+          background:rgba(200,30,30,.18);border-radius:3px;cursor:pointer;}
+  .marker.round{border-radius:50%;}
+  .marker.dup{border-color:#f5a623;background:rgba(245,166,35,.18);border-style:dashed;}
+  .marker.sel{border-color:#19c37d;background:rgba(25,195,125,.30);box-shadow:0 0 0 3px rgba(25,195,125,.4);}
+  aside{width:330px;background:var(--panel);border-left:1px solid var(--line);display:flex;flex-direction:column;}
+  .tabs{display:flex;border-bottom:1px solid var(--line);}
+  .tab{flex:1;padding:9px;text-align:center;font-size:12px;color:var(--muted);cursor:pointer;background:none;border:none;}
+  .tab.on{color:#fff;border-bottom:2px solid var(--red);}
+  .pad{padding:12px 14px;}
+  select,.tg{width:100%;background:#0c0d0e;color:#eee;border:1px solid var(--line);border-radius:6px;padding:8px;font-size:13px;}
+  .legend{display:flex;gap:14px;font-size:11px;color:var(--muted);margin-top:10px;flex-wrap:wrap;}
+  .legend i{display:inline-block;width:11px;height:11px;border:2px solid var(--red);margin-right:4px;vertical-align:-1px;border-radius:2px;}
+  .legend .o{border-color:#f5a623;border-style:dashed;}
+  .legend .g{border-color:#19c37d;}
+  .toggles{display:flex;gap:8px;margin-top:10px;font-size:12px;}
+  .toggles label{display:flex;align-items:center;gap:5px;color:#ccc;}
+  #list{overflow:auto;flex:1;border-top:1px solid var(--line);}
+  .row{padding:8px 14px;border-bottom:1px solid #202225;cursor:pointer;font-size:12px;display:flex;justify-content:space-between;gap:8px;}
+  .row:hover{background:#202225;}
+  .row.sel{background:#11231b;}
+  .row .lab{color:#fff;font-weight:bold;}
+  .row .meta{color:var(--muted);}
+  .row .wt{color:var(--red);font-weight:bold;white-space:nowrap;}
+  .badge{font-size:9px;background:#f5a623;color:#000;border-radius:3px;padding:0 4px;margin-left:5px;}
+  #detail{padding:12px 14px;border-top:1px solid var(--line);font-size:12px;background:#0c0d0e;min-height:74px;}
+  #detail h3{margin:0 0 6px;color:var(--red);font-size:14px;}
+  #detail table{width:100%;font-size:12px;}
+  #detail td{padding:2px 0;color:#ccc;} #detail td:last-child{text-align:right;color:#fff;}
+  .hint{position:absolute;bottom:10px;left:10px;font-size:11px;color:#bbb;background:rgba(0,0,0,.55);padding:5px 9px;border-radius:6px;}
+  .zoombtns{position:absolute;top:10px;right:10px;display:flex;flex-direction:column;gap:6px;}
+  .zoombtns button{width:34px;height:34px;font-size:18px;background:rgba(0,0,0,.6);color:#fff;border:1px solid var(--line);border-radius:6px;cursor:pointer;}
+</style>
+</head>
+<body>
+<header>
+  <h1>Slab-Opening Detection &nbsp;<b>·</b>&nbsp; Floor U1</h1>
+  <span class="stat"><b id="sMaster">–</b> unique openings</span>
+  <span class="stat"><b id="sRaw">–</b> raw detections</span>
+  <span class="stat"><b id="sDup">–</b> duplicates flagged</span>
+  <span class="stat"><b id="sWt">–</b> kg total</span>
+</header>
+<main>
+  <div id="stage">
+    <div id="canvas"><img id="plan" alt="plan"></div>
+    <div class="zoombtns"><button id="zin">+</button><button id="zout">−</button><button id="zfit">⤢</button></div>
+    <div class="hint">Scroll = zoom · drag = pan · click a marker for details</div>
+  </div>
+  <aside>
+    <div class="tabs">
+      <button class="tab on" data-t="plan">Plan view</button>
+      <button class="tab" data-t="list">Opening list</button>
+    </div>
+    <div class="pad">
+      <select id="planSel"></select>
+      <div class="toggles">
+        <label><input type="checkbox" id="tDup" checked> show duplicates</label>
+        <label><input type="checkbox" id="tLab" checked> labels</label>
+      </div>
+      <div class="legend">
+        <span><i></i>opening</span>
+        <span><i class="o"></i>overlap duplicate</span>
+        <span><i class="g"></i>selected</span>
+      </div>
+    </div>
+    <div id="list"></div>
+    <div id="detail"><span style="color:var(--muted)">Select an opening to see its fabrication data.</span></div>
+  </aside>
+</main>
+<script>
+let DATA, cur=0, scale=1, tx=0, ty=0, sel=null;
+const stage=document.getElementById('stage'), canvas=document.getElementById('canvas'),
+      img=document.getElementById('plan'), planSel=document.getElementById('planSel');
+
+fetch('data.json').then(r=>r.json()).then(d=>{
+  DATA=d;
+  document.getElementById('sMaster').textContent=d.master_count;
+  document.getElementById('sRaw').textContent=d.raw_count;
+  let dup=0,wt=0; d.plans.forEach(p=>p.openings.forEach(o=>{if(o.dup)dup++;}));
+  // total weight from unique only
+  const seen={}; d.plans.forEach(p=>p.openings.forEach(o=>{if(!seen[o.id]){seen[o.id]=1;wt+=o.wt;}}));
+  document.getElementById('sDup').textContent=dup;
+  document.getElementById('sWt').textContent=Math.round(wt).toLocaleString();
+  d.plans.forEach((p,i)=>{const o=document.createElement('option');o.value=i;
+    o.textContent=p.name.replace('SP_U1_','Plan ')+'  ('+p.openings.length+')';planSel.appendChild(o);});
+  loadPlan(0);
+});
+
+function loadPlan(i){
+  cur=i; sel=null; const p=DATA.plans[i];
+  img.onload=()=>{fit();render();renderList();};
+  img.src=p.img;
+}
+function fit(){
+  const p=DATA.plans[cur];
+  const sw=stage.clientWidth, sh=stage.clientHeight;
+  scale=Math.min(sw/p.w, sh/p.h)*0.96;
+  tx=(sw-p.w*scale)/2; ty=(sh-p.h*scale)/2;
+  apply();
+}
+function apply(){canvas.style.transform=`translate(${tx}px,${ty}px) scale(${scale})`;}
+function render(){
+  const p=DATA.plans[cur];
+  [...canvas.querySelectorAll('.marker')].forEach(m=>m.remove());
+  const showDup=document.getElementById('tDup').checked;
+  const showLab=document.getElementById('tLab').checked;
+  p.openings.forEach((o,idx)=>{
+    if(o.dup && !showDup) return;
+    const m=document.createElement('div');
+    m.className='marker '+(o.geom==='round'?'round ':'')+(o.dup?'dup ':'')+(sel===idx?'sel':'');
+    const wpx=Math.max(o.l,14)/100*56.7, hpx=Math.max(o.w,14)/100*56.7; // cm->pt @1:50
+    m.style.left=o.x+'px'; m.style.top=o.y+'px';
+    m.style.width=Math.max(wpx,16)+'px'; m.style.height=Math.max(hpx,16)+'px';
+    m.title=o.label+'  '+o.l+'×'+o.w+' cm';
+    if(showLab){const t=document.createElement('div');
+      t.style.cssText='position:absolute;left:50%;top:-16px;transform:translateX(-50%);white-space:nowrap;font-size:9px;color:#fff;background:rgba(200,30,30,.9);padding:0 3px;border-radius:2px;';
+      t.textContent=o.label; m.appendChild(t);}
+    m.onclick=e=>{e.stopPropagation();select(idx);};
+    canvas.appendChild(m);
+  });
+}
+function renderList(){
+  const p=DATA.plans[cur], el=document.getElementById('list'); el.innerHTML='';
+  p.openings.forEach((o,idx)=>{
+    const r=document.createElement('div'); r.className='row'+(sel===idx?' sel':'');
+    r.innerHTML=`<div><span class="lab">${o.label}</span>${o.dup?'<span class="badge">DUP</span>':''}
+       <div class="meta">${o.type} · ${o.geom} · ${o.l}×${o.w}×${o.h} cm</div></div>
+       <div class="wt">${o.wt} kg</div>`;
+    r.onclick=()=>{select(idx);centerOn(idx);};
+    el.appendChild(r);
+  });
+}
+function select(idx){
+  sel=idx; render(); renderList();
+  const o=DATA.plans[cur].openings[idx];
+  document.getElementById('detail').innerHTML=`<h3>${o.label}</h3>
+    <table>
+    <tr><td>Opening ID</td><td>${o.id}</td></tr>
+    <tr><td>Type</td><td>${o.type}</td></tr>
+    <tr><td>Geometry</td><td>${o.geom}</td></tr>
+    <tr><td>Length × Width</td><td>${o.l} × ${o.w} cm</td></tr>
+    <tr><td>Slab height</td><td>${o.h} cm</td></tr>
+    <tr><td>Weight</td><td>${o.wt} kg</td></tr>
+    <tr><td>Appears in</td><td>${o.np} plan(s)</td></tr>
+    <tr><td>Status</td><td>${o.dup?'overlap duplicate':'primary'}</td></tr>
+    </table>`;
+}
+function centerOn(idx){
+  const o=DATA.plans[cur].openings[idx];
+  scale=Math.max(scale,1.4);
+  tx=stage.clientWidth/2 - o.x*scale; ty=stage.clientHeight/2 - o.y*scale; apply();
+}
+// pan/zoom
+let drag=false,sx,sy;
+stage.addEventListener('mousedown',e=>{drag=true;sx=e.clientX-tx;sy=e.clientY-ty;stage.classList.add('drag');});
+addEventListener('mouseup',()=>{drag=false;stage.classList.remove('drag');});
+addEventListener('mousemove',e=>{if(drag){tx=e.clientX-sx;ty=e.clientY-sy;apply();}});
+stage.addEventListener('wheel',e=>{e.preventDefault();
+  const r=stage.getBoundingClientRect(),mx=e.clientX-r.left,my=e.clientY-r.top;
+  const f=e.deltaY<0?1.15:1/1.15, ns=Math.min(Math.max(scale*f,0.05),12);
+  tx=mx-(mx-tx)*ns/scale; ty=my-(my-ty)*ns/scale; scale=ns; apply();
+},{passive:false});
+document.getElementById('zin').onclick=()=>{scale*=1.25;apply();};
+document.getElementById('zout').onclick=()=>{scale/=1.25;apply();};
+document.getElementById('zfit').onclick=fit;
+planSel.onchange=e=>loadPlan(+e.target.value);
+document.getElementById('tDup').onchange=render;
+document.getElementById('tLab').onchange=render;
+document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{
+  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));t.classList.add('on');
+  document.getElementById('list').style.display=t.dataset.t==='list'?'block':'block';
+});
+addEventListener('resize',fit);
+</script>
+</body>
+</html>

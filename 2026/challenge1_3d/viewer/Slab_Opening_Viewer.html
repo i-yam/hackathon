@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Slab-Opening Detection Viewer — Floor U1</title>
+<style>
+:root{--red:#c81e1e;--bg:#0f0f10;--panel:#17181b;--line:#2a2c30;--muted:#9aa0a6;}
+*{box-sizing:border-box;}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:#eee;height:100vh;display:flex;flex-direction:column;overflow:hidden;}
+header{background:#000;border-bottom:2px solid var(--red);padding:9px 16px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+header h1{font-size:15px;margin:0;color:#fff;}header h1 b{color:var(--red);}
+.stat{font-size:12px;color:var(--muted);}.stat b{color:#fff;font-size:14px;}
+main{flex:1;display:flex;min-height:0;}
+#stage{flex:1;position:relative;overflow:hidden;background:#202225;cursor:grab;}
+#stage.drag{cursor:grabbing;}
+#canvas{position:absolute;transform-origin:0 0;left:0;top:0;}
+#plan{display:block;}
+.marker{position:absolute;transform:translate(-50%,-50%);border:2px solid var(--red);background:rgba(200,30,30,.16);border-radius:3px;cursor:pointer;}
+.marker.round{border-radius:50%;border-color:#4aa3ff;background:rgba(74,163,255,.16);}
+.marker.wall{border-color:#b06bff;background:rgba(176,107,255,.14);}
+.marker.dup{border-style:dashed;outline:1px dashed #f5a623;}
+.marker.sel{border-color:#19c37d!important;background:rgba(25,195,125,.30)!important;box-shadow:0 0 0 3px rgba(25,195,125,.45);}
+.mlabel{position:absolute;left:50%;top:-15px;transform:translateX(-50%);white-space:nowrap;font-size:9px;color:#fff;background:rgba(0,0,0,.8);padding:0 3px;border-radius:2px;}
+aside{width:340px;background:var(--panel);border-left:1px solid var(--line);display:flex;flex-direction:column;}
+.pad{padding:11px 14px;}
+select,button.f{background:#0c0d0e;color:#eee;border:1px solid var(--line);border-radius:6px;padding:7px;font-size:13px;}
+select{width:100%;}
+.seg{display:flex;gap:4px;margin-top:9px;}
+.seg button{flex:1;cursor:pointer;}.seg button.on{background:var(--red);color:#fff;border-color:var(--red);}
+.toggles{display:flex;gap:12px;margin-top:10px;font-size:12px;}
+.toggles label{display:flex;align-items:center;gap:5px;color:#ccc;cursor:pointer;}
+.legend{display:flex;gap:12px;font-size:11px;color:var(--muted);margin-top:10px;flex-wrap:wrap;}
+.legend i{display:inline-block;width:11px;height:11px;border:2px solid var(--red);margin-right:4px;vertical-align:-1px;border-radius:2px;}
+.legend .rnd{border-color:#4aa3ff;border-radius:50%;}.legend .wl{border-color:#b06bff;}.legend .g{border-color:#19c37d;}
+#list{overflow:auto;flex:1;border-top:1px solid var(--line);}
+.row{padding:7px 14px;border-bottom:1px solid #202225;cursor:pointer;font-size:12px;display:flex;justify-content:space-between;gap:8px;}
+.row:hover{background:#202225;}.row.sel{background:#11231b;}
+.row .lab{color:#fff;font-weight:bold;}.row .meta{color:var(--muted);font-size:11px;}
+.row .wt{color:var(--red);font-weight:bold;white-space:nowrap;}
+.badge{font-size:9px;background:#f5a623;color:#000;border-radius:3px;padding:0 4px;margin-left:5px;}
+#detail{padding:11px 14px;border-top:1px solid var(--line);font-size:12px;background:#0c0d0e;min-height:70px;}
+#detail h3{margin:0 0 6px;color:var(--red);font-size:14px;}
+#detail table{width:100%;}#detail td{padding:2px 0;color:#ccc;}#detail td:last-child{text-align:right;color:#fff;}
+.hint{position:absolute;bottom:10px;left:10px;font-size:11px;color:#ddd;background:rgba(0,0,0,.55);padding:5px 9px;border-radius:6px;}
+.zb{position:absolute;top:10px;right:10px;display:flex;flex-direction:column;gap:6px;}
+.zb button{width:34px;height:34px;font-size:18px;background:rgba(0,0,0,.6);color:#fff;border:1px solid var(--line);border-radius:6px;cursor:pointer;}
+</style></head><body>
+<header>
+ <h1>Slab-Opening Detection <b>·</b> Floor U1</h1>
+ <span class="stat"><b id="sSlab">–</b> slab openings</span>
+ <span class="stat"><b id="sWall">–</b> wall openings</span>
+ <span class="stat"><b id="sDup">–</b> duplicates flagged</span>
+ <span class="stat"><b id="sWt">–</b> kg slab total</span>
+</header>
+<main>
+ <div id="stage"><div id="canvas"><img id="plan" alt="plan"></div>
+  <div class="zb"><button id="zin">+</button><button id="zout">−</button><button id="zfit">⤢</button></div>
+  <div class="hint">scroll = zoom · drag = pan · click a marker for fabrication data</div>
+ </div>
+ <aside>
+  <div class="pad">
+   <select id="planSel"></select>
+   <div class="seg" id="typeSeg">
+     <button class="f on" data-t="all">All</button>
+     <button class="f" data-t="Ceiling">Slab</button>
+     <button class="f" data-t="Wall">Wall</button>
+   </div>
+   <div class="toggles">
+     <label><input type="checkbox" id="tDup" checked> duplicates</label>
+     <label><input type="checkbox" id="tLab"> labels</label>
+   </div>
+   <div class="legend">
+     <span><i></i>rect slab</span><span><i class="rnd"></i>round slab (Ø)</span>
+     <span><i class="wl"></i>wall</span><span><i class="g"></i>selected</span>
+   </div>
+  </div>
+  <div id="list"></div>
+  <div id="detail"><span style="color:var(--muted)">Select an opening to see its fabrication data.</span></div>
+ </aside>
+</main>
+<script src="data.js"></script>
+<script>
+const DATA=window.OPENING_DATA;
+let cur=0,scale=1,tx=0,ty=0,sel=null,typeF='all';
+const stage=document.getElementById('stage'),canvas=document.getElementById('canvas'),
+      img=document.getElementById('plan'),planSel=document.getElementById('planSel');
+document.getElementById('sSlab').textContent=DATA.slab_count;
+document.getElementById('sWall').textContent=DATA.wall_count;
+let dup=0,wt=0,seen={};
+DATA.plans.forEach(p=>p.openings.forEach(o=>{if(o.dup)dup++;if(!seen[o.id]&&o.type==='Ceiling'){seen[o.id]=1;wt+=o.wt;}}));
+document.getElementById('sDup').textContent=dup;
+document.getElementById('sWt').textContent=Math.round(wt).toLocaleString();
+DATA.plans.forEach((p,i)=>{const o=document.createElement('option');o.value=i;
+  o.textContent=p.name.replace('SP_U1_','Plan ')+'  ('+p.openings.length+')';planSel.appendChild(o);});
+function visible(o){return (typeF==='all'||o.type===typeF);}
+function loadPlan(i){cur=i;sel=null;const p=DATA.plans[i];img.onload=()=>{fit();render();renderList();};img.src=p.img;}
+function fit(){const p=DATA.plans[cur],sw=stage.clientWidth,sh=stage.clientHeight;
+  scale=Math.min(sw/p.w,sh/p.h)*0.96;tx=(sw-p.w*scale)/2;ty=(sh-p.h*scale)/2;apply();}
+function apply(){canvas.style.transform='translate('+tx+'px,'+ty+'px) scale('+scale+')';}
+function render(){
+  const p=DATA.plans[cur];[...canvas.querySelectorAll('.marker')].forEach(m=>m.remove());
+  const showDup=document.getElementById('tDup').checked,showLab=document.getElementById('tLab').checked;
+  p.openings.forEach((o,idx)=>{
+    if(!visible(o))return; if(o.dup&&!showDup)return;
+    const m=document.createElement('div');
+    m.className='marker '+(o.type==='Wall'?'wall ':(o.geom==='round'?'round ':''))+(o.dup?'dup ':'')+(sel===idx?'sel':'');
+    const wpx=Math.max(o.l,12)/100*56.7,hpx=Math.max(o.w,12)/100*56.7;
+    m.style.left=o.x+'px';m.style.top=o.y+'px';
+    m.style.width=Math.max(wpx,14)+'px';m.style.height=Math.max(hpx,14)+'px';
+    m.title=o.label+'  '+o.l+(o.geom==='round'?' Ø':'×'+o.w)+' cm';
+    if(showLab){const t=document.createElement('div');t.className='mlabel';t.textContent=o.label;m.appendChild(t);}
+    m.onclick=e=>{e.stopPropagation();select(idx);};
+    canvas.appendChild(m);
+  });
+}
+function renderList(){
+  const p=DATA.plans[cur],el=document.getElementById('list');el.innerHTML='';
+  p.openings.forEach((o,idx)=>{
+    if(!visible(o))return;
+    const r=document.createElement('div');r.className='row'+(sel===idx?' sel':'');
+    const dim=o.geom==='round'?('Ø'+o.l):(o.l+'×'+o.w);
+    r.innerHTML='<div><span class="lab">'+o.label+'</span>'+(o.dup?'<span class="badge">DUP</span>':'')+
+      '<div class="meta">'+o.type+' · '+o.geom+' · '+dim+'×'+o.h+' cm</div></div><div class="wt">'+o.wt+' kg</div>';
+    r.onclick=()=>{select(idx);centerOn(idx);};el.appendChild(r);
+  });
+}
+function select(idx){
+  sel=idx;render();renderList();const o=DATA.plans[cur].openings[idx];
+  const dim=o.geom==='round'?('Ø '+o.l+' cm'):(o.l+' × '+o.w+' cm');
+  document.getElementById('detail').innerHTML='<h3>'+o.label+'</h3><table>'+
+   '<tr><td>Opening ID</td><td>'+o.id+'</td></tr>'+
+   '<tr><td>Type</td><td>'+(o.type==='Ceiling'?'Slab (Deckendurchbruch)':'Wall (Wanddurchbruch)')+'</td></tr>'+
+   '<tr><td>Geometry</td><td>'+o.geom+'</td></tr>'+
+   '<tr><td>Opening size</td><td>'+dim+'</td></tr>'+
+   '<tr><td>Slab / element height</td><td>'+o.h+' cm</td></tr>'+
+   '<tr><td>Weight (handling)</td><td>'+o.wt+' kg</td></tr>'+
+   '<tr><td>Appears in</td><td>'+o.np+' plan(s)</td></tr>'+
+   '<tr><td>Status</td><td>'+(o.dup?'overlap duplicate':'primary')+'</td></tr></table>';
+}
+function centerOn(idx){const o=DATA.plans[cur].openings[idx];scale=Math.max(scale,1.5);
+  tx=stage.clientWidth/2-o.x*scale;ty=stage.clientHeight/2-o.y*scale;apply();}
+let drag=false,sx,sy;
+stage.addEventListener('mousedown',e=>{drag=true;sx=e.clientX-tx;sy=e.clientY-ty;stage.classList.add('drag');});
+addEventListener('mouseup',()=>{drag=false;stage.classList.remove('drag');});
+addEventListener('mousemove',e=>{if(drag){tx=e.clientX-sx;ty=e.clientY-sy;apply();}});
+stage.addEventListener('wheel',e=>{e.preventDefault();const r=stage.getBoundingClientRect(),
+  mx=e.clientX-r.left,my=e.clientY-r.top,f=e.deltaY<0?1.15:1/1.15,ns=Math.min(Math.max(scale*f,0.05),14);
+  tx=mx-(mx-tx)*ns/scale;ty=my-(my-ty)*ns/scale;scale=ns;apply();},{passive:false});
+document.getElementById('zin').onclick=()=>{scale*=1.25;apply();};
+document.getElementById('zout').onclick=()=>{scale/=1.25;apply();};
+document.getElementById('zfit').onclick=fit;
+planSel.onchange=e=>loadPlan(+e.target.value);
+document.getElementById('tDup').onchange=render;
+document.getElementById('tLab').onchange=render;
+document.querySelectorAll('#typeSeg button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('#typeSeg button').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');typeF=b.dataset.t;sel=null;render();renderList();});
+addEventListener('resize',fit);
+loadPlan(0);
+</script></body></html>
