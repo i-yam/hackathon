@@ -1,0 +1,39 @@
+{
+  "target": "vehicle_count_total",
+  "feature_cols": [
+    "station_id",
+    "direction_enc",
+    "season_enc",
+    "hour",
+    "dayofweek",
+    "month",
+    "week",
+    "is_weekend",
+    "is_holiday",
+    "sin_hour",
+    "cos_hour",
+    "sin_dow",
+    "cos_dow",
+    "sin_month",
+    "cos_month",
+    "lag_1h",
+    "lag_24h",
+    "lag_168h",
+    "roll_24h",
+    "roll_168h"
+  ],
+  "cat_features": [
+    "station_id"
+  ],
+  "split_date": "2023-07-01",
+  "n_train": 917664,
+  "n_val": 167808,
+  "best_iter": 964,
+  "season_enc": {
+    "winter": 0,
+    "spring": 1,
+    "summer": 2,
+    "autumn": 3
+  },
+  "weather_cols": []
+}

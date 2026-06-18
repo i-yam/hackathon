@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:#eef0f2; }
+  select,input,button{ font-family:'IBM Plex Sans',Helvetica,Arial,sans-serif; }
+</style>
+</helmet>
+
+<div style="font-family:'IBM Plex Sans',Helvetica,Arial,sans-serif; color:#14181c; min-height:100vh; padding:24px 28px 34px;">
+
+  <!-- ===== HEADER ===== -->
+  <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:20px;">
+    <div style="display:flex; align-items:center; gap:14px;">
+      <div style="width:42px; height:42px; border-radius:10px; background:#14181c; color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:17px; letter-spacing:.5px;">A3</div>
+      <div>
+        <div style="font-size:22px; font-weight:700; letter-spacing:-.3px; line-height:1.1;">Bau-Fenster-Planer</div>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6b727a; margin-top:2px;">Frankfurt am Main → Würzburg · Asphaltsanierung · 52-KW-Horizont</div>
+      </div>
+    </div>
+    <div style="display:flex; align-items:center; gap:10px; background:#fff; border:1px solid #dfe3e7; border-radius:11px; padding:10px 14px;">
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:#9aa0a6; text-transform:uppercase; letter-spacing:.6px;">Eignungs-Score</span>
+      <span style="width:120px; height:9px; border-radius:5px; background:{{ legendGradient }};"></span>
+      <span style="font-size:11px; color:#6b727a;">viel Verkehr</span>
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#aeb4ba;">→</span>
+      <span style="font-size:11px; color:#6b727a;">wenig Verkehr · gut zum Bauen</span>
+    </div>
+  </div>
+
+  <!-- ===== ZONE 1 — EINGABEN ===== -->
+  <div style="display:flex; gap:16px; margin-bottom:18px; align-items:stretch;">
+
+    <!-- Input 1: Streckenabschnitt -->
+    <div style="flex:0 0 26%; background:#fff; border:1px solid #dfe3e7; border-radius:14px; padding:16px 18px; box-shadow:0 1px 2px rgba(16,24,40,.04);">
+      <div style="display:flex; align-items:center; gap:8px; margin-bottom:13px;">
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; font-weight:600; letter-spacing:.5px; color:#1f5da6; background:#eaf1fa; padding:2px 7px; border-radius:5px;">01</span>
+        <span style="font-size:13px; font-weight:600;">Streckenabschnitt</span>
+      </div>
+      <select value="{{ selStr }}" onChange="{{ onSection }}" style="width:100%; padding:10px 12px; font-size:15px; border:1px solid #ccd2d8; border-radius:9px; background:#fff; color:#14181c;">
+        <option value="0">Frankfurt-Ost — Offenbacher Kreuz</option>
+        <option value="1">Offenbacher Kreuz — Hanau</option>
+        <option value="2">Hanau — Aschaffenburg</option>
+        <option value="3">Aschaffenburg — Marktheidenfeld</option>
+        <option value="4">Marktheidenfeld — Würzburg</option>
+      </select>
+      <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:#aeb4ba; margin-top:9px; line-height:1.4;">Auch per Klick in der Karte wählbar ↓</div>
+    </div>
+
+    <!-- Input 2: Dauer -->
+    <div style="flex:0 0 31%; background:#fff; border:1px solid #dfe3e7; border-radius:14px; padding:16px 18px; box-shadow:0 1px 2px rgba(16,24,40,.04);">
+      <div style="display:flex; align-items:center; gap:8px; margin-bottom:13px;">
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; font-weight:600; letter-spacing:.5px; color:#1f5da6; background:#eaf1fa; padding:2px 7px; border-radius:5px;">02</span>
+        <span style="font-size:13px; font-weight:600;">Voraussichtliche Dauer</span>
+      </div>
+      <dc-import name="DurationInput"
+        presets="{{ durPresets }}" value="{{ durValue }}" unit="{{ durUnit }}"
+        onValue="{{ onDurValue }}" onUnit="{{ onDurUnit }}" hint="{{ durHint }}"
+        hint-size="100%,200px"></dc-import>
+    </div>
+
+    <!-- Input 3: Filter -->
+    <div style="flex:1; background:#fff; border:1px solid #dfe3e7; border-radius:14px; padding:16px 18px; box-shadow:0 1px 2px rgba(16,24,40,.04);">
+      <div style="display:flex; align-items:center; gap:8px; margin-bottom:13px;">
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; font-weight:600; letter-spacing:.5px; color:#1f5da6; background:#eaf1fa; padding:2px 7px; border-radius:5px;">03</span>
+        <span style="font-size:13px; font-weight:600;">Optimierungs-Ziel</span>
+      </div>
+      <div style="display:flex; gap:9px;">
+        <sc-for list="{{ filterOptions }}" as="f" hint-placeholder-count="3">
+          <div onClick="{{ f.onClick }}" style="{{ f.style }}">
+            <div style="{{ f.labelStyle }}">{{ f.label }}</div>
+            <div style="{{ f.descStyle }}">{{ f.desc }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== ZONE 2 — ERGEBNIS-BANNER ===== -->
+  <div style="margin-bottom:20px;">
+    <dc-import name="ResultBanner"
+      score="{{ bannerScore }}" accent="{{ bannerAccent }}" fg="{{ bannerFg }}"
+      tag="{{ bannerTag }}" section-name="{{ selName }}" period="{{ bannerPeriod }}"
+      dates="{{ bannerDates }}" filter-label="{{ filterLabel }}" cta-label="Fenster reservieren"
+      on-reserve="{{ onReserve }}" hint-size="100%,134px"></dc-import>
+  </div>
+
+  <!-- ===== MAIN ===== -->
+  <div style="display:flex; gap:20px; align-items:flex-start;">
+
+    <!-- LEFT: maps + KPIs -->
+    <div style="flex:0 0 50%; min-width:0; display:flex; flex-direction:column; gap:16px;">
+
+      <sc-if value="{{ showSchematic }}" hint-placeholder-val="{{ true }}">
+      <div style="background:#fff; border:1px solid #dfe3e7; border-radius:14px; padding:18px 22px; box-shadow:0 1px 2px rgba(16,24,40,.04);">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;">
+          <div style="font-size:12px; font-weight:600; color:#515860;">Streckenschema · Abschnitte</div>
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:#aeb4ba;">analysierter Abschnitt blau</div>
+        </div>
+        <div style="position:relative; padding:34px 14px 40px;">
+          <div style="display:flex; align-items:center; height:30px;">
+            <sc-for list="{{ routeItems }}" as="it" hint-placeholder-count="11">
+              <sc-if value="{{ it.isNode }}" hint-placeholder-val="{{ true }}">
+                <div style="flex:0 0 0px; position:relative;">
+                  <div style="{{ it.dotStyle }}"></div>
+                  <div style="{{ it.labelStyle }}">{{ it.label }}</div>
+                </div>
+              </sc-if>
+              <sc-if value="{{ it.isSeg }}" hint-placeholder-val="{{ true }}">
+                <div onClick="{{ it.onSelect }}" style="{{ it.barStyle }}">
+                  <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:{{ it.kmColor }};">{{ it.km }}</div>
+                  <sc-if value="{{ it.selected }}" hint-placeholder-val="{{ false }}">
+                    <div style="position:absolute; top:-26px; left:50%; transform:translateX(-50%); font-family:'IBM Plex Mono',monospace; font-size:10px; font-weight:500; color:#1f5da6; white-space:nowrap;">▼ ANALYSIERT</div>
+                  </sc-if>
+                </div>
+              </sc-if>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+      </sc-if>
+
+      <sc-if value="{{ showGeo }}" hint-placeholder-val="{{ true }}">
+      <div style="background:#fff; border:1px solid #dfe3e7; border-radius:14px; padding:18px 22px; box-shadow:0 1px 2px rgba(16,24,40,.04);">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;">
+          <div style="font-size:12px; font-weight:600; color:#515860;">Geo-Verlauf · nur Autobahnen</div>
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:#aeb4ba;">Querautobahnen angedeutet</div>
+        </div>
+        <svg viewBox="0 0 600 210" style="width:100%; height:auto; display:block;">
+          <rect x="0" y="0" width="600" height="210" rx="10" style="{{ geoBgStyle }}"></rect>
+          <sc-for list="{{ geoBranches }}" as="b" hint-placeholder-count="4">
+            <line x1="{{ b.x1 }}" y1="{{ b.y1 }}" x2="{{ b.x2 }}" y2="{{ b.y2 }}" style="{{ branchLineStyle }}"></line>
+            <text x="{{ b.lx }}" y="{{ b.ly }}" style="{{ branchLabelStyle }}">{{ b.label }}</text>
+          </sc-for>
+          <sc-for list="{{ geoSegments }}" as="g" hint-placeholder-count="5">
+            <line x1="{{ g.x1 }}" y1="{{ g.y1 }}" x2="{{ g.x2 }}" y2="{{ g.y2 }}" style="{{ g.lineStyle }}"></line>
+            <line x1="{{ g.x1 }}" y1="{{ g.y1 }}" x2="{{ g.x2 }}" y2="{{ g.y2 }}" onClick="{{ g.onSelect }}" style="{{ hitLineStyle }}"></line>
+          </sc-for>
+          <sc-for list="{{ geoNodes }}" as="n" hint-placeholder-count="6">
+            <circle cx="{{ n.cx }}" cy="{{ n.cy }}" r="{{ n.r }}" style="{{ n.dotStyle }}"></circle>
+            <text x="{{ n.cx }}" y="{{ n.ly }}" style="{{ n.labelStyle }}">{{ n.label }}</text>
+          </sc-for>
+          <text x="{{ shieldX }}" y="{{ shieldY }}" style="{{ shieldStyle }}">A3</text>
+        </svg>
+      </div>
+      </sc-if>
+
+      <!-- KPIs -->
+      <div style="background:#fff; border:1px solid #dfe3e7; border-radius:14px; padding:16px 22px; box-shadow:0 1px 2px rgba(16,24,40,.04);">
+        <div style="font-size:12px; font-weight:600; color:#515860; margin-bottom:11px;">Kennzahlen · gewähltes Zeitfenster</div>
+        <div style="display:flex; gap:10px;">
+          <dc-import name="KpiTile" value="{{ kpiKfz }}" label="Ø Verkehr Kfz/h" tone="neutral" style="flex:1;min-width:0;" hint-size="100%,84px"></dc-import>
+          <dc-import name="KpiTile" value="{{ kpiNfz }}" label="Ø Schwerverkehr Nfz/h" tone="neutral" style="flex:1;min-width:0;" hint-size="100%,84px"></dc-import>
+          <dc-import name="KpiTile" value="{{ kpiRisk }}" label="Stau-Risiko" tone="{{ kpiRiskTone }}" style="flex:1;min-width:0;" hint-size="100%,84px"></dc-import>
+          <dc-import name="KpiTile" value="{{ kpiLkw }}" label="Lkw-Anteil" tone="neutral" style="flex:1;min-width:0;" hint-size="100%,84px"></dc-import>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Top-3 + heatmap -->
+    <div style="flex:1; min-width:0; display:flex; flex-direction:column; gap:16px;">
+
+      <div style="background:#fff; border:1px solid #dfe3e7; border-radius:14px; padding:18px 22px; box-shadow:0 1px 2px rgba(16,24,40,.04);">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:11px;">
+          <div style="font-size:12px; font-weight:600; color:#515860;">Top-3 Bau-Fenster</div>
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:#aeb4ba;">Klick zum Auswählen</div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:9px;">
+          <sc-for list="{{ top3 }}" as="w" hint-placeholder-count="3">
+            <dc-import name="WindowCard"
+              rank="{{ w.rank }}" period="{{ w.period }}" dates="{{ w.dates }}" score="{{ w.score }}"
+              active="{{ w.active }}" score-bg="{{ w.scoreBg }}" score-fg="{{ w.scoreFg }}"
+              score-border="{{ w.scoreBorder }}" on-select="{{ w.onSelect }}"
+              hint-size="100%,74px"></dc-import>
+          </sc-for>
+        </div>
+      </div>
+
+      <sc-if value="{{ showHeatmap }}" hint-placeholder-val="{{ true }}">
+      <div style="background:#fff; border:1px solid #dfe3e7; border-radius:14px; padding:18px 22px; box-shadow:0 1px 2px rgba(16,24,40,.04);">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:11px;">
+          <div style="font-size:12px; font-weight:600; color:#515860;">Jahres-Heatmap · 1 Kästchen = 1 Kalenderwoche</div>
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:#aeb4ba;">▢ = gewähltes Fenster</div>
+        </div>
+        <div style="display:flex; align-items:flex-end; gap:2px;">
+          <sc-for list="{{ heatWeeks }}" as="c" hint-placeholder-count="52">
+            <div style="{{ c.style }}"></div>
+          </sc-for>
+        </div>
+        <div style="display:flex; gap:2px; margin-top:5px;">
+          <sc-for list="{{ heatWeeks }}" as="c" hint-placeholder-count="52">
+            <div style="flex:1; min-width:0; font-family:'IBM Plex Mono',monospace; font-size:8px; color:#9aa0a6; text-align:left; white-space:nowrap;">{{ c.month }}</div>
+          </sc-for>
+        </div>
+        <div style="display:flex; align-items:center; gap:9px; margin-top:14px; font-family:'IBM Plex Mono',monospace; font-size:10px; color:#9aa0a6;">
+          <span>Eignung:</span>
+          <span style="display:inline-block; width:96px; height:11px; border-radius:3px; background:{{ legendGradient }};"></span>
+          <span>gering → hoch</span>
+        </div>
+      </div>
+      </sc-if>
+    </div>
+  </div>
+
+  <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:#aeb4ba; margin-top:20px; text-align:center;">{{ footerText }}</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1360,&quot;height&quot;:1020},&quot;colorBlindSafe&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;},&quot;showHeatmap&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;mapMode&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;beide&quot;,&quot;options&quot;:[&quot;beide&quot;,&quot;schematisch&quot;,&quot;geo&quot;],&quot;tsType&quot;:&quot;'beide' | 'schematisch' | 'geo'&quot;}}">
+
+// ── API config ────────────────────────────────────────────────────────────────
+const API_BASE = 'http://127.0.0.1:8000';
+
+// API field → prop mapping (for reference):
+//   POST /recommendations  body:  { section, total_hours, filter, top_n }
+//   response.windows[]:          rank, period, dates, score (0-100 higher=better),
+//                                week_start (0-idx from HORIZON_START), week_span,
+//                                mean_kfz_per_hour, lkw_share_pct, congestion_pct
+//   response.kpi:                mean_kfz_per_hour, lkw_share_pct, congestion_pct,
+//                                risk ('niedrig'|'mittel'|'hoch')
+//   GET /heatmap-data      query: section, total_hours, filter
+//   response.weeks[]:            week_index, score (0-100), month_label
+
+class Component extends DCLogic {
+  state = {
+    sel: 2, durValue: 2, durUnit: 'wochen', filter: 'traffic', activeIdx: 0,
+    windows: null, heatmap: null, kpi: null, loading: false, error: null
+  };
+
+  _fetchGen = 0;
+
+  componentDidMount() {
+    this.loadFromApi();
+  }
+
+  async loadFromApi(overrides = {}) {
+    const gen = ++this._fetchGen;
+    const sel      = overrides.sel      != null ? overrides.sel      : this.state.sel;
+    const durValue = overrides.durValue != null ? overrides.durValue : this.state.durValue;
+    const durUnit  = overrides.durUnit  != null ? overrides.durUnit  : this.state.durUnit;
+    const filter   = overrides.filter  != null ? overrides.filter  : this.state.filter;
+
+    const totalHours = durUnit === 'wochen' ? durValue * 7 * 24
+                     : durUnit === 'tage'   ? durValue * 24
+                     : durValue;
+
+    this.setState({ loading: true, error: null });
+    try {
+      const [recResp, heatResp] = await Promise.all([
+        fetch(`${API_BASE}/recommendations`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ section: sel, total_hours: totalHours, filter, top_n: 3 })
+        }).then(r => { if (!r.ok) throw new Error(r.statusText); return r.json(); }),
+        fetch(`${API_BASE}/heatmap-data?section=${sel}&total_hours=${totalHours}&filter=${filter}`)
+          .then(r => { if (!r.ok) throw new Error(r.statusText); return r.json(); })
+      ]);
+      if (gen !== this._fetchGen) return;
+      this.setState({
+        windows: recResp.windows,
+        kpi:     recResp.kpi,
+        heatmap: heatResp.weeks,
+        loading: false,
+        error:   null
+      });
+    } catch (e) {
+      if (gen !== this._fetchGen) return;
+      this.setState({ loading: false, error: 'Backend nicht erreichbar' });
+    }
+  }
+
+  WD = ['Mo','Di','Mi','Do','Fr','Sa','So'];
+  WDL = ['Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag','Sonntag'];
+  MON = ['Jan','Feb','Mär','Apr','Mai','Jun','Jul','Aug','Sep','Okt','Nov','Dez'];
+  NODES = ['Frankfurt-Ost','Offenb. Kreuz','Hanau','Aschaffenburg','Marktheidenfeld','Würzburg'];
+  SECTIONS = [
+    { name:'Frankfurt-Ost — Offenbacher Kreuz' },
+    { name:'Offenbacher Kreuz — Hanau' },
+    { name:'Hanau — Aschaffenburg' },
+    { name:'Aschaffenburg — Marktheidenfeld' },
+    { name:'Marktheidenfeld — Würzburg' },
+  ];
+  KM = ['18 km','14 km','22 km','31 km','40 km'];
+  GEO = [
+    { lon:8.62, lat:50.11 }, { lon:8.80, lat:50.06 }, { lon:8.95, lat:50.07 },
+    { lon:9.15, lat:49.97 }, { lon:9.60, lat:49.84 }, { lon:9.93, lat:49.79 },
+  ];
+  HOR = 52;
+  base = new Date(2026, 5, 22); // Mon 22 Jun 2026
+
+  DURPRESETS = [
+    { label:'1 Tag',   v:1, u:'tage' },
+    { label:'3 Tage',  v:3, u:'tage' },
+    { label:'1 Woche', v:1, u:'wochen' },
+    { label:'2 Wochen',v:2, u:'wochen' },
+    { label:'4 Wochen',v:4, u:'wochen' },
+    { label:'8 Wochen',v:8, u:'wochen' },
+  ];
+  FILTERS = [
+    { key:'traffic', label:'Geringster Verkehrseinfluss', desc:'wenigste betroffene Kfz' },
+    { key:'risk',    label:'Min. Stau-/Unfallrisiko',     desc:'wenigste Staus & Unfälle' },
+    { key:'freight', label:'Schont Güter-/Pendlerverkehr', desc:'wenig Lkw & Pendler' },
+  ];
+
+  // ── color helpers ──────────────────────────────────────────────────────────
+  scoreColor(sc, cb){
+    if (cb){
+      if (sc >= 70) return { bg:'#e6eff7', fg:'#1f5fa8', bd:'#c2d8ee', ring:'#2c74c4', label:'gut geeignet' };
+      if (sc >= 50) return { bg:'#f0f1f2', fg:'#5b6168', bd:'#dfe3e7', ring:'#9aa0a6', label:'bedingt geeignet' };
+      return { bg:'#fdeede', fg:'#b5651a', bd:'#f3d6ad', ring:'#d8741f', label:'ungünstig' };
+    }
+    if (sc >= 70) return { bg:'#e7f4ec', fg:'#15803d', bd:'#bfe3cb', ring:'#1f9d57', label:'gut geeignet' };
+    if (sc >= 50) return { bg:'#fbf1dd', fg:'#a66a00', bd:'#efd9a8', ring:'#d99a00', label:'bedingt geeignet' };
+    return { bg:'#fbe9e7', fg:'#b42318', bd:'#f3c6c0', ring:'#d4513c', label:'ungünstig' };
+  }
+  hexRgb(h){ h = h.replace('#',''); return [0,2,4].map(i => parseInt(h.slice(i,i+2),16)); }
+  mix(a,b,t){ return a.map((v,i) => Math.round(v + (b[i]-v)*t)); }
+  rgb(a){ return 'rgb('+a[0]+','+a[1]+','+a[2]+')'; }
+  heatColor(sc, cb){
+    const t = Math.max(0, Math.min(100, sc)) / 100;
+    const lo  = cb ? [216,116,31]  : [224,150,142];
+    const mid = cb ? [226,228,230] : [240,212,138];
+    const hi  = cb ? [44,116,196]  : [150,205,170];
+    return t < 0.5 ? this.rgb(this.mix(lo, mid, t/0.5)) : this.rgb(this.mix(mid, hi, (t-0.5)/0.5));
+  }
+  legendGradient(cb){
+    const a = this.heatColor(0, cb), b = this.heatColor(50, cb), c = this.heatColor(100, cb);
+    return `linear-gradient(90deg, ${a}, ${b}, ${c})`;
+  }
+
+  // ── date helpers ───────────────────────────────────────────────────────────
+  pad(n){ return String(n).padStart(2,'0'); }
+  addDays(d, n){ const x = new Date(d); x.setDate(x.getDate() + n); return x; }
+  weekDate(i){ return this.addDays(this.base, i * 7); }
+  fmtD(d){ return this.pad(d.getDate()) + '.' + this.pad(d.getMonth() + 1) + '.' + this.pad(d.getFullYear() % 100); }
+  totalDays(){ return this.state.durUnit === 'wochen' ? this.state.durValue * 7 : this.state.durValue; }
+
+  isoWeek(d){
+    const t = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+    const day = (t.getUTCDay() + 6) % 7;
+    t.setUTCDate(t.getUTCDate() - day + 3);
+    const firstThu = new Date(Date.UTC(t.getUTCFullYear(), 0, 4));
+    const week = 1 + Math.round(((t - firstThu) / 86400000 - 3 + ((firstThu.getUTCDay() + 6) % 7)) / 7);
+    return { week, year: t.getUTCFullYear() };
+  }
+  kwLabel(i){ const w = this.isoWeek(this.weekDate(i)); return 'KW ' + this.pad(w.week) + '/' + this.pad(w.year % 100); }
+
+  // ── MOCK SCORING — offline fallback, not called when API is available ──────
+  /*
+  score(sec, w, wd, filter){
+    const month = this.weekDate(w).getMonth();
+    const season = Math.cos((month - 6) / 12 * 2 * Math.PI) * 0.5 + 0.5;
+    const weekend = wd >= 5 ? 1 : 0, fri = wd === 4 ? 1 : 0;
+    let b = 46 + (-6 + sec * 3);
+    if (filter === 'traffic')      b += season * 24 + weekend * 8 - fri * 4;
+    else if (filter === 'risk')    b += weekend * 14 + season * 8 - fri * 8 + (wd < 4 ? -4 : 0);
+    else                           b += season * 30 + weekend * 4 - (wd < 5 ? 5 : 0);
+    b += 4 * Math.sin(sec * 1.3 + w * 0.6 + wd * 1.1);
+    return Math.max(3, Math.min(99, Math.round(b)));
+  }
+  avgWindow(sec, wStart, wSpan, wdStart, wdSpan, filter){
+    let s = 0, n = 0;
+    for (let k = wStart; k < wStart + wSpan; k++)
+      for (let d = wdStart; d < wdStart + wdSpan; d++){ s += this.score(sec, k, d, filter); n++; }
+    return Math.round(s / n);
+  }
+  fmtWeekWin(start, span, score){
+    const ks = this.kwLabel(start), ke = this.kwLabel(start + span - 1);
+    const mon = this.weekDate(start), sun = this.addDays(this.weekDate(start + span - 1), 6);
+    return { week_start:start, week_span:span, score,
+      period: span === 1 ? ks : ks + ' – ' + ke,
+      dates: this.fmtD(mon) + ' – ' + this.fmtD(sun) };
+  }
+  fmtDayWin(w, wd, wdSpan, score){
+    const mon = this.weekDate(w), k = this.kwLabel(w);
+    if (wdSpan === 1)
+      return { week_start:w, week_span:1, score, period: this.WDL[wd] + ' · ' + k, dates: this.fmtD(this.addDays(mon, wd)) };
+    const d0 = this.addDays(mon, wd), d1 = this.addDays(mon, wd + wdSpan - 1);
+    return { week_start:w, week_span:1, score, period: this.WD[wd] + '–' + this.WD[wd + wdSpan - 1] + ' · ' + k, dates: this.fmtD(d0) + ' – ' + this.fmtD(d1) };
+  }
+  bestWeekWindows(sec, span, filter, count){
+    const ov = (a, b) => a < b + span && b < a + span;
+    const c = [];
+    for (let w = 0; w <= this.HOR - span; w++) c.push({ w, score: this.avgWindow(sec, w, span, 0, 7, filter) });
+    c.sort((a, b) => b.score - a.score);
+    const picks = [];
+    for (const x of c){
+      if (picks.length >= count) break;
+      if (picks.every(p => !ov(p.w, x.w))) picks.push(x);
+    }
+    return picks;
+  }
+  windows(){
+    const sec = this.state.sel, filter = this.state.filter, total = this.totalDays();
+    if (total <= 6){
+      const wdSpan = Math.max(1, total);
+      const maxWd = wdSpan === 1 ? 6 : 7 - wdSpan;
+      const cands = [];
+      for (let w = 0; w < this.HOR; w++)
+        for (let wd = 0; wd <= maxWd; wd++)
+          cands.push({ w, wd, score: this.avgWindow(sec, w, 1, wd, wdSpan, filter) });
+      cands.sort((a, b) => b.score - a.score);
+      const picks = [];
+      for (const c of cands){ if (picks.length >= 3) break; if (picks.every(p => Math.abs(p.w - c.w) >= 1)) picks.push(c); }
+      return picks.map(c => this.fmtDayWin(c.w, c.wd, wdSpan, c.score));
+    }
+    const span = Math.min(this.HOR, Math.ceil(total / 7));
+    return this.bestWeekWindows(sec, span, filter, 3).map(x => this.fmtWeekWin(x.w, span, x.score));
+  }
+  */
+
+  renderVals(){
+    const cb = this.props.colorBlindSafe ?? false;
+    const mapMode = this.props.mapMode ?? 'beide';
+    const sel = this.state.sel;
+    const reset = (o) => {
+      this.setState(Object.assign({ activeIdx: 0 }, o));
+      this.loadFromApi(o);
+    };
+
+    // ---- duration input ----
+    const durPresets = this.DURPRESETS.map(p => ({
+      label: p.label,
+      active: p.v === this.state.durValue && p.u === this.state.durUnit,
+      onClick: () => reset({ durValue: p.v, durUnit: p.u })
+    }));
+    const td = this.totalDays();
+    const durHint = `${td} Sperr-Tag${td > 1 ? 'e' : ''} · Tool sucht Lagen gleicher Dauer mit bestem Score`;
+
+    // ---- filters ----
+    const filterOptions = this.FILTERS.map(f => {
+      const on = f.key === this.state.filter;
+      return { label:f.label, desc:f.desc, onClick:() => reset({ filter:f.key }),
+        style:{ flex:'1', cursor:'pointer', padding:'11px 13px', borderRadius:'10px',
+          border: on ? '1.5px solid #1f5da6' : '1px solid #dfe3e7', background: on ? '#eaf1fa' : '#fff', transition:'all .12s ease' },
+        labelStyle:{ fontSize:'14px', fontWeight: on ? '600' : '500', color: on ? '#1f5da6' : '#14181c', lineHeight:'1.2' },
+        descStyle:{ fontFamily:"'IBM Plex Mono',monospace", fontSize:'10px', color:'#9aa0a6', marginTop:'4px' } };
+    });
+
+    // ---- windows (from API) ----
+    const wins = this.state.windows || [];
+    const activeIdx = Math.min(this.state.activeIdx, Math.max(0, wins.length - 1));
+    const active = wins[activeIdx] || wins[0] || null;
+    const top3 = wins.map((w, i) => {
+      const c = this.scoreColor(w.score, cb);
+      return { rank:'#' + w.rank, period:w.period, dates:w.dates, score:w.score, active:i === activeIdx,
+        scoreBg:c.bg, scoreFg:c.fg, scoreBorder:c.bd, onSelect:() => this.setState({ activeIdx:i }) };
+    });
+    const bc = this.scoreColor(active ? active.score : 50, cb);
+
+    // ---- year heatmap (from API) ----
+    const heatData = this.state.heatmap;
+    const heatWeeks = [];
+    let prevMonth = -1;
+    for (let i = 0; i < this.HOR; i++){
+      const d = this.weekDate(i), month = d.getMonth();
+      const hd = heatData ? heatData[i] : null;
+      const sc = hd ? hd.score : 50;
+      const hl = active && i >= active.week_start && i < active.week_start + active.week_span;
+      let label;
+      if (hd) {
+        label = hd.month_label;
+      } else {
+        label = '';
+        if (month !== prevMonth) label = this.MON[month] + (month === 0 ? " '" + this.pad(d.getFullYear() % 100) : '');
+      }
+      prevMonth = month;
+      heatWeeks.push({ month: label, style:{ flex:'1', minWidth:'0', height:'30px', borderRadius:'2px',
+        background: this.heatColor(sc, cb),
+        boxShadow: hl ? 'inset 0 0 0 2px #14181c' : 'inset 0 0 0 1px rgba(0,0,0,.04)' } });
+    }
+
+    // ---- schematic route ----
+    const routeItems = [];
+    for (let i = 0; i < this.NODES.length; i++){
+      const end = i === 0 || i === this.NODES.length - 1;
+      routeItems.push({ isNode:true, isSeg:false, label:this.NODES[i],
+        dotStyle:{ position:'absolute', left:'50%', top:'50%', transform:'translate(-50%,-50%)',
+          width: end ? '15px' : '11px', height: end ? '15px' : '11px', borderRadius:'50%',
+          border:'2px solid '+(end ? '#14181c' : '#aeb4ba'), background:'#fff', zIndex:'2' },
+        labelStyle:{ position:'absolute', left:'50%', top:'22px', transform:'translateX(-50%)', whiteSpace:'nowrap',
+          fontSize: end ? '13px' : '11px', fontWeight: end ? '600' : '400', color: end ? '#14181c' : '#858d95',
+          fontFamily: end ? "'IBM Plex Sans',sans-serif" : "'IBM Plex Mono',monospace" } });
+      if (i < this.SECTIONS.length){
+        const on = i === sel;
+        routeItems.push({ isNode:false, isSeg:true, selected:on, km:this.KM[i], kmColor: on ? '#fff' : '#858d95',
+          onSelect:() => reset({ sel:i }),
+          barStyle:{ position:'relative', flex:'1', height: on ? '30px' : '22px', cursor:'pointer',
+            display:'flex', alignItems:'center', justifyContent:'center', borderRadius:'4px', margin:'0 2px',
+            background: on ? '#1f5da6' : '#e6e9ec', transition:'all .12s ease' } });
+      }
+    }
+
+    // ---- geo map ----
+    const lonMin = 8.45, lonMax = 10.05, latMin = 49.72, latMax = 50.18;
+    const px = (g) => 30 + (g.lon - lonMin) / (lonMax - lonMin) * 540;
+    const py = (g) => 40 + (latMax - g.lat) / (latMax - latMin) * 110;
+    const X = this.GEO.map(px), Y = this.GEO.map(py);
+    const geoSegments = [];
+    for (let i = 0; i < 5; i++){
+      const on = i === sel;
+      geoSegments.push({ x1:X[i], y1:Y[i], x2:X[i+1], y2:Y[i+1], onSelect:() => reset({ sel:i }),
+        lineStyle:{ stroke: on ? '#1f5da6' : '#aeb4ba', strokeWidth: on ? 7 : 4, strokeLinecap:'round' } });
+    }
+    const geoNodes = this.GEO.map((g, i) => {
+      const end = i === 0 || i === 5;
+      return { cx:X[i], cy:Y[i], r: end ? 6 : 4, ly: Y[i] + (i % 2 ? 22 : -12), label:this.NODES[i],
+        dotStyle:{ fill:'#fff', stroke: end ? '#14181c' : '#aeb4ba', strokeWidth: end ? 3 : 2 },
+        labelStyle:{ fill: end ? '#14181c' : '#9aa0a6', fontSize: end ? '11px' : '9px', fontFamily:"'IBM Plex Mono',monospace", textAnchor:'middle' } };
+    });
+    const geoBranches = [
+      { x1:X[0], y1:Y[0], x2:X[0]-44, y2:Y[0]+8,  lx:X[0]-46, ly:Y[0]-2,  label:'A66' },
+      { x1:X[2], y1:Y[2]-44, x2:X[2], y2:Y[2]+44, lx:X[2]+12, ly:Y[2]-38, label:'A45' },
+      { x1:X[4], y1:Y[4]-44, x2:X[4], y2:Y[4]+40, lx:X[4]+12, ly:Y[4]-36, label:'A7' },
+      { x1:X[5], y1:Y[5], x2:X[5]+34, y2:Y[5]+14, lx:X[5]+30, ly:Y[5]+28, label:'→ Nbg' },
+    ];
+
+    // ---- KPIs (from API kpi object) ----
+    const kpi = this.state.kpi || {};
+    const kfz = kpi.mean_kfz_per_hour != null ? kpi.mean_kfz_per_hour : null;
+    const lkwPct = kpi.lkw_share_pct != null ? kpi.lkw_share_pct : null;
+    const nfz = (kfz != null && lkwPct != null) ? Math.round(kfz * lkwPct / 100 / 10) * 10 : null;
+    const riskStr = kpi.risk != null ? kpi.risk : (this.state.loading ? '…' : '—');
+    const riskTone = riskStr === 'niedrig' ? 'good' : riskStr === 'hoch' ? 'bad' : 'warn';
+
+    // ---- footer ----
+    const footerText = this.state.error
+      ? 'Prognose-Stand 18.06.2026 · ' + this.state.error
+      : this.state.loading
+      ? 'Lade Forecast-Daten…'
+      : (this.state.windows && this.state.windows.length > 0)
+      ? 'Echte Forecast-Daten (LightGBM, BASt Zähldaten 2018/2022/2023) · Prognose-Stand 18.06.2026'
+      : 'Prognose-Stand 18.06.2026';
+
+    return {
+      legendGradient: this.legendGradient(cb),
+      showSchematic: mapMode !== 'geo',
+      showGeo: mapMode !== 'schematisch',
+      showHeatmap: this.props.showHeatmap ?? true,
+
+      selStr: String(sel),
+      onSection: (e) => reset({ sel: Number(e.target.value) }),
+
+      durPresets, durValue: this.state.durValue, durUnit: this.state.durUnit, durHint,
+      onDurValue: (e) => reset({ durValue: Math.max(1, Math.min(52, Math.round(Number(e.target.value) || 1))) }),
+      onDurUnit: (e) => reset({ durUnit: e.target.value }),
+
+      filterOptions,
+      selName: this.SECTIONS[sel].name,
+      filterLabel: 'Filter: ' + this.FILTERS.find(f => f.key === this.state.filter).label,
+
+      bannerScore: active ? active.score : 0,
+      bannerAccent: bc.ring, bannerFg: bc.fg,
+      bannerTag: this.state.loading   ? 'BERECHNUNG LÄUFT…'
+               : this.state.error     ? 'FEHLER'
+               : activeIdx === 0      ? 'OPTIMALER ZEITRAUM'
+               : 'ALTERNATIVE #' + (activeIdx + 1),
+      bannerPeriod: this.state.loading ? '–'
+                  : this.state.error   ? this.state.error
+                  : active ? active.period : '–',
+      bannerDates: active ? active.dates : '',
+      onReserve: () => {},
+
+      top3, heatWeeks, routeItems,
+      geoSegments, geoNodes, geoBranches,
+      geoBgStyle:{ fill:'#f4f5f6' },
+      branchLineStyle:{ stroke:'#d6dade', strokeWidth:2.5 },
+      branchLabelStyle:{ fill:'#bcc2c8', fontSize:'9px', fontFamily:"'IBM Plex Mono',monospace", textAnchor:'middle' },
+      hitLineStyle:{ stroke:'transparent', strokeWidth:16, cursor:'pointer' },
+      shieldX: (X[2] + X[3]) / 2, shieldY: (Y[2] + Y[3]) / 2 - 12,
+      shieldStyle:{ fill:'#858d95', fontSize:'14px', fontWeight:'700', fontFamily:"'IBM Plex Sans',sans-serif", textAnchor:'middle' },
+
+      kpiKfz:     kfz  != null ? kfz.toLocaleString('de-DE')           : '—',
+      kpiNfz:     nfz  != null ? nfz.toLocaleString('de-DE')           : '—',
+      kpiRisk:    riskStr,
+      kpiRiskTone: riskTone,
+      kpiLkw:     lkwPct != null ? lkwPct.toFixed(0) + ' %'           : '—',
+
+      footerText
+    };
+  }
+}
+</script>
+</body>
+</html>

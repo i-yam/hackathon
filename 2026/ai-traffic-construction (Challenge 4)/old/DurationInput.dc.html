@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+</helmet>
+<div style="display:flex; flex-direction:column; width:100%; font-family:'IBM Plex Sans',Helvetica,Arial,sans-serif;">
+  <div style="font-size:11px; color:#9aa0a6; margin-bottom:8px; text-transform:uppercase; letter-spacing:.5px;">Schnellauswahl</div>
+  <div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:15px;">
+    <sc-for list="{{ chips }}" as="c" hint-placeholder-count="6">
+      <div onClick="{{ c.onClick }}" style="{{ c.style }}">{{ c.label }}</div>
+    </sc-for>
+  </div>
+  <div style="font-size:11px; color:#9aa0a6; margin-bottom:8px; text-transform:uppercase; letter-spacing:.5px;">Oder exakte Dauer eingeben</div>
+  <div style="display:flex; align-items:stretch; gap:8px;">
+    <input type="number" min="1" value="{{ value }}" onChange="{{ onValue }}" style="width:78px; padding:9px 11px; font-size:17px; font-weight:600; color:#14181c; border:1px solid #ccd2d8; border-radius:9px; background:#fff; text-align:center; font-variant-numeric:tabular-nums; font-family:'IBM Plex Sans',Helvetica,Arial,sans-serif;">
+    <select value="{{ unit }}" onChange="{{ onUnit }}" style="flex:1; min-width:0; padding:9px 12px; font-size:15px; color:#14181c; border:1px solid #ccd2d8; border-radius:9px; background:#fff; font-family:'IBM Plex Sans',Helvetica,Arial,sans-serif;">
+      <option value="tage">Tage</option>
+      <option value="wochen">Wochen</option>
+    </select>
+  </div>
+  <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:#aeb4ba; margin-top:10px; line-height:1.4;">{{ hint }}</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:340,&quot;height&quot;:190},&quot;presets&quot;:{&quot;editor&quot;:null,&quot;tsType&quot;:&quot;{ label: string; active: boolean; onClick: () =&gt; void }[]&quot;},&quot;value&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:2,&quot;tsType&quot;:&quot;number&quot;,&quot;min&quot;:1,&quot;max&quot;:52},&quot;unit&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;wochen&quot;,&quot;options&quot;:[&quot;tage&quot;,&quot;wochen&quot;],&quot;tsType&quot;:&quot;'tage' | 'wochen'&quot;},&quot;onValue&quot;:{&quot;editor&quot;:null,&quot;tsType&quot;:&quot;(e: Event) =&gt; void&quot;},&quot;onUnit&quot;:{&quot;editor&quot;:null,&quot;tsType&quot;:&quot;(e: Event) =&gt; void&quot;},&quot;hint&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;14 Sperr-Tage \u00b7 Suche im 52-KW-Horizont&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  chipStyle(active){
+    return { cursor:'pointer', padding:'7px 11px', borderRadius:'8px', fontSize:'13px',
+      fontWeight: active ? '600' : '500', whiteSpace:'nowrap', transition:'all .12s ease',
+      border: active ? '1.5px solid #1f5da6' : '1px solid #dfe3e7',
+      background: active ? '#eaf1fa' : '#fff', color: active ? '#1f5da6' : '#515860' };
+  }
+  renderVals(){
+    const chips = (this.props.presets || []).map(p => ({
+      label: p.label, onClick: p.onClick ?? (() => {}), style: this.chipStyle(!!p.active)
+    }));
+    return {
+      chips,
+      value: this.props.value ?? 1,
+      unit: this.props.unit ?? 'wochen',
+      onValue: this.props.onValue ?? (() => {}),
+      onUnit: this.props.onUnit ?? (() => {}),
+      hint: this.props.hint ?? ''
+    };
+  }
+}
+</script>
+</body>
+</html>
