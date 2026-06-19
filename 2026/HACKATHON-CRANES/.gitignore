@@ -1,0 +1,19 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.mplconfig/
+
+# IDE / OS
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Large local inputs (place in data/input/; see README)
+data/input/*
+!data/input/.gitkeep
+Betriebshandbuch WK 7534.16/
+
+# Empty placeholder dirs
+cranes_positioning/

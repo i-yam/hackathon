@@ -1,0 +1,251 @@
+{
+  "_comment": "Crane model configuration — WOLFF 7534.16 clear load capacity tables (Tragfähigkeitstabellen)",
+  "model": "WOLFF 7534.16 clear",
+  "manufacturer": "Wolffkran",
+  "max_jib_length_m": 75.0,
+  "reference_hook_path_m": 42.0,
+  "configurations": {
+    "2_strang": {
+      "_comment": "2-rope reeving (2-Strang). Capacity values in tonnes [t] at given outreach [m].",
+      "max_load_t": 8.3,
+      "rope_weight_reduction_kg_per_m": 2.52,
+      "load_table": [
+        {
+          "jib_length_m": 75.0,
+          "max_load_radius_min_m": 2.9,
+          "max_load_radius_max_m": 33.5,
+          "capacity_t": { "20": 8.3, "25": 8.3, "30": 8.3, "35": 7.9, "40": 6.7, "45": 5.9, "50": 5.1, "55": 4.6, "60": 4.1, "65": 3.7, "70": 3.3, "75": 3.0 }
+        },
+        {
+          "jib_length_m": 72.5,
+          "max_load_radius_min_m": 2.9,
+          "max_load_radius_max_m": 34.6,
+          "capacity_t": { "20": 8.3, "25": 8.3, "30": 8.3, "35": 8.2, "40": 7.0, "45": 6.1, "50": 5.4, "55": 4.8, "60": 4.3, "65": 3.8, "70": 3.5 }
+        },
+        {
+          "jib_length_m": 70.0,
+          "max_load_radius_min_m": 2.9,
+          "max_load_radius_max_m": 36.4,
+          "capacity_t": { "20": 8.3, "25": 8.3, "30": 8.3, "35": 8.3, "40": 7.4, "45": 6.5, "50": 5.7, "55": 5.1, "60": 4.5, "65": 4.1, "70": 3.7 }
+        },
+        {
+          "jib_length_m": 67.5,
+          "max_load_radius_min_m": 2.9,
+          "max_load_radius_max_m": 37.2,
+          "capacity_t": { "20": 8.3, "25": 8.3, "30": 8.3, "35": 8.3, "40": 7.6, "45": 6.6, "50": 5.8, "55": 5.2, "60": 4.7, "65": 4.2 }
+        },
+        {
+          "jib_length_m": 65.0,
+          "max_load_radius_min_m": 2.9,
+          "max_load_radius_max_m": 38.5,
+          "capacity_t": { "20": 8.3, "25": 8.3, "30": 8.3, "35": 8.3, "40": 7.9, "45": 6.9, "50": 6.1, "55": 5.4, "60": 4.9, "65": 4.4 }
+        },
+        {
+          "jib_length_m": 62.5,
+          "max_load_radius_min_m": 2.9,
+          "max_load_radius_max_m": 39.0,
+          "capacity_t": { "20": 8.3, "25": 8.3, "30": 8.3, "35": 8.3, "40": 8.1, "45": 7.0, "50": 6.2, "55": 5.5, "60": 5.0 }
+        },
+        {
+          "jib_length_m": 60.0,
+          "max_load_radius_min_m": 2.9,
+          "max_load_radius_max_m": 39.3,
+          "capacity_t": { "20": 8.3, "25": 8.3, "30": 8.3, "35": 8.3, "40": 8.1, "45": 7.1, "50": 6.3, "55": 5.6, "60": 5.0 }
+        },
+        {
+          "jib_length_m": 57.5,
+          "max_load_radius_min_m": 2.9,
+          "max_load_radius_max_m": 40.1,
+          "capacity_t": { "20": 8.3, "25": 8.3, "30": 8.3, "35": 8.3, "40": 8.3, "45": 7.3, "50": 6.4, "55": 5.7 }
+        },
+        {
+          "jib_length_m": 55.0,
+          "max_load_radius_min_m": 2.9,
+          "max_load_radius_max_m": 40.6,
+          "capacity_t": { "20": 8.3, "25": 8.3, "30": 8.3, "35": 8.3, "40": 8.3, "45": 7.4, "50": 6.5, "55": 5.8 }
+        },
+        {
+          "jib_length_m": 52.5,
+          "max_load_radius_min_m": 2.9,
+          "max_load_radius_max_m": 41.5,
+          "capacity_t": { "20": 8.3, "25": 8.3, "30": 8.3, "35": 8.3, "40": 8.3, "45": 7.6, "50": 6.7 }
+        },
+        {
+          "jib_length_m": 50.0,
+          "max_load_radius_min_m": 2.9,
+          "max_load_radius_max_m": 41.6,
+          "capacity_t": { "20": 8.3, "25": 8.3, "30": 8.3, "35": 8.3, "40": 8.3, "45": 7.6, "50": 6.7 }
+        },
+        {
+          "jib_length_m": 47.5,
+          "max_load_radius_min_m": 2.9,
+          "max_load_radius_max_m": 42.5,
+          "capacity_t": { "20": 8.3, "25": 8.3, "30": 8.3, "35": 8.3, "40": 8.3, "45": 7.8 }
+        },
+        {
+          "jib_length_m": 45.0,
+          "max_load_radius_min_m": 2.9,
+          "max_load_radius_max_m": 42.6,
+          "capacity_t": { "20": 8.3, "25": 8.3, "30": 8.3, "35": 8.3, "40": 8.3, "45": 7.8 }
+        },
+        {
+          "jib_length_m": 42.5,
+          "max_load_radius_min_m": 2.9,
+          "max_load_radius_max_m": 42.5,
+          "capacity_t": { "20": 8.3, "25": 8.3, "30": 8.3, "35": 8.3, "40": 8.3 }
+        },
+        {
+          "jib_length_m": 40.0,
+          "max_load_radius_min_m": 2.9,
+          "max_load_radius_max_m": 40.0,
+          "capacity_t": { "20": 8.3, "25": 8.3, "30": 8.3, "35": 8.3, "40": 8.3 }
+        },
+        {
+          "jib_length_m": 37.5,
+          "max_load_radius_min_m": 2.9,
+          "max_load_radius_max_m": 37.5,
+          "capacity_t": { "20": 8.3, "25": 8.3, "30": 8.3, "35": 8.3 }
+        },
+        {
+          "jib_length_m": 35.0,
+          "max_load_radius_min_m": 2.9,
+          "max_load_radius_max_m": 35.0,
+          "capacity_t": { "20": 8.3, "25": 8.3, "30": 8.3, "35": 8.3 }
+        },
+        {
+          "jib_length_m": 32.5,
+          "max_load_radius_min_m": 2.9,
+          "max_load_radius_max_m": 32.5,
+          "capacity_t": { "20": 8.3, "25": 8.3, "30": 8.3 }
+        },
+        {
+          "jib_length_m": 30.0,
+          "max_load_radius_min_m": 2.9,
+          "max_load_radius_max_m": 30.0,
+          "capacity_t": { "20": 8.3, "25": 8.3, "30": 8.3 }
+        }
+      ]
+    },
+    "4_strang": {
+      "_comment": "4-rope reeving (4-Strang). Capacity values in tonnes [t] at given outreach [m].",
+      "max_load_t": 16.5,
+      "rope_weight_reduction_kg_per_m": 5.04,
+      "load_table": [
+        {
+          "jib_length_m": 75.0,
+          "max_load_radius_min_m": 2.9,
+          "max_load_radius_max_m": 17.9,
+          "capacity_t": { "20": 14.6, "25": 11.4, "30": 9.3, "35": 7.8, "40": 6.6, "45": 5.8, "50": 5.0, "55": 4.5, "60": 4.0, "65": 3.6, "70": 3.2, "75": 2.9 }
+        },
+        {
+          "jib_length_m": 72.5,
+          "max_load_radius_min_m": 2.9,
+          "max_load_radius_max_m": 18.5,
+          "capacity_t": { "20": 15.2, "25": 11.9, "30": 9.7, "35": 8.1, "40": 6.9, "45": 6.0, "50": 5.3, "55": 4.7, "60": 4.2, "65": 3.7, "70": 3.4 }
+        },
+        {
+          "jib_length_m": 70.0,
+          "max_load_radius_min_m": 2.9,
+          "max_load_radius_max_m": 19.5,
+          "capacity_t": { "20": 16.0, "25": 12.6, "30": 10.2, "35": 8.6, "40": 7.3, "45": 6.4, "50": 5.6, "55": 5.0, "60": 4.4, "65": 4.0, "70": 3.6 }
+        },
+        {
+          "jib_length_m": 67.5,
+          "max_load_radius_min_m": 2.9,
+          "max_load_radius_max_m": 19.9,
+          "capacity_t": { "20": 16.4, "25": 12.9, "30": 10.5, "35": 8.8, "40": 7.5, "45": 6.5, "50": 5.7, "55": 5.1, "60": 4.6, "65": 4.1 }
+        },
+        {
+          "jib_length_m": 65.0,
+          "max_load_radius_min_m": 2.9,
+          "max_load_radius_max_m": 20.6,
+          "capacity_t": { "20": 16.5, "25": 13.4, "30": 10.9, "35": 9.2, "40": 7.8, "45": 6.8, "50": 6.0, "55": 5.3, "60": 4.8, "65": 4.3 }
+        },
+        {
+          "jib_length_m": 62.5,
+          "max_load_radius_min_m": 2.9,
+          "max_load_radius_max_m": 20.9,
+          "capacity_t": { "20": 16.5, "25": 13.6, "30": 11.1, "35": 9.3, "40": 8.0, "45": 6.9, "50": 6.1, "55": 5.4, "60": 4.9 }
+        },
+        {
+          "jib_length_m": 60.0,
+          "max_load_radius_min_m": 2.9,
+          "max_load_radius_max_m": 21.1,
+          "capacity_t": { "20": 16.5, "25": 13.7, "30": 11.2, "35": 9.4, "40": 8.0, "45": 7.0, "50": 6.2, "55": 5.5, "60": 4.9 }
+        },
+        {
+          "jib_length_m": 57.5,
+          "max_load_radius_min_m": 2.9,
+          "max_load_radius_max_m": 21.5,
+          "capacity_t": { "20": 16.5, "25": 14.0, "30": 11.4, "35": 9.6, "40": 8.2, "45": 7.2, "50": 6.3, "55": 5.6 }
+        },
+        {
+          "jib_length_m": 55.0,
+          "max_load_radius_min_m": 2.9,
+          "max_load_radius_max_m": 21.8,
+          "capacity_t": { "20": 16.5, "25": 14.2, "30": 11.6, "35": 9.7, "40": 8.4, "45": 7.3, "50": 6.4, "55": 5.7 }
+        },
+        {
+          "jib_length_m": 52.5,
+          "max_load_radius_min_m": 2.9,
+          "max_load_radius_max_m": 22.2,
+          "capacity_t": { "20": 16.5, "25": 14.5, "30": 11.9, "35": 10.0, "40": 8.6, "45": 7.5, "50": 6.6 }
+        },
+        {
+          "jib_length_m": 50.0,
+          "max_load_radius_min_m": 2.9,
+          "max_load_radius_max_m": 22.3,
+          "capacity_t": { "20": 16.5, "25": 14.6, "30": 11.9, "35": 10.0, "40": 8.6, "45": 7.5, "50": 6.6 }
+        },
+        {
+          "jib_length_m": 47.5,
+          "max_load_radius_min_m": 2.9,
+          "max_load_radius_max_m": 22.8,
+          "capacity_t": { "20": 16.5, "25": 14.9, "30": 12.2, "35": 10.3, "40": 8.8, "45": 7.7 }
+        },
+        {
+          "jib_length_m": 45.0,
+          "max_load_radius_min_m": 2.9,
+          "max_load_radius_max_m": 22.8,
+          "capacity_t": { "20": 16.5, "25": 15.0, "30": 12.2, "35": 10.3, "40": 8.8, "45": 7.7 }
+        },
+        {
+          "jib_length_m": 42.5,
+          "max_load_radius_min_m": 2.9,
+          "max_load_radius_max_m": 23.0,
+          "capacity_t": { "20": 16.5, "25": 15.1, "30": 12.3, "35": 10.4, "40": 8.9 }
+        },
+        {
+          "jib_length_m": 40.0,
+          "max_load_radius_min_m": 2.9,
+          "max_load_radius_max_m": 23.0,
+          "capacity_t": { "20": 16.5, "25": 15.1, "30": 12.3, "35": 10.4, "40": 8.9 }
+        },
+        {
+          "jib_length_m": 37.5,
+          "max_load_radius_min_m": 2.9,
+          "max_load_radius_max_m": 23.4,
+          "capacity_t": { "20": 16.5, "25": 15.4, "30": 12.6, "35": 10.6 }
+        },
+        {
+          "jib_length_m": 35.0,
+          "max_load_radius_min_m": 2.9,
+          "max_load_radius_max_m": 23.6,
+          "capacity_t": { "20": 16.5, "25": 15.5, "30": 12.7, "35": 10.7 }
+        },
+        {
+          "jib_length_m": 32.5,
+          "max_load_radius_min_m": 2.9,
+          "max_load_radius_max_m": 24.0,
+          "capacity_t": { "20": 16.5, "25": 15.8, "30": 12.9 }
+        },
+        {
+          "jib_length_m": 30.0,
+          "max_load_radius_min_m": 2.9,
+          "max_load_radius_max_m": 24.1,
+          "capacity_t": { "20": 16.5, "25": 15.9, "30": 13.0 }
+        }
+      ]
+    }
+  }
+}
