@@ -1,6 +1,6 @@
 Commit your solutions here
 
-## Challendge #2: cranes positioning
+## Challenge #2: cranes positioning
 
 Tower crane positioning optimizer for construction sites, built from an IFC building model.
 
