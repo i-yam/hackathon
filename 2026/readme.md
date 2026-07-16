@@ -16,5 +16,4 @@ https://github.com/DanieMyl/aitraffic
 ## Challenge #5: Automating the creation of sound insulation verification reports from architectural drawings.
 https://github.com/Keno-fsdf/schallschutz-din4109.git
 
-**Challenge 6** [PavinSP/Challenge-6](https://github.com/PavinSP/Challenge-6)
-https://github.com/beyzabetulay/planfuge.git
+## Challenge 6**
