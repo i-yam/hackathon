@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Opening Detect — Riedel Bau</title>
+<style>
+:root{--red:#e2001a;--red2:#b80016;--ink:#1a1d23;--ink2:#5a6270;--muted:#8a92a0;
+ --line:#e4e7ec;--bg:#f4f5f7;--card:#ffffff;--ok:#1c9d63;--amb:#e08a00;--blue:#1f6fd6;--violet:#8a4bd6;}
+*{box-sizing:border-box;}
+body{margin:0;font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px;}
+/* logo */
+.logo{display:flex;align-items:center;gap:13px;}
+.logomark{display:inline-flex;flex-direction:column;justify-content:center;align-items:flex-start;
+ background:var(--red);border-radius:5px;padding:8px 13px;line-height:.96;box-shadow:0 4px 14px rgba(226,0,26,.28);}
+.logomark b{color:#fff;font-weight:800;font-size:19px;letter-spacing:-.4px;font-style:italic;white-space:nowrap;}
+.brandtxt{font-size:13px;color:var(--ink2);font-weight:600;letter-spacing:.3px;line-height:1.25;}
+.brandtxt small{display:block;color:var(--muted);font-weight:400;font-size:11px;}
+header{display:flex;align-items:center;justify-content:space-between;padding:16px 0;border-bottom:1px solid var(--line);background:var(--card);}
+header .wrap{display:flex;align-items:center;justify-content:space-between;width:100%;}
+.toptag{font-size:12px;color:var(--red);font-weight:700;border:1px solid rgba(226,0,26,.3);background:rgba(226,0,26,.05);padding:5px 12px;border-radius:999px;}
+/* hero */
+.hero{text-align:center;padding:42px 0 10px;}
+.hero h1{font-size:33px;margin:0 auto 12px;line-height:1.16;color:var(--ink);max-width:780px;}
+.hero h1 span{color:var(--red);}
+.hero p{color:var(--ink2);max-width:640px;margin:0 auto;font-size:15px;line-height:1.6;}
+.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:18px 0 4px;}
+.chip{font-size:12px;color:var(--ink2);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 12px;}
+.chip b{color:var(--red);}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 10px 30px rgba(20,25,35,.05);}
+.drop{margin:22px 0;padding:42px 24px;text-align:center;border:2px dashed #f3b3bb;border-radius:14px;
+ background:#fff7f8;transition:.18s;cursor:pointer;}
+.drop.hover{border-color:var(--red);background:#ffeef0;transform:translateY(-1px);}
+.drop .ic{font-size:40px;color:var(--red);}
+.drop h3{margin:10px 0 4px;font-size:18px;color:var(--ink);}
+.drop p{color:var(--muted);margin:0;font-size:13px;}
+.btn{display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer;font-size:14px;font-weight:600;
+ padding:12px 22px;border-radius:10px;transition:.15s;text-decoration:none;}
+.btn.primary{background:var(--red);color:#fff;box-shadow:0 8px 18px rgba(226,0,26,.28);}
+.btn.primary:hover{background:var(--red2);transform:translateY(-1px);}
+.btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line);}
+.btn[disabled]{opacity:.45;cursor:not-allowed;transform:none;box-shadow:none;}
+.files{margin:14px 0;display:flex;flex-direction:column;gap:8px;}
+.fitem{display:flex;align-items:center;gap:10px;background:#fafbfc;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:13px;color:var(--ink);}
+.fitem .x{margin-left:auto;color:var(--muted);cursor:pointer;border:none;background:none;font-size:16px;}
+.actions{display:flex;gap:10px;justify-content:center;margin-top:6px;}
+.section{padding:8px 0 60px;}
+.bar{height:6px;border-radius:6px;background:#f0e2e4;overflow:hidden;margin:18px 0;display:none;}
+.bar.show{display:block;}
+.bar i{display:block;height:100%;width:30%;background:var(--red);animation:load 1.1s infinite;border-radius:6px;}
+@keyframes load{0%{margin-left:-30%}100%{margin-left:100%}}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0;}
+.stat{padding:16px;border-radius:13px;background:var(--card);border:1px solid var(--line);}
+.stat .n{font-size:26px;font-weight:800;color:var(--ink);}
+.stat .l{font-size:12px;color:var(--ink2);margin-top:2px;}
+.stat.r .n{color:var(--red);}.stat.b .n{color:var(--blue);}.stat.a .n{color:var(--amb);}.stat.g .n{color:var(--ok);}
+.grid{display:grid;grid-template-columns:1fr;gap:16px;align-items:start;}
+@media(max-width:880px){.hero h1{font-size:26px;}}
+.panel{padding:14px;}
+.panel h4{margin:2px 0 10px;font-size:12px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.6px;}
+.preview{position:relative;overflow:hidden;border-radius:11px;background:#fff;border:1px solid var(--line);}
+.preview img{display:block;width:100%;}
+.mk{position:absolute;transform:translate(-50%,-50%);border:1.5px solid var(--red);background:rgba(226,0,26,.16);border-radius:2px;}
+.mk.round{border-radius:50%;border-color:var(--blue);background:rgba(31,111,214,.16);}
+.mk.wall{border-color:var(--violet);background:rgba(138,75,214,.13);}
+.mk.dup{outline:1px dashed var(--amb);}
+.psel{display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap;}
+.psel button{font-size:12px;padding:5px 9px;border-radius:7px;background:#fff;border:1px solid var(--line);color:var(--ink);cursor:pointer;}
+.seg{display:flex;gap:5px;margin-bottom:10px;}
+.seg button{font-size:12px;padding:5px 11px;border-radius:7px;background:#fff;border:1px solid var(--line);color:var(--ink);cursor:pointer;}
+.seg button.on{background:var(--red);border-color:var(--red);color:#fff;}
+.psel button.on{background:var(--red);border-color:var(--red);color:#fff;}
+.tablewrap{max-height:430px;overflow:auto;border-radius:11px;border:1px solid var(--line);}
+table{width:100%;border-collapse:collapse;font-size:12.5px;}
+thead th{position:sticky;top:0;background:#fbe9eb;color:var(--red2);text-align:left;padding:9px 10px;font-weight:700;border-bottom:1px solid var(--line);cursor:pointer;white-space:nowrap;}
+tbody td{padding:8px 10px;border-bottom:1px solid #eef0f3;color:var(--ink);}
+tbody tr:hover{background:#fff6f7;}
+.pill{font-size:10px;padding:1px 7px;border-radius:999px;border:1px solid var(--line);}
+.pill.slab{color:var(--blue);border-color:rgba(31,111,214,.4);}
+.pill.wall{color:var(--violet);border-color:rgba(138,75,214,.4);}
+.tag{font-size:9px;background:var(--amb);color:#fff;border-radius:3px;padding:0 4px;margin-left:4px;}
+.dl{display:flex;align-items:center;gap:14px;justify-content:space-between;flex-wrap:wrap;margin:18px 0 4px;
+ padding:18px;border-radius:13px;background:#fff;border:1px solid var(--line);border-left:5px solid var(--red);}
+.legend{display:flex;gap:14px;font-size:11px;color:var(--muted);margin-top:9px;flex-wrap:wrap;}
+.legend i{display:inline-block;width:11px;height:11px;border:2px solid var(--red);margin-right:4px;vertical-align:-1px;border-radius:2px;}
+.legend .rnd{border-color:var(--blue);border-radius:50%;}.legend .wl{border-color:var(--violet);}
+.err{background:#fdecec;border:1px solid var(--red);border-radius:10px;padding:12px;margin:14px 0;color:var(--red2);font-size:13px;display:none;}
+.foot{text-align:center;color:var(--muted);font-size:12px;padding:14px 0 30px;}
+.hidden{display:none;}
+</style></head>
+<body>
+<header>
+ <div class="wrap">
+   <div class="logo">
+     <div class="logomark"><b>Riedel</b><b>Bau</b></div>
+     <div class="brandtxt">Opening&nbsp;Detect<small>Slab openings → fabrication data</small></div>
+   </div>
+   <span class="toptag">Concrete 3D-Print · Prototype</span>
+ </div>
+</header>
+<div class="wrap">
+
+ <div id="uploadView">
+  <div class="hero">
+    <h1>Turn construction plans into a <span>ready-to-build opening list</span></h1>
+    <p>Drop in your floor-slab plans (PDF). The engine detects every opening, interprets the labels,
+       removes duplicates from overlapping sheets, computes handling weight, and hands you an Excel report.</p>
+    <div class="chips">
+      <span class="chip"><b>DDB</b> &amp; WDB labels</span><span class="chip"><b>Ø</b> &amp; L/W dimensions</span>
+      <span class="chip">Slab-height from levels</span><span class="chip">Overlap de-duplication</span>
+      <span class="chip">Weight for safe handling</span>
+    </div>
+  </div>
+
+  <div class="card" style="padding:18px;">
+    <div id="drop" class="drop">
+      <div class="ic">⬆</div>
+      <h3>Drag &amp; drop plan PDFs here</h3>
+      <p>or click to browse · multiple plans enable overlap de-duplication</p>
+      <input id="file" type="file" accept="application/pdf" multiple class="hidden">
+    </div>
+    <div id="files" class="files"></div>
+    <div id="err" class="err"></div>
+    <div class="bar" id="bar"><i></i></div>
+    <div class="actions">
+      <button id="run" class="btn primary" disabled>Detect openings → build Excel</button>
+      <button id="clear" class="btn ghost hidden">Clear</button>
+    </div>
+  </div>
+ </div>
+
+ <div id="resultView" class="section hidden">
+   <div class="dl">
+     <div>
+       <div style="font-size:16px;font-weight:700;color:var(--red);">Detection complete</div>
+       <div style="color:var(--ink2);font-size:13px;" id="dlsub"></div>
+     </div>
+     <div style="display:flex;gap:10px;">
+       <a id="download" class="btn primary" href="#">⬇ Download Excel report</a>
+       <button id="again" class="btn ghost">Process more plans</button>
+     </div>
+   </div>
+
+   <div class="stats" id="stats"></div>
+
+   <div class="grid">
+     <div class="card panel">
+       <h4>Plan preview — detected openings</h4>
+       <div class="psel" id="psel"></div>
+       <div class="seg" id="typeSeg">
+         <button class="f" data-t="all">All</button>
+         <button class="f on" data-t="Ceiling">Slab (DDB)</button>
+         <button class="f" data-t="Wall">Wall (WDB)</button>
+       </div>
+       <div class="preview" id="preview"></div>
+       <div class="legend">
+         <span><i></i>rect slab</span><span><i class="rnd"></i>round slab (Ø)</span>
+         <span><i class="wl"></i>wall</span><span style="color:var(--amb)">▢ dashed = duplicate</span>
+       </div>
+     </div>
+     <div class="card panel">
+       <h4>Opening list <span id="tcount" style="color:var(--muted)"></span></h4>
+       <div class="tablewrap">
+         <table id="tbl"><thead><tr>
+           <th data-k="opening_id">ID</th><th data-k="label">Label</th><th data-k="type">Type</th>
+           <th data-k="geom">Geom</th><th data-k="l">Length</th><th data-k="w">Width</th>
+           <th data-k="d">Diameter</th><th data-k="h">H</th><th data-k="wt">kg</th>
+         </tr></thead><tbody></tbody></table>
+       </div>
+     </div>
+   </div>
+ </div>
+
+ <div class="foot">Riedel Bau · Opening Detect prototype · vector-text extraction · scale 1:50 · weight = displaced concrete × 2.4 t/m³</div>
+</div>
+
+<script>
+let picked=[], DATA=null, curPlan=0, sortK='opening_id', sortAsc=true, typeF='Ceiling';
+const $=s=>document.querySelector(s);
+const drop=$('#drop'),file=$('#file');
+drop.onclick=()=>file.click();
+['dragover','dragenter'].forEach(e=>drop.addEventListener(e,ev=>{ev.preventDefault();drop.classList.add('hover');}));
+['dragleave','drop'].forEach(e=>drop.addEventListener(e,ev=>{ev.preventDefault();drop.classList.remove('hover');}));
+drop.addEventListener('drop',ev=>addFiles(ev.dataTransfer.files));
+file.addEventListener('change',()=>addFiles(file.files));
+function addFiles(fl){
+  for(const f of fl){ if(f.name.toLowerCase().endsWith('.pdf') && !picked.some(p=>p.name===f.name&&p.size===f.size)) picked.push(f); }
+  renderFiles();
+}
+function renderFiles(){
+  const c=$('#files');c.innerHTML='';
+  picked.forEach((f,i)=>{
+    const d=document.createElement('div');d.className='fitem';
+    d.innerHTML='<span style="color:var(--red);font-weight:700">PDF</span><span>'+f.name+'</span><span style="color:var(--muted)">· '+(f.size/1e6).toFixed(1)+' MB</span>'+
+      '<button class="x" title="remove">✕</button>';
+    d.querySelector('.x').onclick=()=>{picked.splice(i,1);renderFiles();};
+    c.appendChild(d);
+  });
+  $('#run').disabled=picked.length===0;
+  $('#clear').classList.toggle('hidden',picked.length===0);
+}
+$('#clear').onclick=()=>{picked=[];renderFiles();};
+$('#run').onclick=async()=>{
+  $('#err').style.display='none';$('#bar').classList.add('show');$('#run').disabled=true;
+  const fd=new FormData(); picked.forEach(f=>fd.append('plans',f));
+  try{
+    const res=await fetch('/process',{method:'POST',body:fd});
+    const j=await res.json();
+    if(!res.ok){throw new Error(j.error||'Failed');}
+    DATA=j; showResults(j);
+  }catch(e){
+    $('#err').textContent='⚠ '+e.message;$('#err').style.display='block';
+  }finally{$('#bar').classList.remove('show');$('#run').disabled=false;}
+};
+function showResults(j){
+  $('#uploadView').classList.add('hidden');$('#resultView').classList.remove('hidden');
+  window.scrollTo({top:0,behavior:'smooth'});
+  const s=j.summary;
+  $('#dlsub').textContent=s.files+' plan(s) · '+s.unique+' unique openings · '+s.duplicates+' duplicates removed'+
+    (s.pairs?(' · '+s.pairs+' overlapping plan pair(s) matched'):'');
+  $('#download').href='/download/'+j.job;
+  $('#stats').innerHTML=[
+    ['r',s.slab,'Slab openings (DDB)'],['b',s.round,'Round / pipe (Ø)'],
+    ['',s.rect,'Rectangular'],['a',s.duplicates,'Duplicates removed'],
+    ['g',s.weight.toLocaleString()+' kg','Total handling weight'],['',s.wall,'Wall openings (WDB)']
+  ].map(x=>'<div class="stat '+x[0]+'"><div class="n">'+x[1]+'</div><div class="l">'+x[2]+'</div></div>').join('');
+  curPlan=0;
+  $('#psel').innerHTML=j.previews.map((p,i)=>'<button class="'+(i===0?'on':'')+'" data-i="'+i+'">'+p.name+' ('+p.openings.length+')</button>').join('');
+  $('#psel').querySelectorAll('button').forEach(b=>b.onclick=()=>{curPlan=+b.dataset.i;
+    $('#psel').querySelectorAll('button').forEach(x=>x.classList.remove('on'));b.classList.add('on');drawPreview();});
+  typeF='Ceiling';
+  document.querySelectorAll('#typeSeg button').forEach(x=>x.classList.toggle('on',x.dataset.t==='Ceiling'));
+  drawPreview(); renderTable();
+}
+document.querySelectorAll('#typeSeg button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('#typeSeg button').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on'); typeF=b.dataset.t; drawPreview();
+});
+function drawPreview(){
+  const p=DATA.previews[curPlan],host=$('#preview');
+  host.innerHTML='<img id="pimg" src="data:image/png;base64,'+p.png+'">';
+  const img=$('#pimg');
+  img.onload=()=>{
+    const sx=img.clientWidth/p.w, sy=img.clientHeight/p.h;
+    p.openings.forEach(o=>{
+      if(typeF!=='all' && o.type!==typeF) return;
+      const m=document.createElement('div');
+      m.className='mk '+(o.type==='Wall'?'wall':(o.geom==='round'?'round':''))+(o.dup?' dup':'');
+      m.style.left=(o.x*p.zoom*sx)+'px';m.style.top=(o.y*p.zoom*sy)+'px';
+      m.style.width='12px';m.style.height='12px';
+      m.title=o.label+' · '+o.wt+' kg'+(o.dup?' (duplicate)':'');
+      host.appendChild(m);
+    });
+  };
+  if(img.complete)img.onload();
+}
+function renderTable(){
+  const rows=[...DATA.rows].sort((a,b)=>{
+    let x=a[sortK],y=b[sortK];
+    if(typeof x==='string'){x=x.toLowerCase();y=y.toLowerCase();}
+    return (x<y?-1:x>y?1:0)*(sortAsc?1:-1);
+  });
+  $('#tcount').textContent='· '+rows.length;
+  $('#tbl tbody').innerHTML=rows.map(r=>{
+    const t=r.type==='Ceiling'?'<span class="pill slab">slab</span>':'<span class="pill wall">wall</span>';
+    return '<tr><td>'+r.id+(r.np>1?'<span class="tag">×'+r.np+'</span>':'')+'</td><td><b>'+r.label+'</b></td><td>'+t+'</td>'+
+      '<td>'+r.geom+'</td><td>'+(r.geom==='round'?'–':r.l)+'</td><td>'+(r.geom==='round'?'–':r.w)+'</td><td>'+(r.geom==='round'?'Ø'+r.d:'–')+'</td><td>'+r.h+'</td><td><b>'+r.wt+'</b></td></tr>';
+  }).join('');
+}
+document.querySelectorAll('#tbl thead th').forEach(th=>th.onclick=()=>{
+  const k=th.dataset.k; if(k===sortK)sortAsc=!sortAsc;else{sortK=k;sortAsc=true;} renderTable();
+});
+$('#again').onclick=()=>{$('#resultView').classList.add('hidden');$('#uploadView').classList.remove('hidden');
+  picked=[];renderFiles();window.scrollTo({top:0,behavior:'smooth'});};
+</script>
+</body></html>

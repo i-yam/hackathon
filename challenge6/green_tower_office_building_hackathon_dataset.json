@@ -1,0 +1,2051 @@
+{
+  "project_name": "Green Tower Office Building",
+  "location": "Würzburg, Germany",
+  "employee_directory": {
+    "pm": "Michael Schmidt",
+    "site": "Sarah Weber",
+    "engineer": "John Miller",
+    "cost": "Anna Keller",
+    "quality": "David Braun",
+    "client": "Markus Fischer"
+  },
+  "ifc_objects": {
+    "walls": [
+      "W-12",
+      "W-15",
+      "W-18"
+    ],
+    "doors": [
+      "D-201",
+      "D-202",
+      "D-205"
+    ],
+    "rooms": [
+      "R-301",
+      "R-302",
+      "R-401"
+    ],
+    "windows": [
+      "WIN-11",
+      "WIN-12"
+    ]
+  },
+  "document_count": 65,
+  "documents": [
+    {
+      "DOCUMENT_ID": "EMAIL_001",
+      "SOURCE_TYPE": "EMAIL",
+      "DOCUMENT_TEXT": "Subject: Green Tower Office Building – delivery delay and updated look-ahead\n\nHi team,\nThe delivery of fire-rated door leafs from MainSteel GmbH for W-15 has slipped by 2 working days because of late release from the yard. Sarah Weber must arrange access, tools, and delivery timing with FensterPro Bayern for work at east façade line. Open point: the final sign-off for the coordination issue at service core remains with the client team. Please confirm the next steps by end of day.\n\nRegards,\nMichael Schmidt\nProject Manager\nGreen Tower Office Building, Würzburg, Germany",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "The delivery of fire-rated door leafs from MainSteel GmbH for W-15 has slipped by 2 working days because of late release from the yard.",
+          "category": "Schedule",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": "W-15",
+          "suggested_target_system": "Schedule Board",
+          "confidence": 0.95
+        },
+        {
+          "extracted_text": "Sarah Weber must arrange access, tools, and delivery timing with FensterPro Bayern for work at east façade line.",
+          "category": "Task",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": "W-18",
+          "suggested_target_system": "Task Management",
+          "confidence": 0.94
+        },
+        {
+          "extracted_text": "Open point: the final sign-off for the coordination issue at service core remains with the client team.",
+          "category": "Open Point",
+          "assigned_person": "John Miller",
+          "related_ifc_object": "D-201",
+          "suggested_target_system": "Issue Log",
+          "confidence": 0.88
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "EMAIL_002",
+      "SOURCE_TYPE": "EMAIL",
+      "DOCUMENT_TEXT": "Subject: Green Tower Office Building – quality hold and site re-inspection\n\nHi team,\nDavid Braun noted a misaligned frame on W-18 during the walkdown, most visible near east façade line. David Braun will keep responsibility for the inspection record and photo evidence from the site visit. Michael Schmidt confirmed that the alternative supplier route can be used for the next delivery batch. Please confirm the next steps by end of day.\n\nRegards,\nMichael Schmidt\nProject Manager\nGreen Tower Office Building, Würzburg, Germany",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "David Braun noted a misaligned frame on W-18 during the walkdown, most visible near east façade line.",
+          "category": "Quality",
+          "assigned_person": "David Braun",
+          "related_ifc_object": "W-18",
+          "suggested_target_system": "QA/QC Log",
+          "confidence": 0.96
+        },
+        {
+          "extracted_text": "David Braun will keep responsibility for the inspection record and photo evidence from the site visit.",
+          "category": "Responsibility",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": null,
+          "suggested_target_system": "Responsibility Matrix",
+          "confidence": 0.92
+        },
+        {
+          "extracted_text": "Michael Schmidt confirmed that the alternative supplier route can be used for the next delivery batch.",
+          "category": "Decision",
+          "assigned_person": "Markus Fischer",
+          "related_ifc_object": null,
+          "suggested_target_system": "Decision Register",
+          "confidence": 0.91
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "EMAIL_003",
+      "SOURCE_TYPE": "EMAIL",
+      "DOCUMENT_TEXT": "Subject: Green Tower Office Building – variation claim and budget check\n\nHi team,\nNordholz Doors submitted a variation claim of €4,600 after the crew had to extend overtime at service core. The follow-up inspection for D-202 will move from 06 Jun 2026 to 07 Jun 2026 to keep the trade sequence aligned. The team needs to close the follow-up task in the tracker before the next coordination meeting. Please confirm the next steps by end of day.\n\nRegards,\nMichael Schmidt\nProject Manager\nGreen Tower Office Building, Würzburg, Germany",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "Nordholz Doors submitted a variation claim of €4,600 after the crew had to extend overtime at service core.",
+          "category": "Cost",
+          "assigned_person": "Anna Keller",
+          "related_ifc_object": "D-201",
+          "suggested_target_system": "Cost Control",
+          "confidence": 0.93
+        },
+        {
+          "extracted_text": "The follow-up inspection for D-202 will move from 06 Jun 2026 to 07 Jun 2026 to keep the trade sequence aligned.",
+          "category": "Schedule",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": "D-202",
+          "suggested_target_system": "Schedule Board",
+          "confidence": 0.95
+        },
+        {
+          "extracted_text": "The team needs to close the follow-up task in the tracker before the next coordination meeting.",
+          "category": "Task",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": null,
+          "suggested_target_system": "Task Management",
+          "confidence": 0.94
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "EMAIL_004",
+      "SOURCE_TYPE": "EMAIL",
+      "DOCUMENT_TEXT": "Subject: Green Tower Office Building – approval request and method statement\n\nHi team,\nThe project team approved the revised method statement for D-202 with the condition that the hold point stays in place. Open point: the subcontractor still has to confirm whether the missing tag belongs to drywall studs or the spare pack. Sarah Weber is responsible for confirming the subcontractor attendance and the unloading bay booking. Please confirm the next steps by end of day.\n\nRegards,\nMichael Schmidt\nProject Manager\nGreen Tower Office Building, Würzburg, Germany",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "The project team approved the revised method statement for D-202 with the condition that the hold point stays in place.",
+          "category": "Decision",
+          "assigned_person": "Michael Schmidt",
+          "related_ifc_object": "D-202",
+          "suggested_target_system": "Decision Register",
+          "confidence": 0.91
+        },
+        {
+          "extracted_text": "Open point: the subcontractor still has to confirm whether the missing tag belongs to drywall studs or the spare pack.",
+          "category": "Open Point",
+          "assigned_person": "John Miller",
+          "related_ifc_object": "D-205",
+          "suggested_target_system": "Issue Log",
+          "confidence": 0.88
+        },
+        {
+          "extracted_text": "Sarah Weber is responsible for confirming the subcontractor attendance and the unloading bay booking.",
+          "category": "Responsibility",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": null,
+          "suggested_target_system": "Responsibility Matrix",
+          "confidence": 0.92
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "EMAIL_005",
+      "SOURCE_TYPE": "EMAIL",
+      "DOCUMENT_TEXT": "Subject: Green Tower Office Building – quality hold and site re-inspection\n\nHi team,\nDavid Braun noted a surface blemish on D-205 during the walkdown, most visible near meeting room stack. The replacement of the damaged component at R-301 is expected to add roughly €8,100 to the subcontract package. The pour or installation window at lift lobby needs a revised slot, and Sarah Weber should confirm the new date. Please confirm the next steps by end of day.\n\nRegards,\nMichael Schmidt\nProject Manager\nGreen Tower Office Building, Würzburg, Germany",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "David Braun noted a surface blemish on D-205 during the walkdown, most visible near meeting room stack.",
+          "category": "Quality",
+          "assigned_person": "David Braun",
+          "related_ifc_object": "D-205",
+          "suggested_target_system": "QA/QC Log",
+          "confidence": 0.96
+        },
+        {
+          "extracted_text": "The replacement of the damaged component at R-301 is expected to add roughly €8,100 to the subcontract package.",
+          "category": "Cost",
+          "assigned_person": "Anna Keller",
+          "related_ifc_object": "R-301",
+          "suggested_target_system": "Cost Control",
+          "confidence": 0.93
+        },
+        {
+          "extracted_text": "The pour or installation window at lift lobby needs a revised slot, and Sarah Weber should confirm the new date.",
+          "category": "Schedule",
+          "assigned_person": "John Miller",
+          "related_ifc_object": "R-302",
+          "suggested_target_system": "Schedule Board",
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "EMAIL_006",
+      "SOURCE_TYPE": "EMAIL",
+      "DOCUMENT_TEXT": "Subject: Green Tower Office Building – coordination actions for the next workfront\n\nHi team,\nJohn Miller should update the look-ahead plan and coordinate the next trade handover for R-301. David Braun will keep responsibility for the inspection record and photo evidence from the site visit. Open point: the final sign-off for the coordination issue at plant room access remains with the client team. Please confirm the next steps by end of day.\n\nRegards,\nMichael Schmidt\nProject Manager\nGreen Tower Office Building, Würzburg, Germany",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "John Miller should update the look-ahead plan and coordinate the next trade handover for R-301.",
+          "category": "Task",
+          "assigned_person": "John Miller",
+          "related_ifc_object": "R-301",
+          "suggested_target_system": "Task Management",
+          "confidence": 0.94
+        },
+        {
+          "extracted_text": "David Braun will keep responsibility for the inspection record and photo evidence from the site visit.",
+          "category": "Responsibility",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": null,
+          "suggested_target_system": "Responsibility Matrix",
+          "confidence": 0.92
+        },
+        {
+          "extracted_text": "Open point: the final sign-off for the coordination issue at plant room access remains with the client team.",
+          "category": "Open Point",
+          "assigned_person": "John Miller",
+          "related_ifc_object": "R-401",
+          "suggested_target_system": "Issue Log",
+          "confidence": 0.88
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "EMAIL_007",
+      "SOURCE_TYPE": "EMAIL",
+      "DOCUMENT_TEXT": "Subject: Green Tower Office Building – delivery delay and updated look-ahead\n\nHi team,\nThe delivery of anchor bolts from Rhine Safety Supplies for R-302 has slipped by 2 working days because of a blocked unloading bay. The sample from Keller & Sohn Services did not fully meet the finish requirement, so a re-inspection is needed before release. Michael Schmidt confirmed that the alternative supplier route can be used for the next delivery batch. Please confirm the next steps by end of day.\n\nRegards,\nMichael Schmidt\nProject Manager\nGreen Tower Office Building, Würzburg, Germany",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "The delivery of anchor bolts from Rhine Safety Supplies for R-302 has slipped by 2 working days because of a blocked unloading bay.",
+          "category": "Schedule",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": "R-302",
+          "suggested_target_system": "Schedule Board",
+          "confidence": 0.95
+        },
+        {
+          "extracted_text": "The sample from Keller & Sohn Services did not fully meet the finish requirement, so a re-inspection is needed before release.",
+          "category": "Quality",
+          "assigned_person": "David Braun",
+          "related_ifc_object": "R-401",
+          "suggested_target_system": "QA/QC Log",
+          "confidence": 0.96
+        },
+        {
+          "extracted_text": "Michael Schmidt confirmed that the alternative supplier route can be used for the next delivery batch.",
+          "category": "Decision",
+          "assigned_person": "Markus Fischer",
+          "related_ifc_object": null,
+          "suggested_target_system": "Decision Register",
+          "confidence": 0.91
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "EMAIL_008",
+      "SOURCE_TYPE": "EMAIL",
+      "DOCUMENT_TEXT": "Subject: Green Tower Office Building – variation claim and budget check\n\nHi team,\nKeller & Sohn Services submitted a variation claim of €11,000 after the crew had to extend overtime at plant room access. Sarah Weber must arrange access, tools, and delivery timing with BauTec Nord for work at south elevation. Open point: the final sign-off for the coordination issue at Level 2 corridor remains with the client team. Please confirm the next steps by end of day.\n\nRegards,\nMichael Schmidt\nProject Manager\nGreen Tower Office Building, Würzburg, Germany",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "Keller & Sohn Services submitted a variation claim of €11,000 after the crew had to extend overtime at plant room access.",
+          "category": "Cost",
+          "assigned_person": "Anna Keller",
+          "related_ifc_object": "R-401",
+          "suggested_target_system": "Cost Control",
+          "confidence": 0.93
+        },
+        {
+          "extracted_text": "Sarah Weber must arrange access, tools, and delivery timing with BauTec Nord for work at south elevation.",
+          "category": "Task",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": "WIN-11",
+          "suggested_target_system": "Task Management",
+          "confidence": 0.94
+        },
+        {
+          "extracted_text": "Open point: the final sign-off for the coordination issue at Level 2 corridor remains with the client team.",
+          "category": "Open Point",
+          "assigned_person": "John Miller",
+          "related_ifc_object": "WIN-12",
+          "suggested_target_system": "Issue Log",
+          "confidence": 0.88
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "EMAIL_009",
+      "SOURCE_TYPE": "EMAIL",
+      "DOCUMENT_TEXT": "Subject: Green Tower Office Building – ownership and follow-up items\n\nHi team,\nMichael Schmidt assigned Michael Schmidt to own the coordination for WIN-11 until the issue is closed. Markus Fischer agreed to proceed with the mock-up review after the remaining comments are cleared. The pour or installation window at Level 3 slab zone needs a revised slot, and Sarah Weber should confirm the new date. Please confirm the next steps by end of day.\n\nRegards,\nMichael Schmidt\nProject Manager\nGreen Tower Office Building, Würzburg, Germany",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "Michael Schmidt assigned Michael Schmidt to own the coordination for WIN-11 until the issue is closed.",
+          "category": "Responsibility",
+          "assigned_person": "Michael Schmidt",
+          "related_ifc_object": "WIN-11",
+          "suggested_target_system": "Responsibility Matrix",
+          "confidence": 0.92
+        },
+        {
+          "extracted_text": "Markus Fischer agreed to proceed with the mock-up review after the remaining comments are cleared.",
+          "category": "Decision",
+          "assigned_person": "Michael Schmidt",
+          "related_ifc_object": null,
+          "suggested_target_system": "Decision Register",
+          "confidence": 0.91
+        },
+        {
+          "extracted_text": "The pour or installation window at Level 3 slab zone needs a revised slot, and Sarah Weber should confirm the new date.",
+          "category": "Schedule",
+          "assigned_person": "John Miller",
+          "related_ifc_object": "W-12",
+          "suggested_target_system": "Schedule Board",
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "EMAIL_010",
+      "SOURCE_TYPE": "EMAIL",
+      "DOCUMENT_TEXT": "Subject: Green Tower Office Building – quality hold and site re-inspection\n\nHi team,\nDavid Braun noted a hairline crack on WIN-12 during the walkdown, most visible near Level 2 corridor. Open point: the subcontractor still has to confirm whether the missing tag belongs to fire-rated door leafs or the spare pack. Anna Keller should check whether the latest supplier surcharge can be booked to the cost code for the Green Tower office shell. Please confirm the next steps by end of day.\n\nRegards,\nMichael Schmidt\nProject Manager\nGreen Tower Office Building, Würzburg, Germany",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "David Braun noted a hairline crack on WIN-12 during the walkdown, most visible near Level 2 corridor.",
+          "category": "Quality",
+          "assigned_person": "David Braun",
+          "related_ifc_object": "WIN-12",
+          "suggested_target_system": "QA/QC Log",
+          "confidence": 0.96
+        },
+        {
+          "extracted_text": "Open point: the subcontractor still has to confirm whether the missing tag belongs to fire-rated door leafs or the spare pack.",
+          "category": "Open Point",
+          "assigned_person": "John Miller",
+          "related_ifc_object": "W-12",
+          "suggested_target_system": "Issue Log",
+          "confidence": 0.88
+        },
+        {
+          "extracted_text": "Anna Keller should check whether the latest supplier surcharge can be booked to the cost code for the Green Tower office shell.",
+          "category": "Cost",
+          "assigned_person": "Anna Keller",
+          "related_ifc_object": null,
+          "suggested_target_system": "Cost Control",
+          "confidence": 0.93
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "EMAIL_011",
+      "SOURCE_TYPE": "EMAIL",
+      "DOCUMENT_TEXT": "Subject: Green Tower Office Building – delivery delay and updated look-ahead\n\nHi team,\nThe delivery of fire-rated door leafs from MainSteel GmbH for W-12 has slipped by 2 working days because of late release from the yard. Sarah Weber must arrange access, tools, and delivery timing with FensterPro Bayern for work at east façade line. Open point: the final sign-off for the coordination issue at service core remains with the client team. Please confirm the next steps by end of day.\n\nRegards,\nMichael Schmidt\nProject Manager\nGreen Tower Office Building, Würzburg, Germany",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "The delivery of fire-rated door leafs from MainSteel GmbH for W-12 has slipped by 2 working days because of late release from the yard.",
+          "category": "Schedule",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": "W-12",
+          "suggested_target_system": "Schedule Board",
+          "confidence": 0.95
+        },
+        {
+          "extracted_text": "Sarah Weber must arrange access, tools, and delivery timing with FensterPro Bayern for work at east façade line.",
+          "category": "Task",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": "W-15",
+          "suggested_target_system": "Task Management",
+          "confidence": 0.94
+        },
+        {
+          "extracted_text": "Open point: the final sign-off for the coordination issue at service core remains with the client team.",
+          "category": "Open Point",
+          "assigned_person": "John Miller",
+          "related_ifc_object": "W-18",
+          "suggested_target_system": "Issue Log",
+          "confidence": 0.88
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "EMAIL_012",
+      "SOURCE_TYPE": "EMAIL",
+      "DOCUMENT_TEXT": "Subject: Green Tower Office Building – quality hold and site re-inspection\n\nHi team,\nDavid Braun noted a misaligned frame on W-15 during the walkdown, most visible near east façade line. David Braun will keep responsibility for the inspection record and photo evidence from the site visit. Michael Schmidt confirmed that the alternative supplier route can be used for the next delivery batch. Please confirm the next steps by end of day.\n\nRegards,\nMichael Schmidt\nProject Manager\nGreen Tower Office Building, Würzburg, Germany",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "David Braun noted a misaligned frame on W-15 during the walkdown, most visible near east façade line.",
+          "category": "Quality",
+          "assigned_person": "David Braun",
+          "related_ifc_object": "W-15",
+          "suggested_target_system": "QA/QC Log",
+          "confidence": 0.96
+        },
+        {
+          "extracted_text": "David Braun will keep responsibility for the inspection record and photo evidence from the site visit.",
+          "category": "Responsibility",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": null,
+          "suggested_target_system": "Responsibility Matrix",
+          "confidence": 0.92
+        },
+        {
+          "extracted_text": "Michael Schmidt confirmed that the alternative supplier route can be used for the next delivery batch.",
+          "category": "Decision",
+          "assigned_person": "Markus Fischer",
+          "related_ifc_object": null,
+          "suggested_target_system": "Decision Register",
+          "confidence": 0.91
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "EMAIL_013",
+      "SOURCE_TYPE": "EMAIL",
+      "DOCUMENT_TEXT": "Subject: Green Tower Office Building – variation claim and budget check\n\nHi team,\nNordholz Doors submitted a variation claim of €4,600 after the crew had to extend overtime at service core. The follow-up inspection for D-201 will move from 16 Jun 2026 to 17 Jun 2026 to keep the trade sequence aligned. The team needs to close the follow-up task in the tracker before the next coordination meeting. Please confirm the next steps by end of day.\n\nRegards,\nMichael Schmidt\nProject Manager\nGreen Tower Office Building, Würzburg, Germany",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "Nordholz Doors submitted a variation claim of €4,600 after the crew had to extend overtime at service core.",
+          "category": "Cost",
+          "assigned_person": "Anna Keller",
+          "related_ifc_object": "W-18",
+          "suggested_target_system": "Cost Control",
+          "confidence": 0.93
+        },
+        {
+          "extracted_text": "The follow-up inspection for D-201 will move from 16 Jun 2026 to 17 Jun 2026 to keep the trade sequence aligned.",
+          "category": "Schedule",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": "D-201",
+          "suggested_target_system": "Schedule Board",
+          "confidence": 0.95
+        },
+        {
+          "extracted_text": "The team needs to close the follow-up task in the tracker before the next coordination meeting.",
+          "category": "Task",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": null,
+          "suggested_target_system": "Task Management",
+          "confidence": 0.94
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "EMAIL_014",
+      "SOURCE_TYPE": "EMAIL",
+      "DOCUMENT_TEXT": "Subject: Green Tower Office Building – approval request and method statement\n\nHi team,\nThe project team approved the revised method statement for D-201 with the condition that the hold point stays in place. Open point: the subcontractor still has to confirm whether the missing tag belongs to drywall studs or the spare pack. Sarah Weber is responsible for confirming the subcontractor attendance and the unloading bay booking. Please confirm the next steps by end of day.\n\nRegards,\nMichael Schmidt\nProject Manager\nGreen Tower Office Building, Würzburg, Germany",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "The project team approved the revised method statement for D-201 with the condition that the hold point stays in place.",
+          "category": "Decision",
+          "assigned_person": "Michael Schmidt",
+          "related_ifc_object": "D-201",
+          "suggested_target_system": "Decision Register",
+          "confidence": 0.91
+        },
+        {
+          "extracted_text": "Open point: the subcontractor still has to confirm whether the missing tag belongs to drywall studs or the spare pack.",
+          "category": "Open Point",
+          "assigned_person": "John Miller",
+          "related_ifc_object": "D-202",
+          "suggested_target_system": "Issue Log",
+          "confidence": 0.88
+        },
+        {
+          "extracted_text": "Sarah Weber is responsible for confirming the subcontractor attendance and the unloading bay booking.",
+          "category": "Responsibility",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": null,
+          "suggested_target_system": "Responsibility Matrix",
+          "confidence": 0.92
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "EMAIL_015",
+      "SOURCE_TYPE": "EMAIL",
+      "DOCUMENT_TEXT": "Subject: Green Tower Office Building – quality hold and site re-inspection\n\nHi team,\nDavid Braun noted a surface blemish on D-202 during the walkdown, most visible near meeting room stack. The replacement of the damaged component at D-205 is expected to add roughly €8,100 to the subcontract package. The pour or installation window at lift lobby needs a revised slot, and Sarah Weber should confirm the new date. Please confirm the next steps by end of day.\n\nRegards,\nMichael Schmidt\nProject Manager\nGreen Tower Office Building, Würzburg, Germany",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "David Braun noted a surface blemish on D-202 during the walkdown, most visible near meeting room stack.",
+          "category": "Quality",
+          "assigned_person": "David Braun",
+          "related_ifc_object": "D-202",
+          "suggested_target_system": "QA/QC Log",
+          "confidence": 0.96
+        },
+        {
+          "extracted_text": "The replacement of the damaged component at D-205 is expected to add roughly €8,100 to the subcontract package.",
+          "category": "Cost",
+          "assigned_person": "Anna Keller",
+          "related_ifc_object": "D-205",
+          "suggested_target_system": "Cost Control",
+          "confidence": 0.93
+        },
+        {
+          "extracted_text": "The pour or installation window at lift lobby needs a revised slot, and Sarah Weber should confirm the new date.",
+          "category": "Schedule",
+          "assigned_person": "John Miller",
+          "related_ifc_object": "R-301",
+          "suggested_target_system": "Schedule Board",
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "WHATSAPP_001",
+      "SOURCE_TYPE": "WHATSAPP",
+      "DOCUMENT_TEXT": "[17 Jun 2026] Sarah Weber: John Miller should update the look-ahead plan and coordinate the next trade handover for D-205.\nJohn Miller: David Braun will keep responsibility for the inspection record and photo evidence from the site visit.\nDavid Braun: Open point: the final sign-off for the coordination issue at plant room access remains with the client team.\nSarah Weber: Please keep the same WhatsApp thread for the Green Tower coordination.",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "John Miller should update the look-ahead plan and coordinate the next trade handover for D-205.",
+          "category": "Task",
+          "assigned_person": "John Miller",
+          "related_ifc_object": "D-205",
+          "suggested_target_system": "Task Management",
+          "confidence": 0.94
+        },
+        {
+          "extracted_text": "David Braun will keep responsibility for the inspection record and photo evidence from the site visit.",
+          "category": "Responsibility",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": null,
+          "suggested_target_system": "Responsibility Matrix",
+          "confidence": 0.92
+        },
+        {
+          "extracted_text": "Open point: the final sign-off for the coordination issue at plant room access remains with the client team.",
+          "category": "Open Point",
+          "assigned_person": "John Miller",
+          "related_ifc_object": "R-302",
+          "suggested_target_system": "Issue Log",
+          "confidence": 0.88
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "WHATSAPP_002",
+      "SOURCE_TYPE": "WHATSAPP",
+      "DOCUMENT_TEXT": "[18 Jun 2026] Sarah Weber: The delivery of anchor bolts from Rhine Safety Supplies for R-301 has slipped by 2 working days because of a blocked unloading bay.\nJohn Miller: The sample from Keller & Sohn Services did not fully meet the finish requirement, so a re-inspection is needed before release.\nDavid Braun: Michael Schmidt confirmed that the alternative supplier route can be used for the next delivery batch.\nSarah Weber: Please keep the same WhatsApp thread for the Green Tower coordination.",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "The delivery of anchor bolts from Rhine Safety Supplies for R-301 has slipped by 2 working days because of a blocked unloading bay.",
+          "category": "Schedule",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": "R-301",
+          "suggested_target_system": "Schedule Board",
+          "confidence": 0.95
+        },
+        {
+          "extracted_text": "The sample from Keller & Sohn Services did not fully meet the finish requirement, so a re-inspection is needed before release.",
+          "category": "Quality",
+          "assigned_person": "David Braun",
+          "related_ifc_object": "R-302",
+          "suggested_target_system": "QA/QC Log",
+          "confidence": 0.96
+        },
+        {
+          "extracted_text": "Michael Schmidt confirmed that the alternative supplier route can be used for the next delivery batch.",
+          "category": "Decision",
+          "assigned_person": "Markus Fischer",
+          "related_ifc_object": null,
+          "suggested_target_system": "Decision Register",
+          "confidence": 0.91
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "WHATSAPP_003",
+      "SOURCE_TYPE": "WHATSAPP",
+      "DOCUMENT_TEXT": "[19 Jun 2026] Sarah Weber: Keller & Sohn Services submitted a variation claim of €11,000 after the crew had to extend overtime at plant room access.\nJohn Miller: Sarah Weber must arrange access, tools, and delivery timing with BauTec Nord for work at south elevation.\nDavid Braun: Open point: the final sign-off for the coordination issue at Level 2 corridor remains with the client team.\nSarah Weber: Please keep the same WhatsApp thread for the Green Tower coordination.",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "Keller & Sohn Services submitted a variation claim of €11,000 after the crew had to extend overtime at plant room access.",
+          "category": "Cost",
+          "assigned_person": "Anna Keller",
+          "related_ifc_object": "R-302",
+          "suggested_target_system": "Cost Control",
+          "confidence": 0.93
+        },
+        {
+          "extracted_text": "Sarah Weber must arrange access, tools, and delivery timing with BauTec Nord for work at south elevation.",
+          "category": "Task",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": "R-401",
+          "suggested_target_system": "Task Management",
+          "confidence": 0.94
+        },
+        {
+          "extracted_text": "Open point: the final sign-off for the coordination issue at Level 2 corridor remains with the client team.",
+          "category": "Open Point",
+          "assigned_person": "John Miller",
+          "related_ifc_object": "WIN-11",
+          "suggested_target_system": "Issue Log",
+          "confidence": 0.88
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "WHATSAPP_004",
+      "SOURCE_TYPE": "WHATSAPP",
+      "DOCUMENT_TEXT": "[20 Jun 2026] Sarah Weber: Michael Schmidt assigned Michael Schmidt to own the coordination for R-401 until the issue is closed.\nJohn Miller: Markus Fischer agreed to proceed with the mock-up review after the remaining comments are cleared.\nDavid Braun: The pour or installation window at Level 3 slab zone needs a revised slot, and Sarah Weber should confirm the new date.\nSarah Weber: Please keep the same WhatsApp thread for the Green Tower coordination.",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "Michael Schmidt assigned Michael Schmidt to own the coordination for R-401 until the issue is closed.",
+          "category": "Responsibility",
+          "assigned_person": "Michael Schmidt",
+          "related_ifc_object": "R-401",
+          "suggested_target_system": "Responsibility Matrix",
+          "confidence": 0.92
+        },
+        {
+          "extracted_text": "Markus Fischer agreed to proceed with the mock-up review after the remaining comments are cleared.",
+          "category": "Decision",
+          "assigned_person": "Michael Schmidt",
+          "related_ifc_object": null,
+          "suggested_target_system": "Decision Register",
+          "confidence": 0.91
+        },
+        {
+          "extracted_text": "The pour or installation window at Level 3 slab zone needs a revised slot, and Sarah Weber should confirm the new date.",
+          "category": "Schedule",
+          "assigned_person": "John Miller",
+          "related_ifc_object": "WIN-12",
+          "suggested_target_system": "Schedule Board",
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "WHATSAPP_005",
+      "SOURCE_TYPE": "WHATSAPP",
+      "DOCUMENT_TEXT": "[21 Jun 2026] Sarah Weber: David Braun noted a hairline crack on WIN-11 during the walkdown, most visible near Level 2 corridor.\nJohn Miller: Open point: the subcontractor still has to confirm whether the missing tag belongs to fire-rated door leafs or the spare pack.\nDavid Braun: Anna Keller should check whether the latest supplier surcharge can be booked to the cost code for the Green Tower office shell.\nSarah Weber: Please keep the same WhatsApp thread for the Green Tower coordination.",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "David Braun noted a hairline crack on WIN-11 during the walkdown, most visible near Level 2 corridor.",
+          "category": "Quality",
+          "assigned_person": "David Braun",
+          "related_ifc_object": "WIN-11",
+          "suggested_target_system": "QA/QC Log",
+          "confidence": 0.96
+        },
+        {
+          "extracted_text": "Open point: the subcontractor still has to confirm whether the missing tag belongs to fire-rated door leafs or the spare pack.",
+          "category": "Open Point",
+          "assigned_person": "John Miller",
+          "related_ifc_object": "WIN-12",
+          "suggested_target_system": "Issue Log",
+          "confidence": 0.88
+        },
+        {
+          "extracted_text": "Anna Keller should check whether the latest supplier surcharge can be booked to the cost code for the Green Tower office shell.",
+          "category": "Cost",
+          "assigned_person": "Anna Keller",
+          "related_ifc_object": null,
+          "suggested_target_system": "Cost Control",
+          "confidence": 0.93
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "WHATSAPP_006",
+      "SOURCE_TYPE": "WHATSAPP",
+      "DOCUMENT_TEXT": "[22 Jun 2026] Sarah Weber: The delivery of fire-rated door leafs from MainSteel GmbH for WIN-12 has slipped by 2 working days because of late release from the yard.\nJohn Miller: Sarah Weber must arrange access, tools, and delivery timing with FensterPro Bayern for work at east façade line.\nDavid Braun: Open point: the final sign-off for the coordination issue at service core remains with the client team.\nSarah Weber: Please keep the same WhatsApp thread for the Green Tower coordination.",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "The delivery of fire-rated door leafs from MainSteel GmbH for WIN-12 has slipped by 2 working days because of late release from the yard.",
+          "category": "Schedule",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": "WIN-12",
+          "suggested_target_system": "Schedule Board",
+          "confidence": 0.95
+        },
+        {
+          "extracted_text": "Sarah Weber must arrange access, tools, and delivery timing with FensterPro Bayern for work at east façade line.",
+          "category": "Task",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": "W-12",
+          "suggested_target_system": "Task Management",
+          "confidence": 0.94
+        },
+        {
+          "extracted_text": "Open point: the final sign-off for the coordination issue at service core remains with the client team.",
+          "category": "Open Point",
+          "assigned_person": "John Miller",
+          "related_ifc_object": "W-15",
+          "suggested_target_system": "Issue Log",
+          "confidence": 0.88
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "WHATSAPP_007",
+      "SOURCE_TYPE": "WHATSAPP",
+      "DOCUMENT_TEXT": "[23 Jun 2026] Sarah Weber: David Braun noted a misaligned frame on W-12 during the walkdown, most visible near east façade line.\nJohn Miller: David Braun will keep responsibility for the inspection record and photo evidence from the site visit.\nDavid Braun: Michael Schmidt confirmed that the alternative supplier route can be used for the next delivery batch.\nSarah Weber: Please keep the same WhatsApp thread for the Green Tower coordination.",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "David Braun noted a misaligned frame on W-12 during the walkdown, most visible near east façade line.",
+          "category": "Quality",
+          "assigned_person": "David Braun",
+          "related_ifc_object": "W-12",
+          "suggested_target_system": "QA/QC Log",
+          "confidence": 0.96
+        },
+        {
+          "extracted_text": "David Braun will keep responsibility for the inspection record and photo evidence from the site visit.",
+          "category": "Responsibility",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": null,
+          "suggested_target_system": "Responsibility Matrix",
+          "confidence": 0.92
+        },
+        {
+          "extracted_text": "Michael Schmidt confirmed that the alternative supplier route can be used for the next delivery batch.",
+          "category": "Decision",
+          "assigned_person": "Markus Fischer",
+          "related_ifc_object": null,
+          "suggested_target_system": "Decision Register",
+          "confidence": 0.91
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "WHATSAPP_008",
+      "SOURCE_TYPE": "WHATSAPP",
+      "DOCUMENT_TEXT": "[24 Jun 2026] Sarah Weber: Nordholz Doors submitted a variation claim of €4,600 after the crew had to extend overtime at service core.\nJohn Miller: The follow-up inspection for W-18 will move from 26 Jun 2026 to 27 Jun 2026 to keep the trade sequence aligned.\nDavid Braun: The team needs to close the follow-up task in the tracker before the next coordination meeting.\nSarah Weber: Please keep the same WhatsApp thread for the Green Tower coordination.",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "Nordholz Doors submitted a variation claim of €4,600 after the crew had to extend overtime at service core.",
+          "category": "Cost",
+          "assigned_person": "Anna Keller",
+          "related_ifc_object": "W-15",
+          "suggested_target_system": "Cost Control",
+          "confidence": 0.93
+        },
+        {
+          "extracted_text": "The follow-up inspection for W-18 will move from 26 Jun 2026 to 27 Jun 2026 to keep the trade sequence aligned.",
+          "category": "Schedule",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": "W-18",
+          "suggested_target_system": "Schedule Board",
+          "confidence": 0.95
+        },
+        {
+          "extracted_text": "The team needs to close the follow-up task in the tracker before the next coordination meeting.",
+          "category": "Task",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": null,
+          "suggested_target_system": "Task Management",
+          "confidence": 0.94
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "WHATSAPP_009",
+      "SOURCE_TYPE": "WHATSAPP",
+      "DOCUMENT_TEXT": "[25 Jun 2026] Sarah Weber: The project team approved the revised method statement for W-18 with the condition that the hold point stays in place.\nJohn Miller: Open point: the subcontractor still has to confirm whether the missing tag belongs to drywall studs or the spare pack.\nDavid Braun: Sarah Weber is responsible for confirming the subcontractor attendance and the unloading bay booking.\nSarah Weber: Please keep the same WhatsApp thread for the Green Tower coordination.",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "The project team approved the revised method statement for W-18 with the condition that the hold point stays in place.",
+          "category": "Decision",
+          "assigned_person": "Michael Schmidt",
+          "related_ifc_object": "W-18",
+          "suggested_target_system": "Decision Register",
+          "confidence": 0.91
+        },
+        {
+          "extracted_text": "Open point: the subcontractor still has to confirm whether the missing tag belongs to drywall studs or the spare pack.",
+          "category": "Open Point",
+          "assigned_person": "John Miller",
+          "related_ifc_object": "D-201",
+          "suggested_target_system": "Issue Log",
+          "confidence": 0.88
+        },
+        {
+          "extracted_text": "Sarah Weber is responsible for confirming the subcontractor attendance and the unloading bay booking.",
+          "category": "Responsibility",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": null,
+          "suggested_target_system": "Responsibility Matrix",
+          "confidence": 0.92
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "WHATSAPP_010",
+      "SOURCE_TYPE": "WHATSAPP",
+      "DOCUMENT_TEXT": "[26 Jun 2026] Sarah Weber: David Braun noted a surface blemish on D-201 during the walkdown, most visible near meeting room stack.\nJohn Miller: The replacement of the damaged component at D-202 is expected to add roughly €8,100 to the subcontract package.\nDavid Braun: The pour or installation window at lift lobby needs a revised slot, and Sarah Weber should confirm the new date.\nSarah Weber: Please keep the same WhatsApp thread for the Green Tower coordination.",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "David Braun noted a surface blemish on D-201 during the walkdown, most visible near meeting room stack.",
+          "category": "Quality",
+          "assigned_person": "David Braun",
+          "related_ifc_object": "D-201",
+          "suggested_target_system": "QA/QC Log",
+          "confidence": 0.96
+        },
+        {
+          "extracted_text": "The replacement of the damaged component at D-202 is expected to add roughly €8,100 to the subcontract package.",
+          "category": "Cost",
+          "assigned_person": "Anna Keller",
+          "related_ifc_object": "D-202",
+          "suggested_target_system": "Cost Control",
+          "confidence": 0.93
+        },
+        {
+          "extracted_text": "The pour or installation window at lift lobby needs a revised slot, and Sarah Weber should confirm the new date.",
+          "category": "Schedule",
+          "assigned_person": "John Miller",
+          "related_ifc_object": "D-205",
+          "suggested_target_system": "Schedule Board",
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "WHATSAPP_011",
+      "SOURCE_TYPE": "WHATSAPP",
+      "DOCUMENT_TEXT": "[27 Jun 2026] Sarah Weber: John Miller should update the look-ahead plan and coordinate the next trade handover for D-202.\nJohn Miller: David Braun will keep responsibility for the inspection record and photo evidence from the site visit.\nDavid Braun: Open point: the final sign-off for the coordination issue at plant room access remains with the client team.\nSarah Weber: Please keep the same WhatsApp thread for the Green Tower coordination.",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "John Miller should update the look-ahead plan and coordinate the next trade handover for D-202.",
+          "category": "Task",
+          "assigned_person": "John Miller",
+          "related_ifc_object": "D-202",
+          "suggested_target_system": "Task Management",
+          "confidence": 0.94
+        },
+        {
+          "extracted_text": "David Braun will keep responsibility for the inspection record and photo evidence from the site visit.",
+          "category": "Responsibility",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": null,
+          "suggested_target_system": "Responsibility Matrix",
+          "confidence": 0.92
+        },
+        {
+          "extracted_text": "Open point: the final sign-off for the coordination issue at plant room access remains with the client team.",
+          "category": "Open Point",
+          "assigned_person": "John Miller",
+          "related_ifc_object": "R-301",
+          "suggested_target_system": "Issue Log",
+          "confidence": 0.88
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "WHATSAPP_012",
+      "SOURCE_TYPE": "WHATSAPP",
+      "DOCUMENT_TEXT": "[28 Jun 2026] Sarah Weber: The delivery of anchor bolts from Rhine Safety Supplies for D-205 has slipped by 2 working days because of a blocked unloading bay.\nJohn Miller: The sample from Keller & Sohn Services did not fully meet the finish requirement, so a re-inspection is needed before release.\nDavid Braun: Michael Schmidt confirmed that the alternative supplier route can be used for the next delivery batch.\nSarah Weber: Please keep the same WhatsApp thread for the Green Tower coordination.",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "The delivery of anchor bolts from Rhine Safety Supplies for D-205 has slipped by 2 working days because of a blocked unloading bay.",
+          "category": "Schedule",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": "D-205",
+          "suggested_target_system": "Schedule Board",
+          "confidence": 0.95
+        },
+        {
+          "extracted_text": "The sample from Keller & Sohn Services did not fully meet the finish requirement, so a re-inspection is needed before release.",
+          "category": "Quality",
+          "assigned_person": "David Braun",
+          "related_ifc_object": "R-301",
+          "suggested_target_system": "QA/QC Log",
+          "confidence": 0.96
+        },
+        {
+          "extracted_text": "Michael Schmidt confirmed that the alternative supplier route can be used for the next delivery batch.",
+          "category": "Decision",
+          "assigned_person": "Markus Fischer",
+          "related_ifc_object": null,
+          "suggested_target_system": "Decision Register",
+          "confidence": 0.91
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "WHATSAPP_013",
+      "SOURCE_TYPE": "WHATSAPP",
+      "DOCUMENT_TEXT": "[29 Jun 2026] Sarah Weber: Keller & Sohn Services submitted a variation claim of €11,000 after the crew had to extend overtime at plant room access.\nJohn Miller: Sarah Weber must arrange access, tools, and delivery timing with BauTec Nord for work at south elevation.\nDavid Braun: Open point: the final sign-off for the coordination issue at Level 2 corridor remains with the client team.\nSarah Weber: Please keep the same WhatsApp thread for the Green Tower coordination.",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "Keller & Sohn Services submitted a variation claim of €11,000 after the crew had to extend overtime at plant room access.",
+          "category": "Cost",
+          "assigned_person": "Anna Keller",
+          "related_ifc_object": "R-301",
+          "suggested_target_system": "Cost Control",
+          "confidence": 0.93
+        },
+        {
+          "extracted_text": "Sarah Weber must arrange access, tools, and delivery timing with BauTec Nord for work at south elevation.",
+          "category": "Task",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": "R-302",
+          "suggested_target_system": "Task Management",
+          "confidence": 0.94
+        },
+        {
+          "extracted_text": "Open point: the final sign-off for the coordination issue at Level 2 corridor remains with the client team.",
+          "category": "Open Point",
+          "assigned_person": "John Miller",
+          "related_ifc_object": "R-401",
+          "suggested_target_system": "Issue Log",
+          "confidence": 0.88
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "WHATSAPP_014",
+      "SOURCE_TYPE": "WHATSAPP",
+      "DOCUMENT_TEXT": "[30 Jun 2026] Sarah Weber: Michael Schmidt assigned Michael Schmidt to own the coordination for R-302 until the issue is closed.\nJohn Miller: Markus Fischer agreed to proceed with the mock-up review after the remaining comments are cleared.\nDavid Braun: The pour or installation window at Level 3 slab zone needs a revised slot, and Sarah Weber should confirm the new date.\nSarah Weber: Please keep the same WhatsApp thread for the Green Tower coordination.",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "Michael Schmidt assigned Michael Schmidt to own the coordination for R-302 until the issue is closed.",
+          "category": "Responsibility",
+          "assigned_person": "Michael Schmidt",
+          "related_ifc_object": "R-302",
+          "suggested_target_system": "Responsibility Matrix",
+          "confidence": 0.92
+        },
+        {
+          "extracted_text": "Markus Fischer agreed to proceed with the mock-up review after the remaining comments are cleared.",
+          "category": "Decision",
+          "assigned_person": "Michael Schmidt",
+          "related_ifc_object": null,
+          "suggested_target_system": "Decision Register",
+          "confidence": 0.91
+        },
+        {
+          "extracted_text": "The pour or installation window at Level 3 slab zone needs a revised slot, and Sarah Weber should confirm the new date.",
+          "category": "Schedule",
+          "assigned_person": "John Miller",
+          "related_ifc_object": "WIN-11",
+          "suggested_target_system": "Schedule Board",
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "WHATSAPP_015",
+      "SOURCE_TYPE": "WHATSAPP",
+      "DOCUMENT_TEXT": "[01 Jul 2026] Sarah Weber: David Braun noted a hairline crack on R-401 during the walkdown, most visible near Level 2 corridor.\nJohn Miller: Open point: the subcontractor still has to confirm whether the missing tag belongs to fire-rated door leafs or the spare pack.\nDavid Braun: Anna Keller should check whether the latest supplier surcharge can be booked to the cost code for the Green Tower office shell.\nSarah Weber: Please keep the same WhatsApp thread for the Green Tower coordination.",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "David Braun noted a hairline crack on R-401 during the walkdown, most visible near Level 2 corridor.",
+          "category": "Quality",
+          "assigned_person": "David Braun",
+          "related_ifc_object": "R-401",
+          "suggested_target_system": "QA/QC Log",
+          "confidence": 0.96
+        },
+        {
+          "extracted_text": "Open point: the subcontractor still has to confirm whether the missing tag belongs to fire-rated door leafs or the spare pack.",
+          "category": "Open Point",
+          "assigned_person": "John Miller",
+          "related_ifc_object": "WIN-11",
+          "suggested_target_system": "Issue Log",
+          "confidence": 0.88
+        },
+        {
+          "extracted_text": "Anna Keller should check whether the latest supplier surcharge can be booked to the cost code for the Green Tower office shell.",
+          "category": "Cost",
+          "assigned_person": "Anna Keller",
+          "related_ifc_object": null,
+          "suggested_target_system": "Cost Control",
+          "confidence": 0.93
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "TEAMS_001",
+      "SOURCE_TYPE": "TEAMS",
+      "DOCUMENT_TEXT": "Michael Schmidt: The delivery of fire-rated door leafs from MainSteel GmbH for WIN-11 has slipped by 2 working days because of late release from the yard.\nAnna Keller: Sarah Weber must arrange access, tools, and delivery timing with FensterPro Bayern for work at east façade line.\nMarkus Fischer: Open point: the final sign-off for the coordination issue at service core remains with the client team.\nMichael Schmidt: Let's close this in Teams before the site meeting.",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "The delivery of fire-rated door leafs from MainSteel GmbH for WIN-11 has slipped by 2 working days because of late release from the yard.",
+          "category": "Schedule",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": "WIN-11",
+          "suggested_target_system": "Schedule Board",
+          "confidence": 0.95
+        },
+        {
+          "extracted_text": "Sarah Weber must arrange access, tools, and delivery timing with FensterPro Bayern for work at east façade line.",
+          "category": "Task",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": "WIN-12",
+          "suggested_target_system": "Task Management",
+          "confidence": 0.94
+        },
+        {
+          "extracted_text": "Open point: the final sign-off for the coordination issue at service core remains with the client team.",
+          "category": "Open Point",
+          "assigned_person": "John Miller",
+          "related_ifc_object": "W-12",
+          "suggested_target_system": "Issue Log",
+          "confidence": 0.88
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "TEAMS_002",
+      "SOURCE_TYPE": "TEAMS",
+      "DOCUMENT_TEXT": "Michael Schmidt: David Braun noted a misaligned frame on WIN-12 during the walkdown, most visible near east façade line.\nAnna Keller: David Braun will keep responsibility for the inspection record and photo evidence from the site visit.\nMarkus Fischer: Michael Schmidt confirmed that the alternative supplier route can be used for the next delivery batch.\nMichael Schmidt: Let's close this in Teams before the site meeting.",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "David Braun noted a misaligned frame on WIN-12 during the walkdown, most visible near east façade line.",
+          "category": "Quality",
+          "assigned_person": "David Braun",
+          "related_ifc_object": "WIN-12",
+          "suggested_target_system": "QA/QC Log",
+          "confidence": 0.96
+        },
+        {
+          "extracted_text": "David Braun will keep responsibility for the inspection record and photo evidence from the site visit.",
+          "category": "Responsibility",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": null,
+          "suggested_target_system": "Responsibility Matrix",
+          "confidence": 0.92
+        },
+        {
+          "extracted_text": "Michael Schmidt confirmed that the alternative supplier route can be used for the next delivery batch.",
+          "category": "Decision",
+          "assigned_person": "Markus Fischer",
+          "related_ifc_object": null,
+          "suggested_target_system": "Decision Register",
+          "confidence": 0.91
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "TEAMS_003",
+      "SOURCE_TYPE": "TEAMS",
+      "DOCUMENT_TEXT": "Michael Schmidt: Nordholz Doors submitted a variation claim of €4,600 after the crew had to extend overtime at service core.\nAnna Keller: The follow-up inspection for W-15 will move from 06 Jul 2026 to 07 Jul 2026 to keep the trade sequence aligned.\nMarkus Fischer: The team needs to close the follow-up task in the tracker before the next coordination meeting.\nMichael Schmidt: Let's close this in Teams before the site meeting.",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "Nordholz Doors submitted a variation claim of €4,600 after the crew had to extend overtime at service core.",
+          "category": "Cost",
+          "assigned_person": "Anna Keller",
+          "related_ifc_object": "W-12",
+          "suggested_target_system": "Cost Control",
+          "confidence": 0.93
+        },
+        {
+          "extracted_text": "The follow-up inspection for W-15 will move from 06 Jul 2026 to 07 Jul 2026 to keep the trade sequence aligned.",
+          "category": "Schedule",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": "W-15",
+          "suggested_target_system": "Schedule Board",
+          "confidence": 0.95
+        },
+        {
+          "extracted_text": "The team needs to close the follow-up task in the tracker before the next coordination meeting.",
+          "category": "Task",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": null,
+          "suggested_target_system": "Task Management",
+          "confidence": 0.94
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "TEAMS_004",
+      "SOURCE_TYPE": "TEAMS",
+      "DOCUMENT_TEXT": "Michael Schmidt: The project team approved the revised method statement for W-15 with the condition that the hold point stays in place.\nAnna Keller: Open point: the subcontractor still has to confirm whether the missing tag belongs to drywall studs or the spare pack.\nMarkus Fischer: Sarah Weber is responsible for confirming the subcontractor attendance and the unloading bay booking.\nMichael Schmidt: Let's close this in Teams before the site meeting.",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "The project team approved the revised method statement for W-15 with the condition that the hold point stays in place.",
+          "category": "Decision",
+          "assigned_person": "Michael Schmidt",
+          "related_ifc_object": "W-15",
+          "suggested_target_system": "Decision Register",
+          "confidence": 0.91
+        },
+        {
+          "extracted_text": "Open point: the subcontractor still has to confirm whether the missing tag belongs to drywall studs or the spare pack.",
+          "category": "Open Point",
+          "assigned_person": "John Miller",
+          "related_ifc_object": "W-18",
+          "suggested_target_system": "Issue Log",
+          "confidence": 0.88
+        },
+        {
+          "extracted_text": "Sarah Weber is responsible for confirming the subcontractor attendance and the unloading bay booking.",
+          "category": "Responsibility",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": null,
+          "suggested_target_system": "Responsibility Matrix",
+          "confidence": 0.92
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "TEAMS_005",
+      "SOURCE_TYPE": "TEAMS",
+      "DOCUMENT_TEXT": "Michael Schmidt: David Braun noted a surface blemish on W-18 during the walkdown, most visible near meeting room stack.\nAnna Keller: The replacement of the damaged component at D-201 is expected to add roughly €8,100 to the subcontract package.\nMarkus Fischer: The pour or installation window at lift lobby needs a revised slot, and Sarah Weber should confirm the new date.\nMichael Schmidt: Let's close this in Teams before the site meeting.",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "David Braun noted a surface blemish on W-18 during the walkdown, most visible near meeting room stack.",
+          "category": "Quality",
+          "assigned_person": "David Braun",
+          "related_ifc_object": "W-18",
+          "suggested_target_system": "QA/QC Log",
+          "confidence": 0.96
+        },
+        {
+          "extracted_text": "The replacement of the damaged component at D-201 is expected to add roughly €8,100 to the subcontract package.",
+          "category": "Cost",
+          "assigned_person": "Anna Keller",
+          "related_ifc_object": "D-201",
+          "suggested_target_system": "Cost Control",
+          "confidence": 0.93
+        },
+        {
+          "extracted_text": "The pour or installation window at lift lobby needs a revised slot, and Sarah Weber should confirm the new date.",
+          "category": "Schedule",
+          "assigned_person": "John Miller",
+          "related_ifc_object": "D-202",
+          "suggested_target_system": "Schedule Board",
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "TEAMS_006",
+      "SOURCE_TYPE": "TEAMS",
+      "DOCUMENT_TEXT": "Michael Schmidt: John Miller should update the look-ahead plan and coordinate the next trade handover for D-201.\nAnna Keller: David Braun will keep responsibility for the inspection record and photo evidence from the site visit.\nMarkus Fischer: Open point: the final sign-off for the coordination issue at plant room access remains with the client team.\nMichael Schmidt: Let's close this in Teams before the site meeting.",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "John Miller should update the look-ahead plan and coordinate the next trade handover for D-201.",
+          "category": "Task",
+          "assigned_person": "John Miller",
+          "related_ifc_object": "D-201",
+          "suggested_target_system": "Task Management",
+          "confidence": 0.94
+        },
+        {
+          "extracted_text": "David Braun will keep responsibility for the inspection record and photo evidence from the site visit.",
+          "category": "Responsibility",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": null,
+          "suggested_target_system": "Responsibility Matrix",
+          "confidence": 0.92
+        },
+        {
+          "extracted_text": "Open point: the final sign-off for the coordination issue at plant room access remains with the client team.",
+          "category": "Open Point",
+          "assigned_person": "John Miller",
+          "related_ifc_object": "D-205",
+          "suggested_target_system": "Issue Log",
+          "confidence": 0.88
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "TEAMS_007",
+      "SOURCE_TYPE": "TEAMS",
+      "DOCUMENT_TEXT": "Michael Schmidt: The delivery of anchor bolts from Rhine Safety Supplies for D-202 has slipped by 2 working days because of a blocked unloading bay.\nAnna Keller: The sample from Keller & Sohn Services did not fully meet the finish requirement, so a re-inspection is needed before release.\nMarkus Fischer: Michael Schmidt confirmed that the alternative supplier route can be used for the next delivery batch.\nMichael Schmidt: Let's close this in Teams before the site meeting.",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "The delivery of anchor bolts from Rhine Safety Supplies for D-202 has slipped by 2 working days because of a blocked unloading bay.",
+          "category": "Schedule",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": "D-202",
+          "suggested_target_system": "Schedule Board",
+          "confidence": 0.95
+        },
+        {
+          "extracted_text": "The sample from Keller & Sohn Services did not fully meet the finish requirement, so a re-inspection is needed before release.",
+          "category": "Quality",
+          "assigned_person": "David Braun",
+          "related_ifc_object": "D-205",
+          "suggested_target_system": "QA/QC Log",
+          "confidence": 0.96
+        },
+        {
+          "extracted_text": "Michael Schmidt confirmed that the alternative supplier route can be used for the next delivery batch.",
+          "category": "Decision",
+          "assigned_person": "Markus Fischer",
+          "related_ifc_object": null,
+          "suggested_target_system": "Decision Register",
+          "confidence": 0.91
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "TEAMS_008",
+      "SOURCE_TYPE": "TEAMS",
+      "DOCUMENT_TEXT": "Michael Schmidt: Keller & Sohn Services submitted a variation claim of €11,000 after the crew had to extend overtime at plant room access.\nAnna Keller: Sarah Weber must arrange access, tools, and delivery timing with BauTec Nord for work at south elevation.\nMarkus Fischer: Open point: the final sign-off for the coordination issue at Level 2 corridor remains with the client team.\nMichael Schmidt: Let's close this in Teams before the site meeting.",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "Keller & Sohn Services submitted a variation claim of €11,000 after the crew had to extend overtime at plant room access.",
+          "category": "Cost",
+          "assigned_person": "Anna Keller",
+          "related_ifc_object": "D-205",
+          "suggested_target_system": "Cost Control",
+          "confidence": 0.93
+        },
+        {
+          "extracted_text": "Sarah Weber must arrange access, tools, and delivery timing with BauTec Nord for work at south elevation.",
+          "category": "Task",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": "R-301",
+          "suggested_target_system": "Task Management",
+          "confidence": 0.94
+        },
+        {
+          "extracted_text": "Open point: the final sign-off for the coordination issue at Level 2 corridor remains with the client team.",
+          "category": "Open Point",
+          "assigned_person": "John Miller",
+          "related_ifc_object": "R-302",
+          "suggested_target_system": "Issue Log",
+          "confidence": 0.88
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "TEAMS_009",
+      "SOURCE_TYPE": "TEAMS",
+      "DOCUMENT_TEXT": "Michael Schmidt: Michael Schmidt assigned Michael Schmidt to own the coordination for R-301 until the issue is closed.\nAnna Keller: Markus Fischer agreed to proceed with the mock-up review after the remaining comments are cleared.\nMarkus Fischer: The pour or installation window at Level 3 slab zone needs a revised slot, and Sarah Weber should confirm the new date.\nMichael Schmidt: Let's close this in Teams before the site meeting.",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "Michael Schmidt assigned Michael Schmidt to own the coordination for R-301 until the issue is closed.",
+          "category": "Responsibility",
+          "assigned_person": "Michael Schmidt",
+          "related_ifc_object": "R-301",
+          "suggested_target_system": "Responsibility Matrix",
+          "confidence": 0.92
+        },
+        {
+          "extracted_text": "Markus Fischer agreed to proceed with the mock-up review after the remaining comments are cleared.",
+          "category": "Decision",
+          "assigned_person": "Michael Schmidt",
+          "related_ifc_object": null,
+          "suggested_target_system": "Decision Register",
+          "confidence": 0.91
+        },
+        {
+          "extracted_text": "The pour or installation window at Level 3 slab zone needs a revised slot, and Sarah Weber should confirm the new date.",
+          "category": "Schedule",
+          "assigned_person": "John Miller",
+          "related_ifc_object": "R-401",
+          "suggested_target_system": "Schedule Board",
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "TEAMS_010",
+      "SOURCE_TYPE": "TEAMS",
+      "DOCUMENT_TEXT": "Michael Schmidt: David Braun noted a hairline crack on R-302 during the walkdown, most visible near Level 2 corridor.\nAnna Keller: Open point: the subcontractor still has to confirm whether the missing tag belongs to fire-rated door leafs or the spare pack.\nMarkus Fischer: Anna Keller should check whether the latest supplier surcharge can be booked to the cost code for the Green Tower office shell.\nMichael Schmidt: Let's close this in Teams before the site meeting.",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "David Braun noted a hairline crack on R-302 during the walkdown, most visible near Level 2 corridor.",
+          "category": "Quality",
+          "assigned_person": "David Braun",
+          "related_ifc_object": "R-302",
+          "suggested_target_system": "QA/QC Log",
+          "confidence": 0.96
+        },
+        {
+          "extracted_text": "Open point: the subcontractor still has to confirm whether the missing tag belongs to fire-rated door leafs or the spare pack.",
+          "category": "Open Point",
+          "assigned_person": "John Miller",
+          "related_ifc_object": "R-401",
+          "suggested_target_system": "Issue Log",
+          "confidence": 0.88
+        },
+        {
+          "extracted_text": "Anna Keller should check whether the latest supplier surcharge can be booked to the cost code for the Green Tower office shell.",
+          "category": "Cost",
+          "assigned_person": "Anna Keller",
+          "related_ifc_object": null,
+          "suggested_target_system": "Cost Control",
+          "confidence": 0.93
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "TEAMS_011",
+      "SOURCE_TYPE": "TEAMS",
+      "DOCUMENT_TEXT": "Michael Schmidt: The delivery of fire-rated door leafs from MainSteel GmbH for R-401 has slipped by 2 working days because of late release from the yard.\nAnna Keller: Sarah Weber must arrange access, tools, and delivery timing with FensterPro Bayern for work at east façade line.\nMarkus Fischer: Open point: the final sign-off for the coordination issue at service core remains with the client team.\nMichael Schmidt: Let's close this in Teams before the site meeting.",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "The delivery of fire-rated door leafs from MainSteel GmbH for R-401 has slipped by 2 working days because of late release from the yard.",
+          "category": "Schedule",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": "R-401",
+          "suggested_target_system": "Schedule Board",
+          "confidence": 0.95
+        },
+        {
+          "extracted_text": "Sarah Weber must arrange access, tools, and delivery timing with FensterPro Bayern for work at east façade line.",
+          "category": "Task",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": "WIN-11",
+          "suggested_target_system": "Task Management",
+          "confidence": 0.94
+        },
+        {
+          "extracted_text": "Open point: the final sign-off for the coordination issue at service core remains with the client team.",
+          "category": "Open Point",
+          "assigned_person": "John Miller",
+          "related_ifc_object": "WIN-12",
+          "suggested_target_system": "Issue Log",
+          "confidence": 0.88
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "TEAMS_012",
+      "SOURCE_TYPE": "TEAMS",
+      "DOCUMENT_TEXT": "Michael Schmidt: David Braun noted a misaligned frame on WIN-11 during the walkdown, most visible near east façade line.\nAnna Keller: David Braun will keep responsibility for the inspection record and photo evidence from the site visit.\nMarkus Fischer: Michael Schmidt confirmed that the alternative supplier route can be used for the next delivery batch.\nMichael Schmidt: Let's close this in Teams before the site meeting.",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "David Braun noted a misaligned frame on WIN-11 during the walkdown, most visible near east façade line.",
+          "category": "Quality",
+          "assigned_person": "David Braun",
+          "related_ifc_object": "WIN-11",
+          "suggested_target_system": "QA/QC Log",
+          "confidence": 0.96
+        },
+        {
+          "extracted_text": "David Braun will keep responsibility for the inspection record and photo evidence from the site visit.",
+          "category": "Responsibility",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": null,
+          "suggested_target_system": "Responsibility Matrix",
+          "confidence": 0.92
+        },
+        {
+          "extracted_text": "Michael Schmidt confirmed that the alternative supplier route can be used for the next delivery batch.",
+          "category": "Decision",
+          "assigned_person": "Markus Fischer",
+          "related_ifc_object": null,
+          "suggested_target_system": "Decision Register",
+          "confidence": 0.91
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "TEAMS_013",
+      "SOURCE_TYPE": "TEAMS",
+      "DOCUMENT_TEXT": "Michael Schmidt: Nordholz Doors submitted a variation claim of €4,600 after the crew had to extend overtime at service core.\nAnna Keller: The follow-up inspection for W-12 will move from 16 Jul 2026 to 17 Jul 2026 to keep the trade sequence aligned.\nMarkus Fischer: The team needs to close the follow-up task in the tracker before the next coordination meeting.\nMichael Schmidt: Let's close this in Teams before the site meeting.",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "Nordholz Doors submitted a variation claim of €4,600 after the crew had to extend overtime at service core.",
+          "category": "Cost",
+          "assigned_person": "Anna Keller",
+          "related_ifc_object": "WIN-12",
+          "suggested_target_system": "Cost Control",
+          "confidence": 0.93
+        },
+        {
+          "extracted_text": "The follow-up inspection for W-12 will move from 16 Jul 2026 to 17 Jul 2026 to keep the trade sequence aligned.",
+          "category": "Schedule",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": "W-12",
+          "suggested_target_system": "Schedule Board",
+          "confidence": 0.95
+        },
+        {
+          "extracted_text": "The team needs to close the follow-up task in the tracker before the next coordination meeting.",
+          "category": "Task",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": null,
+          "suggested_target_system": "Task Management",
+          "confidence": 0.94
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "TEAMS_014",
+      "SOURCE_TYPE": "TEAMS",
+      "DOCUMENT_TEXT": "Michael Schmidt: The project team approved the revised method statement for W-12 with the condition that the hold point stays in place.\nAnna Keller: Open point: the subcontractor still has to confirm whether the missing tag belongs to drywall studs or the spare pack.\nMarkus Fischer: Sarah Weber is responsible for confirming the subcontractor attendance and the unloading bay booking.\nMichael Schmidt: Let's close this in Teams before the site meeting.",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "The project team approved the revised method statement for W-12 with the condition that the hold point stays in place.",
+          "category": "Decision",
+          "assigned_person": "Michael Schmidt",
+          "related_ifc_object": "W-12",
+          "suggested_target_system": "Decision Register",
+          "confidence": 0.91
+        },
+        {
+          "extracted_text": "Open point: the subcontractor still has to confirm whether the missing tag belongs to drywall studs or the spare pack.",
+          "category": "Open Point",
+          "assigned_person": "John Miller",
+          "related_ifc_object": "W-15",
+          "suggested_target_system": "Issue Log",
+          "confidence": 0.88
+        },
+        {
+          "extracted_text": "Sarah Weber is responsible for confirming the subcontractor attendance and the unloading bay booking.",
+          "category": "Responsibility",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": null,
+          "suggested_target_system": "Responsibility Matrix",
+          "confidence": 0.92
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "TEAMS_015",
+      "SOURCE_TYPE": "TEAMS",
+      "DOCUMENT_TEXT": "Michael Schmidt: David Braun noted a surface blemish on W-15 during the walkdown, most visible near meeting room stack.\nAnna Keller: The replacement of the damaged component at W-18 is expected to add roughly €8,100 to the subcontract package.\nMarkus Fischer: The pour or installation window at lift lobby needs a revised slot, and Sarah Weber should confirm the new date.\nMichael Schmidt: Let's close this in Teams before the site meeting.",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "David Braun noted a surface blemish on W-15 during the walkdown, most visible near meeting room stack.",
+          "category": "Quality",
+          "assigned_person": "David Braun",
+          "related_ifc_object": "W-15",
+          "suggested_target_system": "QA/QC Log",
+          "confidence": 0.96
+        },
+        {
+          "extracted_text": "The replacement of the damaged component at W-18 is expected to add roughly €8,100 to the subcontract package.",
+          "category": "Cost",
+          "assigned_person": "Anna Keller",
+          "related_ifc_object": "W-18",
+          "suggested_target_system": "Cost Control",
+          "confidence": 0.93
+        },
+        {
+          "extracted_text": "The pour or installation window at lift lobby needs a revised slot, and Sarah Weber should confirm the new date.",
+          "category": "Schedule",
+          "assigned_person": "John Miller",
+          "related_ifc_object": "D-201",
+          "suggested_target_system": "Schedule Board",
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "MEETING_MINUTES_001",
+      "SOURCE_TYPE": "MEETING_MINUTES",
+      "DOCUMENT_TEXT": "Project: Green Tower Office Building\nLocation: Würzburg, Germany\nMeeting Date: 17 Jul 2026\nAttendees: Michael Schmidt, Sarah Weber, John Miller, Anna Keller, David Braun, Markus Fischer\nMinutes:\n1. John Miller should update the look-ahead plan and coordinate the next trade handover for W-18.\n2. David Braun will keep responsibility for the inspection record and photo evidence from the site visit.\n3. Open point: the final sign-off for the coordination issue at plant room access remains with the client team.\nDecisions and open items to be tracked in the project register.",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "John Miller should update the look-ahead plan and coordinate the next trade handover for W-18.",
+          "category": "Task",
+          "assigned_person": "John Miller",
+          "related_ifc_object": "W-18",
+          "suggested_target_system": "Task Management",
+          "confidence": 0.94
+        },
+        {
+          "extracted_text": "David Braun will keep responsibility for the inspection record and photo evidence from the site visit.",
+          "category": "Responsibility",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": null,
+          "suggested_target_system": "Responsibility Matrix",
+          "confidence": 0.92
+        },
+        {
+          "extracted_text": "Open point: the final sign-off for the coordination issue at plant room access remains with the client team.",
+          "category": "Open Point",
+          "assigned_person": "John Miller",
+          "related_ifc_object": "D-202",
+          "suggested_target_system": "Issue Log",
+          "confidence": 0.88
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "MEETING_MINUTES_002",
+      "SOURCE_TYPE": "MEETING_MINUTES",
+      "DOCUMENT_TEXT": "Project: Green Tower Office Building\nLocation: Würzburg, Germany\nMeeting Date: 18 Jul 2026\nAttendees: Michael Schmidt, Sarah Weber, John Miller, Anna Keller, David Braun, Markus Fischer\nMinutes:\n1. The delivery of anchor bolts from Rhine Safety Supplies for D-201 has slipped by 2 working days because of a blocked unloading bay.\n2. The sample from Keller & Sohn Services did not fully meet the finish requirement, so a re-inspection is needed before release.\n3. Michael Schmidt confirmed that the alternative supplier route can be used for the next delivery batch.\nDecisions and open items to be tracked in the project register.",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "The delivery of anchor bolts from Rhine Safety Supplies for D-201 has slipped by 2 working days because of a blocked unloading bay.",
+          "category": "Schedule",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": "D-201",
+          "suggested_target_system": "Schedule Board",
+          "confidence": 0.95
+        },
+        {
+          "extracted_text": "The sample from Keller & Sohn Services did not fully meet the finish requirement, so a re-inspection is needed before release.",
+          "category": "Quality",
+          "assigned_person": "David Braun",
+          "related_ifc_object": "D-202",
+          "suggested_target_system": "QA/QC Log",
+          "confidence": 0.96
+        },
+        {
+          "extracted_text": "Michael Schmidt confirmed that the alternative supplier route can be used for the next delivery batch.",
+          "category": "Decision",
+          "assigned_person": "Markus Fischer",
+          "related_ifc_object": null,
+          "suggested_target_system": "Decision Register",
+          "confidence": 0.91
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "MEETING_MINUTES_003",
+      "SOURCE_TYPE": "MEETING_MINUTES",
+      "DOCUMENT_TEXT": "Project: Green Tower Office Building\nLocation: Würzburg, Germany\nMeeting Date: 19 Jul 2026\nAttendees: Michael Schmidt, Sarah Weber, John Miller, Anna Keller, David Braun, Markus Fischer\nMinutes:\n1. Keller & Sohn Services submitted a variation claim of €11,000 after the crew had to extend overtime at plant room access.\n2. Sarah Weber must arrange access, tools, and delivery timing with BauTec Nord for work at south elevation.\n3. Open point: the final sign-off for the coordination issue at Level 2 corridor remains with the client team.\nDecisions and open items to be tracked in the project register.",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "Keller & Sohn Services submitted a variation claim of €11,000 after the crew had to extend overtime at plant room access.",
+          "category": "Cost",
+          "assigned_person": "Anna Keller",
+          "related_ifc_object": "D-202",
+          "suggested_target_system": "Cost Control",
+          "confidence": 0.93
+        },
+        {
+          "extracted_text": "Sarah Weber must arrange access, tools, and delivery timing with BauTec Nord for work at south elevation.",
+          "category": "Task",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": "D-205",
+          "suggested_target_system": "Task Management",
+          "confidence": 0.94
+        },
+        {
+          "extracted_text": "Open point: the final sign-off for the coordination issue at Level 2 corridor remains with the client team.",
+          "category": "Open Point",
+          "assigned_person": "John Miller",
+          "related_ifc_object": "R-301",
+          "suggested_target_system": "Issue Log",
+          "confidence": 0.88
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "MEETING_MINUTES_004",
+      "SOURCE_TYPE": "MEETING_MINUTES",
+      "DOCUMENT_TEXT": "Project: Green Tower Office Building\nLocation: Würzburg, Germany\nMeeting Date: 20 Jul 2026\nAttendees: Michael Schmidt, Sarah Weber, John Miller, Anna Keller, David Braun, Markus Fischer\nMinutes:\n1. Michael Schmidt assigned Michael Schmidt to own the coordination for D-205 until the issue is closed.\n2. Markus Fischer agreed to proceed with the mock-up review after the remaining comments are cleared.\n3. The pour or installation window at Level 3 slab zone needs a revised slot, and Sarah Weber should confirm the new date.\nDecisions and open items to be tracked in the project register.",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "Michael Schmidt assigned Michael Schmidt to own the coordination for D-205 until the issue is closed.",
+          "category": "Responsibility",
+          "assigned_person": "Michael Schmidt",
+          "related_ifc_object": "D-205",
+          "suggested_target_system": "Responsibility Matrix",
+          "confidence": 0.92
+        },
+        {
+          "extracted_text": "Markus Fischer agreed to proceed with the mock-up review after the remaining comments are cleared.",
+          "category": "Decision",
+          "assigned_person": "Michael Schmidt",
+          "related_ifc_object": null,
+          "suggested_target_system": "Decision Register",
+          "confidence": 0.91
+        },
+        {
+          "extracted_text": "The pour or installation window at Level 3 slab zone needs a revised slot, and Sarah Weber should confirm the new date.",
+          "category": "Schedule",
+          "assigned_person": "John Miller",
+          "related_ifc_object": "R-302",
+          "suggested_target_system": "Schedule Board",
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "MEETING_MINUTES_005",
+      "SOURCE_TYPE": "MEETING_MINUTES",
+      "DOCUMENT_TEXT": "Project: Green Tower Office Building\nLocation: Würzburg, Germany\nMeeting Date: 21 Jul 2026\nAttendees: Michael Schmidt, Sarah Weber, John Miller, Anna Keller, David Braun, Markus Fischer\nMinutes:\n1. David Braun noted a hairline crack on R-301 during the walkdown, most visible near Level 2 corridor.\n2. Open point: the subcontractor still has to confirm whether the missing tag belongs to fire-rated door leafs or the spare pack.\n3. Anna Keller should check whether the latest supplier surcharge can be booked to the cost code for the Green Tower office shell.\nDecisions and open items to be tracked in the project register.",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "David Braun noted a hairline crack on R-301 during the walkdown, most visible near Level 2 corridor.",
+          "category": "Quality",
+          "assigned_person": "David Braun",
+          "related_ifc_object": "R-301",
+          "suggested_target_system": "QA/QC Log",
+          "confidence": 0.96
+        },
+        {
+          "extracted_text": "Open point: the subcontractor still has to confirm whether the missing tag belongs to fire-rated door leafs or the spare pack.",
+          "category": "Open Point",
+          "assigned_person": "John Miller",
+          "related_ifc_object": "R-302",
+          "suggested_target_system": "Issue Log",
+          "confidence": 0.88
+        },
+        {
+          "extracted_text": "Anna Keller should check whether the latest supplier surcharge can be booked to the cost code for the Green Tower office shell.",
+          "category": "Cost",
+          "assigned_person": "Anna Keller",
+          "related_ifc_object": null,
+          "suggested_target_system": "Cost Control",
+          "confidence": 0.93
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "MEETING_MINUTES_006",
+      "SOURCE_TYPE": "MEETING_MINUTES",
+      "DOCUMENT_TEXT": "Project: Green Tower Office Building\nLocation: Würzburg, Germany\nMeeting Date: 22 Jul 2026\nAttendees: Michael Schmidt, Sarah Weber, John Miller, Anna Keller, David Braun, Markus Fischer\nMinutes:\n1. The delivery of fire-rated door leafs from MainSteel GmbH for R-302 has slipped by 2 working days because of late release from the yard.\n2. Sarah Weber must arrange access, tools, and delivery timing with FensterPro Bayern for work at east façade line.\n3. Open point: the final sign-off for the coordination issue at service core remains with the client team.\nDecisions and open items to be tracked in the project register.",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "The delivery of fire-rated door leafs from MainSteel GmbH for R-302 has slipped by 2 working days because of late release from the yard.",
+          "category": "Schedule",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": "R-302",
+          "suggested_target_system": "Schedule Board",
+          "confidence": 0.95
+        },
+        {
+          "extracted_text": "Sarah Weber must arrange access, tools, and delivery timing with FensterPro Bayern for work at east façade line.",
+          "category": "Task",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": "R-401",
+          "suggested_target_system": "Task Management",
+          "confidence": 0.94
+        },
+        {
+          "extracted_text": "Open point: the final sign-off for the coordination issue at service core remains with the client team.",
+          "category": "Open Point",
+          "assigned_person": "John Miller",
+          "related_ifc_object": "WIN-11",
+          "suggested_target_system": "Issue Log",
+          "confidence": 0.88
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "MEETING_MINUTES_007",
+      "SOURCE_TYPE": "MEETING_MINUTES",
+      "DOCUMENT_TEXT": "Project: Green Tower Office Building\nLocation: Würzburg, Germany\nMeeting Date: 23 Jul 2026\nAttendees: Michael Schmidt, Sarah Weber, John Miller, Anna Keller, David Braun, Markus Fischer\nMinutes:\n1. David Braun noted a misaligned frame on R-401 during the walkdown, most visible near east façade line.\n2. David Braun will keep responsibility for the inspection record and photo evidence from the site visit.\n3. Michael Schmidt confirmed that the alternative supplier route can be used for the next delivery batch.\nDecisions and open items to be tracked in the project register.",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "David Braun noted a misaligned frame on R-401 during the walkdown, most visible near east façade line.",
+          "category": "Quality",
+          "assigned_person": "David Braun",
+          "related_ifc_object": "R-401",
+          "suggested_target_system": "QA/QC Log",
+          "confidence": 0.96
+        },
+        {
+          "extracted_text": "David Braun will keep responsibility for the inspection record and photo evidence from the site visit.",
+          "category": "Responsibility",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": null,
+          "suggested_target_system": "Responsibility Matrix",
+          "confidence": 0.92
+        },
+        {
+          "extracted_text": "Michael Schmidt confirmed that the alternative supplier route can be used for the next delivery batch.",
+          "category": "Decision",
+          "assigned_person": "Markus Fischer",
+          "related_ifc_object": null,
+          "suggested_target_system": "Decision Register",
+          "confidence": 0.91
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "MEETING_MINUTES_008",
+      "SOURCE_TYPE": "MEETING_MINUTES",
+      "DOCUMENT_TEXT": "Project: Green Tower Office Building\nLocation: Würzburg, Germany\nMeeting Date: 24 Jul 2026\nAttendees: Michael Schmidt, Sarah Weber, John Miller, Anna Keller, David Braun, Markus Fischer\nMinutes:\n1. Nordholz Doors submitted a variation claim of €4,600 after the crew had to extend overtime at service core.\n2. The follow-up inspection for WIN-12 will move from 26 Jul 2026 to 27 Jul 2026 to keep the trade sequence aligned.\n3. The team needs to close the follow-up task in the tracker before the next coordination meeting.\nDecisions and open items to be tracked in the project register.",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "Nordholz Doors submitted a variation claim of €4,600 after the crew had to extend overtime at service core.",
+          "category": "Cost",
+          "assigned_person": "Anna Keller",
+          "related_ifc_object": "WIN-11",
+          "suggested_target_system": "Cost Control",
+          "confidence": 0.93
+        },
+        {
+          "extracted_text": "The follow-up inspection for WIN-12 will move from 26 Jul 2026 to 27 Jul 2026 to keep the trade sequence aligned.",
+          "category": "Schedule",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": "WIN-12",
+          "suggested_target_system": "Schedule Board",
+          "confidence": 0.95
+        },
+        {
+          "extracted_text": "The team needs to close the follow-up task in the tracker before the next coordination meeting.",
+          "category": "Task",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": null,
+          "suggested_target_system": "Task Management",
+          "confidence": 0.94
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "MEETING_MINUTES_009",
+      "SOURCE_TYPE": "MEETING_MINUTES",
+      "DOCUMENT_TEXT": "Project: Green Tower Office Building\nLocation: Würzburg, Germany\nMeeting Date: 25 Jul 2026\nAttendees: Michael Schmidt, Sarah Weber, John Miller, Anna Keller, David Braun, Markus Fischer\nMinutes:\n1. The project team approved the revised method statement for WIN-12 with the condition that the hold point stays in place.\n2. Open point: the subcontractor still has to confirm whether the missing tag belongs to drywall studs or the spare pack.\n3. Sarah Weber is responsible for confirming the subcontractor attendance and the unloading bay booking.\nDecisions and open items to be tracked in the project register.",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "The project team approved the revised method statement for WIN-12 with the condition that the hold point stays in place.",
+          "category": "Decision",
+          "assigned_person": "Michael Schmidt",
+          "related_ifc_object": "WIN-12",
+          "suggested_target_system": "Decision Register",
+          "confidence": 0.91
+        },
+        {
+          "extracted_text": "Open point: the subcontractor still has to confirm whether the missing tag belongs to drywall studs or the spare pack.",
+          "category": "Open Point",
+          "assigned_person": "John Miller",
+          "related_ifc_object": "W-12",
+          "suggested_target_system": "Issue Log",
+          "confidence": 0.88
+        },
+        {
+          "extracted_text": "Sarah Weber is responsible for confirming the subcontractor attendance and the unloading bay booking.",
+          "category": "Responsibility",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": null,
+          "suggested_target_system": "Responsibility Matrix",
+          "confidence": 0.92
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "MEETING_MINUTES_010",
+      "SOURCE_TYPE": "MEETING_MINUTES",
+      "DOCUMENT_TEXT": "Project: Green Tower Office Building\nLocation: Würzburg, Germany\nMeeting Date: 26 Jul 2026\nAttendees: Michael Schmidt, Sarah Weber, John Miller, Anna Keller, David Braun, Markus Fischer\nMinutes:\n1. David Braun noted a surface blemish on W-12 during the walkdown, most visible near meeting room stack.\n2. The replacement of the damaged component at W-15 is expected to add roughly €8,100 to the subcontract package.\n3. The pour or installation window at lift lobby needs a revised slot, and Sarah Weber should confirm the new date.\nDecisions and open items to be tracked in the project register.",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "David Braun noted a surface blemish on W-12 during the walkdown, most visible near meeting room stack.",
+          "category": "Quality",
+          "assigned_person": "David Braun",
+          "related_ifc_object": "W-12",
+          "suggested_target_system": "QA/QC Log",
+          "confidence": 0.96
+        },
+        {
+          "extracted_text": "The replacement of the damaged component at W-15 is expected to add roughly €8,100 to the subcontract package.",
+          "category": "Cost",
+          "assigned_person": "Anna Keller",
+          "related_ifc_object": "W-15",
+          "suggested_target_system": "Cost Control",
+          "confidence": 0.93
+        },
+        {
+          "extracted_text": "The pour or installation window at lift lobby needs a revised slot, and Sarah Weber should confirm the new date.",
+          "category": "Schedule",
+          "assigned_person": "John Miller",
+          "related_ifc_object": "W-18",
+          "suggested_target_system": "Schedule Board",
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "INSPECTION_REPORT_001",
+      "SOURCE_TYPE": "INSPECTION_REPORT",
+      "DOCUMENT_TEXT": "Inspection Report – Green Tower Office Building\nDate: 27 Jul 2026\nInspector: David Braun\nScope: site inspection at office bay zone with focus on IFC objects W-15, W-18 and related finishes.\nFindings:\n- John Miller should update the look-ahead plan and coordinate the next trade handover for W-15.\n- David Braun will keep responsibility for the inspection record and photo evidence from the site visit.\n- Open point: the final sign-off for the coordination issue at plant room access remains with the client team.\nAction required before the next hold-point release.",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "John Miller should update the look-ahead plan and coordinate the next trade handover for W-15.",
+          "category": "Task",
+          "assigned_person": "John Miller",
+          "related_ifc_object": "W-15",
+          "suggested_target_system": "Task Management",
+          "confidence": 0.94
+        },
+        {
+          "extracted_text": "David Braun will keep responsibility for the inspection record and photo evidence from the site visit.",
+          "category": "Responsibility",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": null,
+          "suggested_target_system": "Responsibility Matrix",
+          "confidence": 0.92
+        },
+        {
+          "extracted_text": "Open point: the final sign-off for the coordination issue at plant room access remains with the client team.",
+          "category": "Open Point",
+          "assigned_person": "John Miller",
+          "related_ifc_object": "D-201",
+          "suggested_target_system": "Issue Log",
+          "confidence": 0.88
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "INSPECTION_REPORT_002",
+      "SOURCE_TYPE": "INSPECTION_REPORT",
+      "DOCUMENT_TEXT": "Inspection Report – Green Tower Office Building\nDate: 28 Jul 2026\nInspector: David Braun\nScope: site inspection at lift lobby with focus on IFC objects W-18, D-201 and related finishes.\nFindings:\n- The delivery of anchor bolts from Rhine Safety Supplies for W-18 has slipped by 2 working days because of a blocked unloading bay.\n- The sample from Keller & Sohn Services did not fully meet the finish requirement, so a re-inspection is needed before release.\n- Michael Schmidt confirmed that the alternative supplier route can be used for the next delivery batch.\nAction required before the next hold-point release.",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "The delivery of anchor bolts from Rhine Safety Supplies for W-18 has slipped by 2 working days because of a blocked unloading bay.",
+          "category": "Schedule",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": "W-18",
+          "suggested_target_system": "Schedule Board",
+          "confidence": 0.95
+        },
+        {
+          "extracted_text": "The sample from Keller & Sohn Services did not fully meet the finish requirement, so a re-inspection is needed before release.",
+          "category": "Quality",
+          "assigned_person": "David Braun",
+          "related_ifc_object": "D-201",
+          "suggested_target_system": "QA/QC Log",
+          "confidence": 0.96
+        },
+        {
+          "extracted_text": "Michael Schmidt confirmed that the alternative supplier route can be used for the next delivery batch.",
+          "category": "Decision",
+          "assigned_person": "Markus Fischer",
+          "related_ifc_object": null,
+          "suggested_target_system": "Decision Register",
+          "confidence": 0.91
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "INSPECTION_REPORT_003",
+      "SOURCE_TYPE": "INSPECTION_REPORT",
+      "DOCUMENT_TEXT": "Inspection Report – Green Tower Office Building\nDate: 29 Jul 2026\nInspector: David Braun\nScope: site inspection at plant room access with focus on IFC objects D-201, D-202 and related finishes.\nFindings:\n- Keller & Sohn Services submitted a variation claim of €11,000 after the crew had to extend overtime at plant room access.\n- Sarah Weber must arrange access, tools, and delivery timing with BauTec Nord for work at south elevation.\n- Open point: the final sign-off for the coordination issue at Level 2 corridor remains with the client team.\nAction required before the next hold-point release.",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "Keller & Sohn Services submitted a variation claim of €11,000 after the crew had to extend overtime at plant room access.",
+          "category": "Cost",
+          "assigned_person": "Anna Keller",
+          "related_ifc_object": "D-201",
+          "suggested_target_system": "Cost Control",
+          "confidence": 0.93
+        },
+        {
+          "extracted_text": "Sarah Weber must arrange access, tools, and delivery timing with BauTec Nord for work at south elevation.",
+          "category": "Task",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": "D-202",
+          "suggested_target_system": "Task Management",
+          "confidence": 0.94
+        },
+        {
+          "extracted_text": "Open point: the final sign-off for the coordination issue at Level 2 corridor remains with the client team.",
+          "category": "Open Point",
+          "assigned_person": "John Miller",
+          "related_ifc_object": "D-205",
+          "suggested_target_system": "Issue Log",
+          "confidence": 0.88
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "INSPECTION_REPORT_004",
+      "SOURCE_TYPE": "INSPECTION_REPORT",
+      "DOCUMENT_TEXT": "Inspection Report – Green Tower Office Building\nDate: 30 Jul 2026\nInspector: David Braun\nScope: site inspection at south elevation with focus on IFC objects D-202, D-205 and related finishes.\nFindings:\n- Michael Schmidt assigned Michael Schmidt to own the coordination for D-202 until the issue is closed.\n- Markus Fischer agreed to proceed with the mock-up review after the remaining comments are cleared.\n- The pour or installation window at Level 3 slab zone needs a revised slot, and Sarah Weber should confirm the new date.\nAction required before the next hold-point release.",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "Michael Schmidt assigned Michael Schmidt to own the coordination for D-202 until the issue is closed.",
+          "category": "Responsibility",
+          "assigned_person": "Michael Schmidt",
+          "related_ifc_object": "D-202",
+          "suggested_target_system": "Responsibility Matrix",
+          "confidence": 0.92
+        },
+        {
+          "extracted_text": "Markus Fischer agreed to proceed with the mock-up review after the remaining comments are cleared.",
+          "category": "Decision",
+          "assigned_person": "Michael Schmidt",
+          "related_ifc_object": null,
+          "suggested_target_system": "Decision Register",
+          "confidence": 0.91
+        },
+        {
+          "extracted_text": "The pour or installation window at Level 3 slab zone needs a revised slot, and Sarah Weber should confirm the new date.",
+          "category": "Schedule",
+          "assigned_person": "John Miller",
+          "related_ifc_object": "R-301",
+          "suggested_target_system": "Schedule Board",
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "INSPECTION_REPORT_005",
+      "SOURCE_TYPE": "INSPECTION_REPORT",
+      "DOCUMENT_TEXT": "Inspection Report – Green Tower Office Building\nDate: 31 Jul 2026\nInspector: David Braun\nScope: site inspection at Level 2 corridor with focus on IFC objects D-205, R-301 and related finishes.\nFindings:\n- David Braun noted a hairline crack on D-205 during the walkdown, most visible near Level 2 corridor.\n- Open point: the subcontractor still has to confirm whether the missing tag belongs to fire-rated door leafs or the spare pack.\n- Anna Keller should check whether the latest supplier surcharge can be booked to the cost code for the Green Tower office shell.\nAction required before the next hold-point release.",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "David Braun noted a hairline crack on D-205 during the walkdown, most visible near Level 2 corridor.",
+          "category": "Quality",
+          "assigned_person": "David Braun",
+          "related_ifc_object": "D-205",
+          "suggested_target_system": "QA/QC Log",
+          "confidence": 0.96
+        },
+        {
+          "extracted_text": "Open point: the subcontractor still has to confirm whether the missing tag belongs to fire-rated door leafs or the spare pack.",
+          "category": "Open Point",
+          "assigned_person": "John Miller",
+          "related_ifc_object": "R-301",
+          "suggested_target_system": "Issue Log",
+          "confidence": 0.88
+        },
+        {
+          "extracted_text": "Anna Keller should check whether the latest supplier surcharge can be booked to the cost code for the Green Tower office shell.",
+          "category": "Cost",
+          "assigned_person": "Anna Keller",
+          "related_ifc_object": null,
+          "suggested_target_system": "Cost Control",
+          "confidence": 0.93
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "INSPECTION_REPORT_006",
+      "SOURCE_TYPE": "INSPECTION_REPORT",
+      "DOCUMENT_TEXT": "Inspection Report – Green Tower Office Building\nDate: 01 Aug 2026\nInspector: David Braun\nScope: site inspection at Level 3 slab zone with focus on IFC objects R-301, R-302 and related finishes.\nFindings:\n- The delivery of fire-rated door leafs from MainSteel GmbH for R-301 has slipped by 2 working days because of late release from the yard.\n- Sarah Weber must arrange access, tools, and delivery timing with FensterPro Bayern for work at east façade line.\n- Open point: the final sign-off for the coordination issue at service core remains with the client team.\nAction required before the next hold-point release.",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "The delivery of fire-rated door leafs from MainSteel GmbH for R-301 has slipped by 2 working days because of late release from the yard.",
+          "category": "Schedule",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": "R-301",
+          "suggested_target_system": "Schedule Board",
+          "confidence": 0.95
+        },
+        {
+          "extracted_text": "Sarah Weber must arrange access, tools, and delivery timing with FensterPro Bayern for work at east façade line.",
+          "category": "Task",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": "R-302",
+          "suggested_target_system": "Task Management",
+          "confidence": 0.94
+        },
+        {
+          "extracted_text": "Open point: the final sign-off for the coordination issue at service core remains with the client team.",
+          "category": "Open Point",
+          "assigned_person": "John Miller",
+          "related_ifc_object": "R-401",
+          "suggested_target_system": "Issue Log",
+          "confidence": 0.88
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "INSPECTION_REPORT_007",
+      "SOURCE_TYPE": "INSPECTION_REPORT",
+      "DOCUMENT_TEXT": "Inspection Report – Green Tower Office Building\nDate: 02 Aug 2026\nInspector: David Braun\nScope: site inspection at east façade line with focus on IFC objects R-302, R-401 and related finishes.\nFindings:\n- David Braun noted a misaligned frame on R-302 during the walkdown, most visible near east façade line.\n- David Braun will keep responsibility for the inspection record and photo evidence from the site visit.\n- Michael Schmidt confirmed that the alternative supplier route can be used for the next delivery batch.\nAction required before the next hold-point release.",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "David Braun noted a misaligned frame on R-302 during the walkdown, most visible near east façade line.",
+          "category": "Quality",
+          "assigned_person": "David Braun",
+          "related_ifc_object": "R-302",
+          "suggested_target_system": "QA/QC Log",
+          "confidence": 0.96
+        },
+        {
+          "extracted_text": "David Braun will keep responsibility for the inspection record and photo evidence from the site visit.",
+          "category": "Responsibility",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": null,
+          "suggested_target_system": "Responsibility Matrix",
+          "confidence": 0.92
+        },
+        {
+          "extracted_text": "Michael Schmidt confirmed that the alternative supplier route can be used for the next delivery batch.",
+          "category": "Decision",
+          "assigned_person": "Markus Fischer",
+          "related_ifc_object": null,
+          "suggested_target_system": "Decision Register",
+          "confidence": 0.91
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "INSPECTION_REPORT_008",
+      "SOURCE_TYPE": "INSPECTION_REPORT",
+      "DOCUMENT_TEXT": "Inspection Report – Green Tower Office Building\nDate: 03 Aug 2026\nInspector: David Braun\nScope: site inspection at service core with focus on IFC objects R-401, WIN-11 and related finishes.\nFindings:\n- Nordholz Doors submitted a variation claim of €4,600 after the crew had to extend overtime at service core.\n- The follow-up inspection for WIN-11 will move from 05 Aug 2026 to 06 Aug 2026 to keep the trade sequence aligned.\n- The team needs to close the follow-up task in the tracker before the next coordination meeting.\nAction required before the next hold-point release.",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "Nordholz Doors submitted a variation claim of €4,600 after the crew had to extend overtime at service core.",
+          "category": "Cost",
+          "assigned_person": "Anna Keller",
+          "related_ifc_object": "R-401",
+          "suggested_target_system": "Cost Control",
+          "confidence": 0.93
+        },
+        {
+          "extracted_text": "The follow-up inspection for WIN-11 will move from 05 Aug 2026 to 06 Aug 2026 to keep the trade sequence aligned.",
+          "category": "Schedule",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": "WIN-11",
+          "suggested_target_system": "Schedule Board",
+          "confidence": 0.95
+        },
+        {
+          "extracted_text": "The team needs to close the follow-up task in the tracker before the next coordination meeting.",
+          "category": "Task",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": null,
+          "suggested_target_system": "Task Management",
+          "confidence": 0.94
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "INSPECTION_REPORT_009",
+      "SOURCE_TYPE": "INSPECTION_REPORT",
+      "DOCUMENT_TEXT": "Inspection Report – Green Tower Office Building\nDate: 04 Aug 2026\nInspector: David Braun\nScope: site inspection at north stair landing with focus on IFC objects WIN-11, WIN-12 and related finishes.\nFindings:\n- The project team approved the revised method statement for WIN-11 with the condition that the hold point stays in place.\n- Open point: the subcontractor still has to confirm whether the missing tag belongs to drywall studs or the spare pack.\n- Sarah Weber is responsible for confirming the subcontractor attendance and the unloading bay booking.\nAction required before the next hold-point release.",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "The project team approved the revised method statement for WIN-11 with the condition that the hold point stays in place.",
+          "category": "Decision",
+          "assigned_person": "Michael Schmidt",
+          "related_ifc_object": "WIN-11",
+          "suggested_target_system": "Decision Register",
+          "confidence": 0.91
+        },
+        {
+          "extracted_text": "Open point: the subcontractor still has to confirm whether the missing tag belongs to drywall studs or the spare pack.",
+          "category": "Open Point",
+          "assigned_person": "John Miller",
+          "related_ifc_object": "WIN-12",
+          "suggested_target_system": "Issue Log",
+          "confidence": 0.88
+        },
+        {
+          "extracted_text": "Sarah Weber is responsible for confirming the subcontractor attendance and the unloading bay booking.",
+          "category": "Responsibility",
+          "assigned_person": "Sarah Weber",
+          "related_ifc_object": null,
+          "suggested_target_system": "Responsibility Matrix",
+          "confidence": 0.92
+        }
+      ]
+    },
+    {
+      "DOCUMENT_ID": "INSPECTION_REPORT_010",
+      "SOURCE_TYPE": "INSPECTION_REPORT",
+      "DOCUMENT_TEXT": "Inspection Report – Green Tower Office Building\nDate: 05 Aug 2026\nInspector: David Braun\nScope: site inspection at meeting room stack with focus on IFC objects WIN-12, W-12 and related finishes.\nFindings:\n- David Braun noted a surface blemish on WIN-12 during the walkdown, most visible near meeting room stack.\n- The replacement of the damaged component at W-12 is expected to add roughly €8,100 to the subcontract package.\n- The pour or installation window at lift lobby needs a revised slot, and Sarah Weber should confirm the new date.\nAction required before the next hold-point release.",
+      "EXPECTED_EXTRACTIONS": [
+        {
+          "extracted_text": "David Braun noted a surface blemish on WIN-12 during the walkdown, most visible near meeting room stack.",
+          "category": "Quality",
+          "assigned_person": "David Braun",
+          "related_ifc_object": "WIN-12",
+          "suggested_target_system": "QA/QC Log",
+          "confidence": 0.96
+        },
+        {
+          "extracted_text": "The replacement of the damaged component at W-12 is expected to add roughly €8,100 to the subcontract package.",
+          "category": "Cost",
+          "assigned_person": "Anna Keller",
+          "related_ifc_object": "W-12",
+          "suggested_target_system": "Cost Control",
+          "confidence": 0.93
+        },
+        {
+          "extracted_text": "The pour or installation window at lift lobby needs a revised slot, and Sarah Weber should confirm the new date.",
+          "category": "Schedule",
+          "assigned_person": "John Miller",
+          "related_ifc_object": "W-15",
+          "suggested_target_system": "Schedule Board",
+          "confidence": 0.95
+        }
+      ]
+    }
+  ]
+}
